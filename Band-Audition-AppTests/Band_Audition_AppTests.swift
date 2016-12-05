@@ -1,0 +1,36 @@
+//
+//  Band_Audition_AppTests.swift
+//  Band-Audition-AppTests
+//
+//  Created by VANDER HOEVEN, EVAN on 12/5/16.
+//  Copyright © 2016 Copy Pasta Coding. All rights reserved.
+//
+
+import XCTest
+@testable import Band_Audition_App
+
+class Band_Audition_AppTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testExample() {
+        // This is an example of a functional test case.
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measure {
+            // Put the code you want to measure the time of here.
+        }
+    }
+    
+}
