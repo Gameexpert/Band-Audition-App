@@ -9,7 +9,7 @@
         <!--Varsity-->
         <scene sceneID="j7j-3V-paR">
             <objects>
-                <viewController title="Varsity" id="Ruh-lV-V8I" sceneMemberID="viewController">
+                <viewController title="Varsity" id="Ruh-lV-V8I" customClass="VarsityViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fVf-rK-8b0"/>
                         <viewControllerLayoutGuide type="bottom" id="bAY-AW-DBl"/>
@@ -17,20 +17,9 @@
                     <view key="view" contentMode="scaleToFill" id="spQ-VP-kqM">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="View 2" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tdd-Es-i8h">
-                                <frame key="frameInset" minX="336" minY="497" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Varsity" id="IBe-WT-BnV">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="-100" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Varsity" id="IBe-WT-BnV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL3-WR-z0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,7 +28,7 @@
         <!--Results-->
         <scene sceneID="8Yc-Ff-j1f">
             <objects>
-                <viewController title="Results" id="Q4W-PR-TtR" sceneMemberID="viewController">
+                <viewController title="Results" id="Q4W-PR-TtR" customClass="ResultsViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0YY-P5-rDE"/>
                         <viewControllerLayoutGuide type="bottom" id="ygK-4G-RpI"/>
@@ -60,9 +49,7 @@
                             <constraint firstItem="M9n-G1-F2K" firstAttribute="centerX" secondItem="Tl2-uK-8w3" secondAttribute="centerX" id="w5m-hH-Rwm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Results" id="ZWv-ND-ruT">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="2" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Results" id="ZWv-ND-ruT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67G-qP-D87" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,7 +78,7 @@
         <!--Freshmen-->
         <scene sceneID="M6Y-6q-72M">
             <objects>
-                <viewController title="Freshmen" id="Ygb-d3-Ovw" sceneMemberID="viewController">
+                <viewController title="Freshmen" id="Ygb-d3-Ovw" customClass="FreshmenViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pFC-PY-R2m"/>
                         <viewControllerLayoutGuide type="bottom" id="Fpj-wm-fmf"/>
@@ -99,20 +86,9 @@
                     <view key="view" contentMode="scaleToFill" id="fPa-Qv-4XD">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="View 3" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QQQ-6H-xe8">
-                                <frame key="frameInset" minX="336" minY="497" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Freshmen" id="Yb5-7V-wqw">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="100" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Freshmen" id="Yb5-7V-wqw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36M-1A-XZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,7 +97,7 @@
         <!--Jazz-->
         <scene sceneID="bVL-7b-vmv">
             <objects>
-                <viewController title="Jazz" id="Yqx-YC-PC1" sceneMemberID="viewController">
+                <viewController title="Jazz" id="Yqx-YC-PC1" customClass="JazzViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IjN-XD-hMa"/>
                         <viewControllerLayoutGuide type="bottom" id="MLp-ic-63j"/>
@@ -129,20 +105,9 @@
                     <view key="view" contentMode="scaleToFill" id="Gj0-Rc-kJT">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="View 4" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SgM-XE-alL">
-                                <frame key="frameInset" minX="336" minY="497" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Jazz" id="Jxo-B2-mJN">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="250" vertical="0.0"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Jazz" id="Jxo-B2-mJN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWE-8U-Y4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
