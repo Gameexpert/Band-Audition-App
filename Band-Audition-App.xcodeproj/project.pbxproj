@@ -16,6 +16,11 @@
 		772DA3261DF5CD0100718EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 772DA3241DF5CD0100718EB6 /* LaunchScreen.storyboard */; };
 		772DA3311DF5CD0200718EB6 /* Band_Audition_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA3301DF5CD0200718EB6 /* Band_Audition_AppTests.swift */; };
 		772DA33C1DF5CD0200718EB6 /* Band_Audition_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA33B1DF5CD0200718EB6 /* Band_Audition_AppUITests.swift */; };
+		772DA34A1DF5CECF00718EB6 /* jazzDrumset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA3491DF5CECF00718EB6 /* jazzDrumset.swift */; };
+		772DA34C1DF5CF2900718EB6 /* jazzRhythm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA34B1DF5CF2900718EB6 /* jazzRhythm.swift */; };
+		772DA34E1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */; };
+		772DA3501DF5CF7200718EB6 /* varsityConcertPercussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */; };
+		772DA3521DF5CF9200718EB6 /* concertWinds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA3511DF5CF9200718EB6 /* concertWinds.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 		772DA3371DF5CD0200718EB6 /* Band-Audition-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Band-Audition-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		772DA33B1DF5CD0200718EB6 /* Band_Audition_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band_Audition_AppUITests.swift; sourceTree = "<group>"; };
 		772DA33D1DF5CD0200718EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		772DA3491DF5CECF00718EB6 /* jazzDrumset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jazzDrumset.swift; sourceTree = "<group>"; };
+		772DA34B1DF5CF2900718EB6 /* jazzRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jazzRhythm.swift; sourceTree = "<group>"; };
+		772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = freshmenConcertPercussion.swift; sourceTree = "<group>"; };
+		772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = varsityConcertPercussion.swift; sourceTree = "<group>"; };
+		772DA3511DF5CF9200718EB6 /* concertWinds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWinds.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,11 @@
 				772DA3221DF5CD0100718EB6 /* Assets.xcassets */,
 				772DA3241DF5CD0100718EB6 /* LaunchScreen.storyboard */,
 				772DA3271DF5CD0100718EB6 /* Info.plist */,
+				772DA3491DF5CECF00718EB6 /* jazzDrumset.swift */,
+				772DA34B1DF5CF2900718EB6 /* jazzRhythm.swift */,
+				772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */,
+				772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */,
+				772DA3511DF5CF9200718EB6 /* concertWinds.swift */,
 			);
 			path = "Band-Audition-App";
 			sourceTree = "<group>";
@@ -268,9 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				772DA34A1DF5CECF00718EB6 /* jazzDrumset.swift in Sources */,
 				772DA31A1DF5CD0100718EB6 /* RootViewController.swift in Sources */,
+				772DA3521DF5CF9200718EB6 /* concertWinds.swift in Sources */,
+				772DA34C1DF5CF2900718EB6 /* jazzRhythm.swift in Sources */,
 				772DA31E1DF5CD0100718EB6 /* ModelController.swift in Sources */,
+				772DA3501DF5CF7200718EB6 /* varsityConcertPercussion.swift in Sources */,
 				772DA31C1DF5CD0100718EB6 /* DataViewController.swift in Sources */,
+				772DA34E1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift in Sources */,
 				772DA3181DF5CD0100718EB6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
