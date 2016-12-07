@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		257C662F1DF7266900387748 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C662E1DF7266900387748 /* ResultsViewController.swift */; };
-		257C66311DF7268C00387748 /* VarsityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C66301DF7268C00387748 /* VarsityViewController.swift */; };
-		257C66331DF7269700387748 /* FreshmenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C66321DF7269700387748 /* FreshmenViewController.swift */; };
-		257C66351DF726A500387748 /* JazzViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C66341DF726A500387748 /* JazzViewController.swift */; };
 		772DA3181DF5CD0100718EB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA3171DF5CD0100718EB6 /* AppDelegate.swift */; };
 		772DA31C1DF5CD0100718EB6 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA31B1DF5CD0100718EB6 /* DataViewController.swift */; };
 		772DA31E1DF5CD0100718EB6 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA31D1DF5CD0100718EB6 /* ModelController.swift */; };
@@ -39,10 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		257C662E1DF7266900387748 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
-		257C66301DF7268C00387748 /* VarsityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VarsityViewController.swift; sourceTree = "<group>"; };
-		257C66321DF7269700387748 /* FreshmenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreshmenViewController.swift; sourceTree = "<group>"; };
-		257C66341DF726A500387748 /* JazzViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JazzViewController.swift; sourceTree = "<group>"; };
 		772DA3141DF5CD0100718EB6 /* Band-Audition-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Band-Audition-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		772DA3171DF5CD0100718EB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		772DA31B1DF5CD0100718EB6 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
@@ -114,10 +106,6 @@
 				772DA3221DF5CD0100718EB6 /* Assets.xcassets */,
 				772DA3241DF5CD0100718EB6 /* LaunchScreen.storyboard */,
 				772DA3271DF5CD0100718EB6 /* Info.plist */,
-				257C662E1DF7266900387748 /* ResultsViewController.swift */,
-				257C66301DF7268C00387748 /* VarsityViewController.swift */,
-				257C66321DF7269700387748 /* FreshmenViewController.swift */,
-				257C66341DF726A500387748 /* JazzViewController.swift */,
 			);
 			path = "Band-Audition-App";
 			sourceTree = "<group>";
@@ -277,13 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257C66311DF7268C00387748 /* VarsityViewController.swift in Sources */,
-				257C66351DF726A500387748 /* JazzViewController.swift in Sources */,
 				772DA31E1DF5CD0100718EB6 /* ModelController.swift in Sources */,
-				257C66331DF7269700387748 /* FreshmenViewController.swift in Sources */,
 				772DA31C1DF5CD0100718EB6 /* DataViewController.swift in Sources */,
 				772DA3181DF5CD0100718EB6 /* AppDelegate.swift in Sources */,
-				257C662F1DF7266900387748 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
