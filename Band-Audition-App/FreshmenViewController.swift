@@ -2,7 +2,7 @@
 //  FreshmenViewController.swift
 //  Band-Audition-App
 //
-//  Created by VANDER HOEVEN, EVAN on 12/7/16.
+//  Created by ECCLES, JUSTIN on 12/7/16.
 //  Copyright © 2016 Copy Pasta Coding. All rights reserved.
 //
 

@@ -10,7 +10,7 @@
         <!--Varsity-->
         <scene sceneID="j7j-3V-paR">
             <objects>
-                <viewController title="Varsity" id="Ruh-lV-V8I" sceneMemberID="viewController">
+                <viewController title="Varsity" id="Ruh-lV-V8I" customClass="VarsityViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fVf-rK-8b0"/>
                         <viewControllerLayoutGuide type="bottom" id="bAY-AW-DBl"/>
@@ -106,7 +106,7 @@
         <!--Results-->
         <scene sceneID="8Yc-Ff-j1f">
             <objects>
-                <viewController title="Results" id="Q4W-PR-TtR" sceneMemberID="viewController">
+                <viewController title="Results" id="Q4W-PR-TtR" customClass="ResultsViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0YY-P5-rDE"/>
                         <viewControllerLayoutGuide type="bottom" id="ygK-4G-RpI"/>
@@ -178,7 +178,7 @@
         <!--Freshmen-->
         <scene sceneID="M6Y-6q-72M">
             <objects>
-                <viewController title="Freshmen" id="Ygb-d3-Ovw" sceneMemberID="viewController">
+                <viewController title="Freshmen" id="Ygb-d3-Ovw" customClass="FreshmenViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pFC-PY-R2m"/>
                         <viewControllerLayoutGuide type="bottom" id="Fpj-wm-fmf"/>
@@ -274,7 +274,7 @@
         <!--Jazz-->
         <scene sceneID="bVL-7b-vmv">
             <objects>
-                <viewController title="Jazz" id="Yqx-YC-PC1" sceneMemberID="viewController">
+                <viewController title="Jazz" id="Yqx-YC-PC1" customClass="JazzViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IjN-XD-hMa"/>
                         <viewControllerLayoutGuide type="bottom" id="MLp-ic-63j"/>
