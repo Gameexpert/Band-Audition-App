@@ -32,7 +32,7 @@ class jazzDrumset
     
     var finalScore: Int
 
-    init(instrument: String) //This is a comment
+    init(instrument: String)
     {
         first_Name = ""
         last_Name = ""
