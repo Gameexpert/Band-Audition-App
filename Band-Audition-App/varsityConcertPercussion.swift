@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class varsityConcertPercussion
+class varsityConcertPercussion: audition //Audition is the protocol
 {
     var first_name: String
     var last_name: String

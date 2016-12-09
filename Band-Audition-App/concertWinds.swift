@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class concertWinds
+class concertWinds: audition //Audition is the protocol
 {
    //MARK: Properties
     var first_name: String

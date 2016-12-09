@@ -7,13 +7,13 @@
 //
 
 import Foundation
-class jazzRhythm
+class jazzRhythm: audition //Audition is the protocol
 {
     var first_name: String
     var last_name: String
     var instrument: String
-    var prefferedRange: String
     var comments: String
+    var prefferedRange: String
     
     var swing_Production: Int
     var swing_Rhythm: Int

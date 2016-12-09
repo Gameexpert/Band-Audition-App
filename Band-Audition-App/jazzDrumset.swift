@@ -7,10 +7,10 @@
 //
 
 import Foundation
-class jazzDrumset
+class jazzDrumset: audition //Audition is the protocol
 {
-    var first_Name: String
-    var last_Name: String
+    var first_name: String
+    var last_name: String
     var instrument: String
     var preferredRange: String
     var comments: String
