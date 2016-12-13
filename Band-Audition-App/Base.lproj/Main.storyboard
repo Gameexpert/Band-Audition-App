@@ -90,16 +90,35 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TYm-Tm-sKV" firstAttribute="centerX" secondItem="spQ-VP-kqM" secondAttribute="centerX" id="4WR-5R-UMh"/>
                             <constraint firstItem="8cP-h1-56B" firstAttribute="top" secondItem="spQ-VP-kqM" secondAttribute="topMargin" constant="20" id="Bg3-OR-9hi"/>
                             <constraint firstItem="8cP-h1-56B" firstAttribute="centerX" secondItem="spQ-VP-kqM" secondAttribute="centerX" id="GNr-92-DRU"/>
                             <constraint firstItem="TYm-Tm-sKV" firstAttribute="centerY" secondItem="spQ-VP-kqM" secondAttribute="centerY" id="PJw-eD-cqU"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3ro-4Y-0XX" appends="YES" id="uIz-6g-FCy"/>
+                            <outletCollection property="gestureRecognizers" destination="bzZ-WL-MCu" appends="YES" id="BaZ-lX-ljV"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Varsity" id="IBe-WT-BnV"/>
+                    <connections>
+                        <outlet property="leftSwipe" destination="bzZ-WL-MCu" id="Sxo-7d-mCI"/>
+                        <outlet property="rightSwipe" destination="3ro-4Y-0XX" id="Bru-r2-XBB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL3-WR-z0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="bzZ-WL-MCu">
+                    <connections>
+                        <action selector="segueNext:" destination="Ruh-lV-V8I" id="VCo-Vb-fe0"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="3ro-4Y-0XX">
+                    <connections>
+                        <action selector="seguePrevious:" destination="Ruh-lV-V8I" id="dfX-uw-X7i"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="102.34375" y="81.4453125"/>
         </scene>
@@ -142,16 +161,28 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="M9n-G1-F2K" firstAttribute="top" secondItem="Tl2-uK-8w3" secondAttribute="top" constant="20" id="8SB-oP-nBP"/>
                             <constraint firstItem="r80-Og-PVN" firstAttribute="centerY" secondItem="Tl2-uK-8w3" secondAttribute="centerY" id="WtO-iJ-jyT"/>
                             <constraint firstItem="r80-Og-PVN" firstAttribute="centerX" secondItem="Tl2-uK-8w3" secondAttribute="centerX" id="ciJ-0h-1YJ"/>
                             <constraint firstItem="M9n-G1-F2K" firstAttribute="centerX" secondItem="Tl2-uK-8w3" secondAttribute="centerX" id="w5m-hH-Rwm"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PcE-MV-BsI" appends="YES" id="GB6-Tp-Xx9"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Results" id="ZWv-ND-ruT"/>
+                    <connections>
+                        <outlet property="leftSwipe" destination="PcE-MV-BsI" id="qaT-iz-Acs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67G-qP-D87" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="PcE-MV-BsI">
+                    <connections>
+                        <action selector="segueNext:" destination="Q4W-PR-TtR" id="P1U-w9-cS5"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="102.34375" y="-573.046875"/>
         </scene>
@@ -258,16 +289,35 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OwU-DT-1Sp" firstAttribute="centerX" secondItem="fPa-Qv-4XD" secondAttribute="centerX" id="9hS-pV-Zta"/>
                             <constraint firstItem="OwU-DT-1Sp" firstAttribute="top" secondItem="fPa-Qv-4XD" secondAttribute="topMargin" constant="20" id="9kU-vE-s6H"/>
                             <constraint firstItem="3Q7-GP-FrI" firstAttribute="centerY" secondItem="fPa-Qv-4XD" secondAttribute="centerY" id="fxn-Bb-z4D"/>
                             <constraint firstItem="3Q7-GP-FrI" firstAttribute="centerX" secondItem="fPa-Qv-4XD" secondAttribute="centerX" id="nUg-o2-3ey"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7Qc-Bl-TXV" appends="YES" id="iUO-C5-iuz"/>
+                            <outletCollection property="gestureRecognizers" destination="ueH-9o-BPx" appends="YES" id="Xc0-gv-eba"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Freshmen" id="Yb5-7V-wqw"/>
+                    <connections>
+                        <outlet property="leftSwipe" destination="7Qc-Bl-TXV" id="TSy-tO-98T"/>
+                        <outlet property="rightSwipe" destination="ueH-9o-BPx" id="CNW-lm-jaU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36M-1A-XZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="7Qc-Bl-TXV">
+                    <connections>
+                        <action selector="segueNext:" destination="Ygb-d3-Ovw" id="o7K-0g-Jo4"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="ueH-9o-BPx">
+                    <connections>
+                        <action selector="seguePrevious:" destination="Ygb-d3-Ovw" id="Rj2-xJ-EIN"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="101.5625" y="765.8203125"/>
         </scene>
@@ -326,16 +376,28 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="8y7-5j-Z30" firstAttribute="centerY" secondItem="Gj0-Rc-kJT" secondAttribute="centerY" id="GLf-Ez-8NL"/>
                             <constraint firstItem="8y7-5j-Z30" firstAttribute="centerX" secondItem="Gj0-Rc-kJT" secondAttribute="centerX" id="dpO-Bq-kke"/>
                             <constraint firstItem="TXj-tX-CSi" firstAttribute="top" secondItem="Gj0-Rc-kJT" secondAttribute="topMargin" constant="20" id="oN9-hX-34I"/>
                             <constraint firstItem="TXj-tX-CSi" firstAttribute="centerX" secondItem="Gj0-Rc-kJT" secondAttribute="centerX" id="opo-7d-JZx"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tdf-hl-ilV" appends="YES" id="RPC-SC-XGo"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Jazz" id="Jxo-B2-mJN"/>
+                    <connections>
+                        <outlet property="rightSwipe" destination="tdf-hl-ilV" id="4Me-el-ka7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tWE-8U-Y4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="tdf-hl-ilV">
+                    <connections>
+                        <action selector="seguePrevious:" destination="Yqx-YC-PC1" id="9Rw-Ds-6zZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="101.5625" y="1480.6640625"/>
         </scene>

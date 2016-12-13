@@ -8,15 +8,20 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: UIViewController
+{
+    //MARK Properties
+    @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -31,5 +36,16 @@ class ResultsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK Functions
+    @IBAction func segueNext(_ sender: UISwipeGestureRecognizer)
+    {
+        if((tabBarController?.selectedIndex)! < 3)
+        {
+            tabBarController?.selectedIndex += 1
+        }
+    }
+    
 
 }
+

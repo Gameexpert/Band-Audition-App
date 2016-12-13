@@ -8,15 +8,21 @@
 
 import UIKit
 
-class JazzViewController: UIViewController {
+class JazzViewController: UIViewController
+{
+    //MARK Properties
+    
+    @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -32,4 +38,12 @@ class JazzViewController: UIViewController {
     }
     */
 
+    //MARK Actions
+    @IBAction func seguePrevious(_ sender: UISwipeGestureRecognizer)
+    {
+        if((tabBarController?.selectedIndex)! > 0)
+        {
+            tabBarController?.selectedIndex -= 1
+        }
+    }
 }

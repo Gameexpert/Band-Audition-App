@@ -8,15 +8,22 @@
 
 import UIKit
 
-class VarsityViewController: UIViewController {
+class VarsityViewController: UIViewController
+{
 
-    override func viewDidLoad() {
+    //MARK Properties
+    @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
+    @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -31,5 +38,24 @@ class VarsityViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK Actions
+    @IBAction func segueNext(_ sender: UISwipeGestureRecognizer)
+    {
+        if((tabBarController?.selectedIndex)! < 3)
+        {
+            tabBarController?.selectedIndex += 1
+        }
+    }
+    
+    @IBAction func seguePrevious(_ sender: UISwipeGestureRecognizer)
+    {
+        if((tabBarController?.selectedIndex)! > 0)
+        {
+            tabBarController?.selectedIndex -= 1
+        }
+    }
+    
+    
 
 }
