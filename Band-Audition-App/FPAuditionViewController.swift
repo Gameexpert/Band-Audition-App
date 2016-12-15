@@ -1,22 +1,19 @@
 //
-//  FreshmenViewController.swift
+//  FPAuditionViewController.swift
 //  Band-Audition-App
 //
-//  Created by ECCLES, JUSTIN on 12/7/16.
+//  Created by ECCLES, JUSTIN on 12/14/16.
 //  Copyright © 2016 Copy Pasta Coding. All rights reserved.
 //
 
 import UIKit
 
-class FreshmenViewController: UIViewController
+class FPAuditionViewController: UIViewController
 {
-
     //MARK Properties
-    @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
-    @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
+    @IBOutlet weak var backButton: UIButton!
     
-    @IBOutlet weak var percussionButton: UIButton!
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -42,26 +39,10 @@ class FreshmenViewController: UIViewController
     */
     
     //MARK Actions
-    
-    @IBAction func segueNext(_ sender: UISwipeGestureRecognizer)
+    @IBAction func backToTab(_ sender: UIButton)
     {
-        if((tabBarController?.selectedIndex)! < 3)
-        {
-            tabBarController?.selectedIndex += 1
-        }
+        self.performSegue(withIdentifier: "FPToTab", sender: self)
     }
+    
 
-    @IBAction func seguePrevious(_ sender: UISwipeGestureRecognizer)
-    {
-        if((tabBarController?.selectedIndex)! > 0)
-        {
-            tabBarController?.selectedIndex -= 1
-        }
-    }
-    
-    
-    @IBAction func segueToFPAudition(_ sender: UIButton)
-    {
-        self.performSegue(withIdentifier: "FPAudition", sender: self)
-    }
 }

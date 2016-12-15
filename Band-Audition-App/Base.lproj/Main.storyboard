@@ -284,6 +284,10 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugc-n7-Gym">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Percussion"/>
+                                        <connections>
+                                            <action selector="segueToFPAudition:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="kLP-ez-lFj"/>
+                                            <segue destination="UYB-UT-d75" kind="show" identifier="FPAudition" id="4Nv-Pb-3OQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -304,6 +308,7 @@
                     <tabBarItem key="tabBarItem" title="Freshmen" id="Yb5-7V-wqw"/>
                     <connections>
                         <outlet property="leftSwipe" destination="7Qc-Bl-TXV" id="TSy-tO-98T"/>
+                        <outlet property="percussionButton" destination="Ugc-n7-Gym" id="63W-96-7b4"/>
                         <outlet property="rightSwipe" destination="ueH-9o-BPx" id="CNW-lm-jaU"/>
                     </connections>
                 </viewController>
@@ -320,6 +325,38 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="101.5625" y="765.8203125"/>
+        </scene>
+        <!--Audition View Controller-->
+        <scene sceneID="VJ9-rG-Wdq">
+            <objects>
+                <viewController id="UYB-UT-d75" customClass="FPAuditionViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SKo-Jh-TDs"/>
+                        <viewControllerLayoutGuide type="bottom" id="RCW-Jo-FaL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iNz-TB-BPD">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNK-59-fYq">
+                                <frame key="frameInset" minX="20" minY="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;Back"/>
+                                <connections>
+                                    <action selector="backToTab:" destination="UYB-UT-d75" eventType="touchUpInside" id="3gp-aQ-tpb"/>
+                                    <segue destination="8V9-FW-F71" kind="show" identifier="FPToTab" id="eZb-TE-dPz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="pNK-59-fYq" id="oyW-ad-Ybi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPY-Zv-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="891" y="791"/>
         </scene>
         <!--Jazz-->
         <scene sceneID="bVL-7b-vmv">
