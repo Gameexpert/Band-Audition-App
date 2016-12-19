@@ -12,13 +12,35 @@ class FPAuditionViewController: UIViewController
 {
     //MARK Properties
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var commentsField: UITextView!
+    @IBOutlet weak var dataControl: UISegmentedControl!
     
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        //Audition Layout
+        
+        let frame1 = CGRect(x: 10, y: 120, width: 748, height: 750)
+        let dataBorder = UIView(frame: frame1) //Largest Border
+        dataBorder.backgroundColor = UIColor.clear
+        dataBorder.layer.borderWidth = 1.0
+        view.addSubview(dataBorder) //Adds the rectangle to the heirarchy of the view and allows it to be seen
+        
+        let frame2 = CGRect(x: 10, y: 880, width: 500, height: 137)
+        let commentBorder = UIView(frame: frame2) //Border around the text view
+        commentBorder.backgroundColor = UIColor.clear
+        commentBorder.layer.borderWidth = 1.0
+        view.addSubview(commentBorder)
+        commentBorder.addSubview(commentsField) //This makes the text field higher on the hierarchy so it's editable
+        
+        let line1 = CGRect(x: 150, y: 0, width: 1, height: 750)
+        let dataLine = UIView(frame: line1)
+        dataLine.layer.borderWidth = 1.0
+        dataBorder.addSubview(dataLine)
+        
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -37,12 +59,6 @@ class FPAuditionViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
-    
-    //MARK Actions
-    @IBAction func backToTab(_ sender: UIButton)
-    {
-        self.performSegue(withIdentifier: "FPToTab", sender: self)
-    }
     
 
 }

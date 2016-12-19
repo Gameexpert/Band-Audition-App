@@ -338,25 +338,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNK-59-fYq">
-                                <frame key="frameInset" minX="20" minY="28" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freshmen Percussion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-oi-iiF">
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Instrument Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBd-Ie-S1e">
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNK-59-fYq">
                                 <state key="normal" title="&lt;Back"/>
                                 <connections>
-                                    <action selector="backToTab:" destination="UYB-UT-d75" eventType="touchUpInside" id="3gp-aQ-tpb"/>
-                                    <segue destination="8V9-FW-F71" kind="show" identifier="FPToTab" id="eZb-TE-dPz"/>
+                                    <segue destination="vXg-Hp-vMu" kind="unwind" unwindAction="recieveFPUnwindSegueWithUnwindSegue:" id="qdH-T2-1xA"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-iX-zcc">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlo-hy-2ZN">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Comments:" translatesAutoresizingMaskIntoConstraints="NO" id="Zfh-cz-I5k">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="5h4-lR-Pje"/>
+                                    <constraint firstAttribute="height" constant="100" id="UTT-z4-EtG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-b5-gUG">
+                                <frame key="frameInset" minX="42" minY="188" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mlo-hy-2ZN" firstAttribute="leading" secondItem="9tF-iX-zcc" secondAttribute="trailing" constant="20" id="Diq-z2-Aht"/>
+                            <constraint firstItem="gBd-Ie-S1e" firstAttribute="top" secondItem="pNK-59-fYq" secondAttribute="bottom" constant="20" id="FGk-NM-yCc"/>
+                            <constraint firstItem="mlo-hy-2ZN" firstAttribute="top" secondItem="6u7-oi-iiF" secondAttribute="bottom" constant="20" id="Fms-R7-goT"/>
+                            <constraint firstItem="gBd-Ie-S1e" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="15" id="G4a-G0-dtV"/>
+                            <constraint firstItem="9tF-iX-zcc" firstAttribute="leading" secondItem="gBd-Ie-S1e" secondAttribute="trailing" constant="40" id="JdY-gZ-pZE"/>
+                            <constraint firstItem="Zfh-cz-I5k" firstAttribute="top" secondItem="9tF-iX-zcc" secondAttribute="bottom" constant="790" id="Ted-JT-22h"/>
+                            <constraint firstItem="Zfh-cz-I5k" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="10" id="ezL-7P-T8b"/>
+                            <constraint firstItem="pNK-59-fYq" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="20" id="fWy-Ri-o5n"/>
+                            <constraint firstItem="9tF-iX-zcc" firstAttribute="top" secondItem="6u7-oi-iiF" secondAttribute="bottom" constant="20" id="oaE-Et-5b6"/>
+                            <constraint firstItem="6u7-oi-iiF" firstAttribute="centerX" secondItem="iNz-TB-BPD" secondAttribute="centerX" id="oax-tu-zbk"/>
+                            <constraint firstItem="pNK-59-fYq" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="10" id="wb8-Xm-XPq"/>
+                            <constraint firstItem="6u7-oi-iiF" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="20" id="xKb-og-FMK"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="pNK-59-fYq" id="oyW-ad-Ybi"/>
+                        <outlet property="commentsField" destination="Zfh-cz-I5k" id="wG0-Kt-YoI"/>
+                        <outlet property="dataControl" destination="PDU-b5-gUG" id="yXm-dN-cUT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPY-Zv-sbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vXg-Hp-vMu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="891" y="791"/>
+            <point key="canvasLocation" x="890.625" y="790.4296875"/>
         </scene>
         <!--Jazz-->
         <scene sceneID="bVL-7b-vmv">

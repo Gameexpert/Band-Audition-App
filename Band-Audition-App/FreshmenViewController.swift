@@ -64,4 +64,9 @@ class FreshmenViewController: UIViewController
     {
         self.performSegue(withIdentifier: "FPAudition", sender: self)
     }
+    
+    @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 }
