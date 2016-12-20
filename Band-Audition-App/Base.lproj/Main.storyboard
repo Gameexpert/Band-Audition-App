@@ -373,12 +373,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-b5-gUG">
-                                <frame key="frameInset" minX="42" minY="188" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PDU-b5-gUG">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="U77-Z7-Ddg"/>
+                                    <constraint firstAttribute="width" constant="750" id="hiU-Fx-u6R"/>
+                                </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Scale 1"/>
+                                    <segment title="Scale 2"/>
+                                    <segment title="Snare Etude"/>
+                                    <segment title="Mallet Etude"/>
+                                    <segment title="Snare Reading"/>
+                                    <segment title="Mallet Reading"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -392,6 +398,8 @@
                             <constraint firstItem="Zfh-cz-I5k" firstAttribute="top" secondItem="9tF-iX-zcc" secondAttribute="bottom" constant="790" id="Ted-JT-22h"/>
                             <constraint firstItem="Zfh-cz-I5k" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="10" id="ezL-7P-T8b"/>
                             <constraint firstItem="pNK-59-fYq" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="20" id="fWy-Ri-o5n"/>
+                            <constraint firstItem="PDU-b5-gUG" firstAttribute="top" secondItem="9tF-iX-zcc" secondAttribute="bottom" constant="325" id="gBs-Uy-FIx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PDU-b5-gUG" secondAttribute="trailing" constant="287" id="jUE-2V-wUm"/>
                             <constraint firstItem="9tF-iX-zcc" firstAttribute="top" secondItem="6u7-oi-iiF" secondAttribute="bottom" constant="20" id="oaE-Et-5b6"/>
                             <constraint firstItem="6u7-oi-iiF" firstAttribute="centerX" secondItem="iNz-TB-BPD" secondAttribute="centerX" id="oax-tu-zbk"/>
                             <constraint firstItem="pNK-59-fYq" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="10" id="wb8-Xm-XPq"/>

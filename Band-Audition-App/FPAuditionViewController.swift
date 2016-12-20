@@ -22,7 +22,7 @@ class FPAuditionViewController: UIViewController
         
         //Audition Layout
         
-        let frame1 = CGRect(x: 10, y: 120, width: 748, height: 750)
+        let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
         let dataBorder = UIView(frame: frame1) //Largest Border
         dataBorder.backgroundColor = UIColor.clear
         dataBorder.layer.borderWidth = 1.0
@@ -38,9 +38,10 @@ class FPAuditionViewController: UIViewController
         let line1 = CGRect(x: 150, y: 0, width: 1, height: 750)
         let dataLine = UIView(frame: line1)
         dataLine.layer.borderWidth = 1.0
-        dataBorder.addSubview(dataLine)
+        //dataBorder.addSubview(dataLine)
         
-        
+        dataBorder.addSubview(dataControl)//Makes the segmented control editable
+        setUpDataControl()
     }
 
     override func didReceiveMemoryWarning()
@@ -59,6 +60,24 @@ class FPAuditionViewController: UIViewController
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: Functions
+    
+    func setUpDataControl()
+    {
+        dataControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
+        //Previous line rotates segmented control 90 degrees.
+        
+        for view in dataControl.subviews
+        {
+            for subview in view.subviews
+            {
+                subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
+            }
+        }//This Rotates the text 90 degrees so it is horizontal for the user
+        
+        
+    }
     
 
 }
