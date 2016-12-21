@@ -13,7 +13,6 @@ class FPAuditionViewController: UIViewController
     //MARK Properties
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var commentsField: UITextView!
-    @IBOutlet weak var dataControl: UISegmentedControl!
     
 
     override func viewDidLoad()
@@ -40,8 +39,18 @@ class FPAuditionViewController: UIViewController
         dataLine.layer.borderWidth = 1.0
         //dataBorder.addSubview(dataLine)
         
-        dataBorder.addSubview(dataControl)//Makes the segmented control editable
-        setUpDataControl()
+        //This next portion is programmatically adding the UISegmentedControl
+        let dataControl = UISegmentedControl(items: ["Scale 1","Scale 2", "Snare Etude","Mallet Etude","Snare Reading","Mallet Reading"])
+        let xPosition: CGFloat = -300
+        let yPosition: CGFloat = 301
+        let elementWidth: CGFloat = 751
+        let elementHeight: CGFloat = 150
+        dataControl.frame = CGRect(x: xPosition, y: yPosition, width: elementWidth, height: elementHeight)
+        dataControl.selectedSegmentIndex = 0
+        
+        dataBorder.addSubview(dataControl)
+        setUpDataControl(object: dataControl)
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -63,12 +72,12 @@ class FPAuditionViewController: UIViewController
     
     //MARK: Functions
     
-    func setUpDataControl()
+    func setUpDataControl(object: UISegmentedControl)
     {
-        dataControl.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
+        object.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
         //Previous line rotates segmented control 90 degrees.
         
-        for view in dataControl.subviews
+        for view in object.subviews
         {
             for subview in view.subviews
             {
