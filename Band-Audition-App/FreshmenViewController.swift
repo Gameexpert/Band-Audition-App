@@ -69,4 +69,5 @@ class FreshmenViewController: UIViewController
     {
         //No code should go here.
     }
+    
 }

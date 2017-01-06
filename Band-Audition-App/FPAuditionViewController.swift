@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import Foundation
 
-class FPAuditionViewController: UIViewController
+class FPAuditionViewController: UIViewController, UITextViewDelegate
 {
     //MARK Properties
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var commentsField: UITextView!
+    var keyboardHeight: Int = 0
     
-
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -51,6 +52,9 @@ class FPAuditionViewController: UIViewController
         dataBorder.addSubview(dataControl)
         setUpDataControl(object: dataControl)
         
+        commentsField!.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(FPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
     }
 
     override func didReceiveMemoryWarning()
@@ -84,9 +88,23 @@ class FPAuditionViewController: UIViewController
                 subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
             }
         }//This Rotates the text 90 degrees so it is horizontal for the user
-        
-        
     }
     
-
+    func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        self.keyboardHeight = Int(keyboardRectangle.height)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -(CGFloat(keyboardHeight)))
+        textView.text = ""
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
+    }
+    
 }
