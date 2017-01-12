@@ -9,12 +9,19 @@
 import UIKit
 import Foundation
 
-class FPAuditionViewController: UIViewController, UITextViewDelegate
+class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate
 {
     //MARK Properties
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var commentsField: UITextView!
+    @IBOutlet weak var commentsView: UITextView!
     var keyboardHeight: Int = 0
+    @IBOutlet weak var upperLeftBox: UIStackView!
+    @IBOutlet weak var upperRightBox: UIStackView!
+    @IBOutlet weak var lowerLeftBox: UIStackView!
+    @IBOutlet weak var lowerRightBox: UIStackView!
+    @IBOutlet weak var middleBox: UIStackView!
+    
+    
     
     override func viewDidLoad()
     {
@@ -22,18 +29,27 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate
         
         //Audition Layout
         
+        
+        
+        
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
         let dataBorder = UIView(frame: frame1) //Largest Border
         dataBorder.backgroundColor = UIColor.clear
         dataBorder.layer.borderWidth = 1.0
         view.addSubview(dataBorder) //Adds the rectangle to the heirarchy of the view and allows it to be seen
         
-        let frame2 = CGRect(x: 10, y: 880, width: 500, height: 137)
+        let frame2 = CGRect(x: 10, y: 882, width: 500, height: 128)
         let commentBorder = UIView(frame: frame2) //Border around the text view
         commentBorder.backgroundColor = UIColor.clear
         commentBorder.layer.borderWidth = 1.0
         view.addSubview(commentBorder)
-        commentBorder.addSubview(commentsField) //This makes the text field higher on the hierarchy so it's editable
+        commentBorder.addSubview(commentsView) //This makes the text field higher on the hierarchy so it's editable
+        
+        let frame3 = CGRect(x: 519, y: 882, width: 239, height: 128)
+        let totalBorder = UIView(frame: frame3) //Border around the text view
+        totalBorder.backgroundColor = UIColor.clear
+        totalBorder.layer.borderWidth = 1.0
+        view.addSubview(totalBorder)
         
         let line1 = CGRect(x: 150, y: 0, width: 1, height: 750)
         let dataLine = UIView(frame: line1)
@@ -52,7 +68,16 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate
         dataBorder.addSubview(dataControl)
         setUpDataControl(object: dataControl)
         
-        commentsField!.delegate = self
+        //Adding the Data Boxes to the dataBorder
+        dataBorder.addSubview(upperLeftBox)
+        dataBorder.addSubview(upperRightBox)
+        dataBorder.addSubview(lowerLeftBox)
+        dataBorder.addSubview(lowerRightBox)
+        dataBorder.addSubview(middleBox)
+        
+        commentsView!.delegate = self
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(FPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
     }
@@ -105,6 +130,21 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
+    }
+    
+    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "labelPopover"
+        {
+            let popoverViewController = segue.destination as! LabelPopOverViewController
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+            popoverViewController.popoverPresentationController!.delegate = self
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    {
+        return UIModalPresentationStyle.none
     }
     
 }
