@@ -9,29 +9,36 @@
 import UIKit
 import Foundation
 
-class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate
+class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate
 {
     //MARK Properties
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var commentsView: UITextView!
     var keyboardHeight: Int = 0
-    @IBOutlet weak var upperLeftBox: UIStackView!
-    @IBOutlet weak var upperRightBox: UIStackView!
-    @IBOutlet weak var lowerLeftBox: UIStackView!
-    @IBOutlet weak var lowerRightBox: UIStackView!
-    @IBOutlet weak var middleBox: UIStackView!
     
+    @IBOutlet weak var mainStackView: UIStackView!
+    
+    @IBOutlet weak var upperLeftLabel: UIButton!
+    @IBOutlet weak var upperLeftData: UIButton!
+    
+    @IBOutlet weak var upperRightLabel: UIButton!
+    @IBOutlet weak var upperRightData: UIButton!
+    
+    @IBOutlet weak var lowerLeftLabel: UIButton!
+    @IBOutlet weak var lowerLeftData: UIButton!
+    
+    @IBOutlet weak var lowerRightLabel: UIButton!
+    @IBOutlet weak var lowerRightData: UIButton!
+    
+    @IBOutlet weak var middleLabel: UIButton!
+    @IBOutlet weak var middleData: UIButton!
     
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        //Audition Layout
-        
-        
-        
-        
+        //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
         let dataBorder = UIView(frame: frame1) //Largest Border
         dataBorder.backgroundColor = UIColor.clear
@@ -69,17 +76,12 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         setUpDataControl(object: dataControl)
         
         //Adding the Data Boxes to the dataBorder
-        dataBorder.addSubview(upperLeftBox)
-        dataBorder.addSubview(upperRightBox)
-        dataBorder.addSubview(lowerLeftBox)
-        dataBorder.addSubview(lowerRightBox)
-        dataBorder.addSubview(middleBox)
+        dataBorder.addSubview(mainStackView)
+
         
-        commentsView!.delegate = self
-        
-        
+        //Creates a listener for the NSNotification center to stop the keyboard from covering the comments box
         NotificationCenter.default.addObserver(self, selector: #selector(FPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector (FPAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
     }
 
     override func didReceiveMemoryWarning()
@@ -115,6 +117,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         }//This Rotates the text 90 degrees so it is horizontal for the user
     }
     
+    //The next three methods prevent the keyboard from covering the comments box when editing
     func keyboardWillShow(notification:NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
@@ -132,19 +135,51 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
     }
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    //The following methods prep the segue for the popovers
+    
+    
+    
+    //Following methods assign the values to the button labels.
+    @IBAction func changeDataValue(_ sender: UIButton)
     {
-        if segue.identifier == "labelPopover"
-        {
-            let popoverViewController = segue.destination as! LabelPopOverViewController
-            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
-            popoverViewController.popoverPresentationController!.delegate = self
-        }
+        //Next line of code stores which button was pressed
+        senderButton = sender.restorationIdentifier!
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverKeyboard")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
     }
     
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle
+    //Following Function changes the data that was edited in the popover keyboard
+    func recieveKeyboardData(notification: NSNotification)
     {
-        return UIModalPresentationStyle.none
+        //This function uses global variables (senderButton, returnedValue) found within the keyboardViewController class document. Both are strings
+        switch senderButton
+        {
+        case "upperLeftData":
+            upperLeftData.setTitle(returnedValue, for: .normal)
+        case "upperRightData":
+            upperRightData.setTitle(returnedValue, for: .normal)
+        case "lowerLeftData":
+            lowerLeftData.setTitle(returnedValue, for: .normal)
+        case "lowerRightData":
+            lowerLeftData.setTitle(returnedValue, for: .normal)
+        case "middleData":
+            middleData.setTitle(returnedValue, for: .normal)
+        default:
+            //Given an error message in console
+            Swift.print("Error, default case in recieveKeyboardData was called.")
+        }
     }
     
 }
