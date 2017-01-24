@@ -10,6 +10,7 @@ import UIKit
 //MARK: Global Variables
 var returnedValue: String = "error" //Indicates if unedited
 var senderButton: String = "error, variable not overwritten"
+var keyboardIsEditingInt: Bool = true //True = int, false = double
 
 class keyboardViewController: UIViewController
 {
@@ -35,6 +36,11 @@ class keyboardViewController: UIViewController
         super.viewDidLoad()
         self.data.text = "" //Ensures the textField is clear and doesn't compromise the string.
         // Do any additional setup after loading the view.
+        
+        if keyboardIsEditingInt
+        {
+            buttonDecimal.isEnabled = false //Disables the button from being pressed
+        }
     }
 
     override func didReceiveMemoryWarning()
@@ -56,7 +62,39 @@ class keyboardViewController: UIViewController
 
     @IBAction func modifyData(_ sender: UIButton)
     {
-        self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
+        if keyboardIsEditingInt == true //Sets limits on int ranges
+        {
+            self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
+            let input: Int = Int(self.data.text!)!
+            if input > 20
+            {
+                self.data.text! = "20"
+            }
+            else if input < 0
+            {
+                self.data.text! = "20" //should never be called.
+            }
+        }
+        else //Sets limits on double ranges
+        {
+            /*Makes a check for multiple periods, which ceases to be a number
+             If-Statement reads: if the button pressed was a decimal AND there are no decimals (to prevent multiple decimals) OR the button pressed was not a decimal.
+             */
+            let decimal: Character = "."
+            if (sender.titleLabel!.text! == "." && !(self.data.text!.characters.contains(decimal))) || (sender.titleLabel!.text! == ".")
+            {
+                self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
+                let input: Double = Double(self.data.text!)!
+                if input > 5.0
+                {
+                    self.data.text! = "5.0"
+                }
+                else if input < 0.0
+                {
+                    self.data.text! = "0.0"
+                }
+            }
+        }
     }
     
     @IBAction func clearData(_ sender: AnyObject)
