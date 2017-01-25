@@ -286,7 +286,6 @@
                                         <state key="normal" title="Percussion"/>
                                         <connections>
                                             <action selector="segueToFPAudition:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="kLP-ez-lFj"/>
-                                            <segue destination="UYB-UT-d75" kind="show" identifier="FPAudition" id="4Nv-Pb-3OQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -329,7 +328,7 @@
         <!--Audition View Controller-->
         <scene sceneID="VJ9-rG-Wdq">
             <objects>
-                <viewController id="UYB-UT-d75" customClass="FPAuditionViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FPAudition" id="UYB-UT-d75" customClass="FPAuditionViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SKo-Jh-TDs"/>
                         <viewControllerLayoutGuide type="bottom" id="RCW-Jo-FaL"/>
@@ -543,6 +542,7 @@
                     <connections>
                         <outlet property="backButton" destination="pNK-59-fYq" id="oyW-ad-Ybi"/>
                         <outlet property="commentsView" destination="Zfh-cz-I5k" id="GHD-2T-Shf"/>
+                        <outlet property="instrumentNameLabel" destination="gBd-Ie-S1e" id="gXk-I6-Okf"/>
                         <outlet property="lowerLeftData" destination="5cH-PR-2PU" id="DiK-d9-SJJ"/>
                         <outlet property="lowerLeftLabel" destination="pn3-oT-wKe" id="CK9-5w-aae"/>
                         <outlet property="lowerRightData" destination="xWs-eO-OQC" id="y8K-D4-Svr"/>

@@ -12,9 +12,12 @@ import Foundation
 class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate
 {
     //MARK Properties
+    @IBOutlet weak var instrumentNameLabel: UILabel!
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var commentsView: UITextView!
     var keyboardHeight: Int = 0
+    var textViewCleared: Bool = false
     
     @IBOutlet weak var mainStackView: UIStackView!
     
@@ -37,6 +40,8 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        self.instrumentNameLabel.text! = instrumentType
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -78,6 +83,8 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         //Adding the Data Boxes to the dataBorder
         dataBorder.addSubview(mainStackView)
 
+        //Adds the delegate for the comments textView
+        self.commentsView.delegate = self
         
         //Creates a listener for the NSNotification center to stop the keyboard from covering the comments box
         NotificationCenter.default.addObserver(self, selector: #selector(FPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -128,7 +135,11 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     func textViewDidBeginEditing(_ textView: UITextView)
     {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -(CGFloat(keyboardHeight)))
-        textView.text = ""
+        if (!textViewCleared)
+        {
+            textView.text = ""
+            self.textViewCleared = true
+        }
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+var instrumentType: String = "Nope"
 
 class FreshmenViewController: UIViewController
 {
@@ -62,7 +63,11 @@ class FreshmenViewController: UIViewController
     
     @IBAction func segueToFPAudition(_ sender: UIButton)
     {
-        self.performSegue(withIdentifier: "FPAudition", sender: self)
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "FPAudition"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
     }
     
     @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
