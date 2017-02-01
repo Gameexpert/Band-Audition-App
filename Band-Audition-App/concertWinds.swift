@@ -76,4 +76,17 @@ class concertWinds: audition //Audition is the protocol
         read_rhythm = 0.0
         finalScore = 0.0
     }
+    func calculateFinalScore() -> Double
+    {
+        var score: Double = scale1 + scale2 + scale3 + scale4 + scale5
+        score = score + chromatic_scale + etude1_pitch + etude1_rhythm + etude1_articulation + etude1_dynamics + etude1_tone + etude1_style
+        score = score + etude2_pitch + etude2_rhythm + etude2_articulation + etude2_dynamics + etude2_tone + etude2_style
+        score = score + read_pitch + read_rhythm
+        if memorized == true
+        {
+            score += 1
+        }
+        self.finalScore = score
+        return finalScore
+    }
 }

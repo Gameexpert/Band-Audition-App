@@ -7,7 +7,6 @@
 //
 
 import UIKit
-var instrumentType: String = "Nope"
 
 class FreshmenViewController: UIViewController
 {

@@ -13,13 +13,25 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
 {
     //MARK Properties
     @IBOutlet weak var instrumentNameLabel: UILabel!
+    @IBOutlet weak var firstNameBox: UITextField!
+    @IBOutlet weak var lastNameBox: UITextField!
+    @IBOutlet weak var finalScoreLabel: UILabel!
     
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
+    var dataControl: UISegmentedControl = UISegmentedControl(items: ["Scale 1","Scale 2", "Snare Etude","Mallet Etude","Snare Reading","Mallet Reading"])
     @IBOutlet weak var commentsView: UITextView!
     var keyboardHeight: Int = 0
     var textViewCleared: Bool = false
     
     @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var upperLeftStack: UIStackView!
+    @IBOutlet weak var upperRIghtStack: UIStackView!
+    @IBOutlet weak var lowerLeftStack: UIStackView!
+    @IBOutlet weak var lowerRightStack: UIStackView!
+    @IBOutlet weak var middleStack: UIStackView!
     
     @IBOutlet weak var upperLeftLabel: UIButton!
     @IBOutlet weak var upperLeftData: UIButton!
@@ -36,12 +48,17 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     @IBOutlet weak var middleLabel: UIButton!
     @IBOutlet weak var middleData: UIButton!
     
+    var auditionData: freshmenConcertPercussion = freshmenConcertPercussion(instrument: "Error") //Creates storage space for data
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         self.instrumentNameLabel.text! = instrumentType
+        //Sets up the data object with known variables
+        auditionData.instrument = instrumentType
+        
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -69,26 +86,30 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         //dataBorder.addSubview(dataLine)
         
         //This next portion is programmatically adding the UISegmentedControl
-        let dataControl = UISegmentedControl(items: ["Scale 1","Scale 2", "Snare Etude","Mallet Etude","Snare Reading","Mallet Reading"])
         let xPosition: CGFloat = -300
         let yPosition: CGFloat = 301
         let elementWidth: CGFloat = 751
         let elementHeight: CGFloat = 150
         dataControl.frame = CGRect(x: xPosition, y: yPosition, width: elementWidth, height: elementHeight)
         dataControl.selectedSegmentIndex = 0
-        
         dataBorder.addSubview(dataControl)
         setUpDataControl(object: dataControl)
         
         //Adding the Data Boxes to the dataBorder
         dataBorder.addSubview(mainStackView)
 
-        //Adds the delegate for the comments textView
+        //Adds the necessary delgates for the view
         self.commentsView.delegate = self
+        self.firstNameBox.delegate = self
+        self.lastNameBox.delegate = self
         
         //Creates a listener for the NSNotification center to stop the keyboard from covering the comments box
         NotificationCenter.default.addObserver(self, selector: #selector(FPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (FPAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
+        
+        dataControl.addTarget(self, action: #selector(FPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        
+        segmentedControlValueChanged(segment: dataControl)
     }
 
     override func didReceiveMemoryWarning()
@@ -144,10 +165,13 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
+        self.auditionData.comments = textView.text! //Saves the data
     }
     
-    //The following methods prep the segue for the popovers
     
+    @IBAction func saveData(_ sender: UIButton) {
+        
+    }
     
     
     //Following methods assign the values to the button labels.
@@ -155,6 +179,8 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     {
         //Next line of code stores which button was pressed
         senderButton = sender.restorationIdentifier!
+        //Next line of code tells the popover keyboard that we want an Int in a string
+        keyboardIsEditingInt = true
         // get a reference to the view controller for the popover
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverKeyboard")
         
@@ -164,7 +190,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         // set up the popover presentation controller
         popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popController.popoverPresentationController?.delegate = self
-        popController.popoverPresentationController?.sourceView = sender as? UIView // button
+        popController.popoverPresentationController?.sourceView = sender as UIView // button
         popController.popoverPresentationController?.sourceRect = sender.bounds
         
         // present the popover
@@ -179,18 +205,213 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         {
         case "upperLeftData":
             upperLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionData object
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 0: //Scale 1
+                auditionData.scale1_pitch = Int(returnedValue)!
+            case 1: //Scale 2
+                auditionData.scale2_pitch = Int(returnedValue)!
+            case 2: //Snare Etude
+                auditionData.snare_rhythm = Int(returnedValue)!
+            case 3: //Mallet Etude
+                auditionData.mallet_rhythm = Int(returnedValue)!
+            case 4: //Snare Sight Reading
+                auditionData.snareRead_rhythm = Int(returnedValue)!
+            case 5: //Mallet Sight Reading
+                auditionData.malletRead_rhythm = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperLeftData. index = \(index)")
+            }
         case "upperRightData":
             upperRightData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionData object
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 0: //Scale 1
+                auditionData.scale1_production = Int(returnedValue)!
+            case 1: //Scale 2
+                auditionData.scale2_production = Int(returnedValue)!
+            case 2: //Snare Etude
+                auditionData.snare_tempo = Int(returnedValue)!
+            case 3: //Mallet Etude
+                auditionData.mallet_pitch = Int(returnedValue)!
+            case 4: //Snare Sight Reading
+                auditionData.snareRead_production = Int(returnedValue)!
+            case 5: //Mallet Sight Reading
+                auditionData.malletRead_pitch = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperRightData. index = \(index)")
+            }
         case "lowerLeftData":
             lowerLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionData object
+            //NOTICE: some cases do not exist because button is invisible!
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 2: //Snare Etude
+                auditionData.snare_dynamic = Int(returnedValue)!
+            case 3: //Mallet Etude
+                auditionData.mallet_tempo = Int(returnedValue)!
+            case 5: //Mallet Sight Reading
+                auditionData.malletRead_production = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case lowerLeftData. index = \(index)")
+            }
+
         case "lowerRightData":
             lowerLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionData object
+            //NOTICE: some cases do not exist because button is invisible!
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 2: //Snare Etude
+                auditionData.snare_production = Int(returnedValue)!
+            case 3: //Mallet Etude
+                auditionData.mallet_dynamic = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case lowerRightData. index = \(index)")
+            }
         case "middleData":
             middleData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionData object
+            //NOTICE: some cases do not exist because button is invisible!
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 3: //Mallet Etude
+                auditionData.mallet_production = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case middleData. index = \(index)")
+            }
         default:
             //Given an error message in console
-            Swift.print("Error, default case in recieveKeyboardData was called.")
+            Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
+        }
+        let score: Int = auditionData.calculateFinalScore()
+        finalScoreLabel.text! = "Total: \(score)"
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        let itemName: String = textField.restorationIdentifier!
+        switch itemName
+        {
+        case "firstNameBox":
+            auditionData.first_name = textField.text!
+        case "lastNameBox":
+            auditionData.last_name = textField.text!
+        default:
+            Swift.print("Error: TextField End Editing Default Called")
         }
     }
     
+    func segmentedControlValueChanged(segment: UISegmentedControl)
+    {
+        let controlIndex: Int = self.dataControl.selectedSegmentIndex
+        switch controlIndex
+        {
+        case 0: //Scale 1
+            upperLeftLabel.setTitle("Pitch Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.scale1_pitch)", for: .normal)
+            
+            upperRightLabel.setTitle("Sound Production", for: .normal)
+            upperRightData.setTitle("\(auditionData.scale1_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = true
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
+            
+        case 1: //Scale 2
+            upperLeftLabel.setTitle("Pitch Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.scale2_pitch)", for: .normal)
+            
+            upperRightLabel.setTitle("Sound Production", for: .normal)
+            upperRightData.setTitle("\(auditionData.scale2_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = true
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
+            
+        case 2: //Snare Etude
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.snare_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Tempo Accuracy", for: .normal)
+            upperRightData.setTitle("\(auditionData.snare_tempo)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Dynamic Accuracy", for: .normal)
+            lowerLeftData.setTitle("\(auditionData.snare_dynamic)", for: .normal)
+            
+            lowerRightLabel.setTitle("Sound Production", for: .normal)
+            lowerRightData.setTitle("\(auditionData.snare_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+            middleStack.isHidden = true
+            
+        case 3: //Mallet Etude
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.mallet_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Pitch Accuracy", for: .normal)
+            upperRightData.setTitle("\(auditionData.mallet_pitch)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Tempo Accuracy", for: .normal)
+            lowerLeftData.setTitle("\(auditionData.mallet_tempo)", for: .normal)
+            
+            lowerRightLabel.setTitle("Dynamic Accuracy", for: .normal)
+            lowerRightData.setTitle("\(auditionData.mallet_dynamic)", for: .normal)
+            
+            middleLabel.setTitle("Sound Production", for: .normal)
+            middleData.setTitle("\(auditionData.mallet_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+            middleStack.isHidden = false
+            
+        case 4: //Snare Sight Reading
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.snareRead_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Sound Production", for: .normal)
+            upperRightData.setTitle("\(auditionData.snareRead_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = true
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
+            
+        case 5: //Mallet Sight Reading
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionData.malletRead_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Pitch Accuracy", for: .normal)
+            upperRightData.setTitle("\(auditionData.malletRead_pitch)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Sound Production", for: .normal)
+            lowerLeftData.setTitle("\(auditionData.malletRead_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRIghtStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
+        default:
+            Swift.print("segmentedControlValueChanged Default Called")
+        }
+    }
 }

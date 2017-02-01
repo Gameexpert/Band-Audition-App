@@ -25,6 +25,7 @@ class freshmenConcertPercussion: audition //Audition is the protocol
     var snare_production: Int
     
     var mallet_rhythm: Int
+    var mallet_pitch: Int
     var mallet_tempo: Int
     var mallet_dynamic: Int
     var mallet_production: Int
@@ -56,6 +57,7 @@ class freshmenConcertPercussion: audition //Audition is the protocol
         snare_production = 0
         
         mallet_rhythm = 0
+        mallet_pitch = 0
         mallet_tempo = 0
         mallet_dynamic = 0
         mallet_production = 0
@@ -68,5 +70,17 @@ class freshmenConcertPercussion: audition //Audition is the protocol
         malletRead_production = 0
         
         finalScore = 0
+    }
+    func calculateFinalScore() -> Int
+    {
+        //Next five statements adds every single int together
+        var score: Int = scale1_pitch + scale1_production + scale2_pitch + scale2_production
+        score = score + snare_rhythm + snare_tempo + snare_dynamic + snare_production
+        score = score + mallet_rhythm + mallet_pitch + mallet_tempo + mallet_dynamic + mallet_production
+        score = score + snareRead_rhythm + snareRead_production
+        score = score + malletRead_rhythm + malletRead_pitch + malletRead_production
+            
+        self.finalScore = score
+        return self.finalScore
     }
 }
