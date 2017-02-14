@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import os.log
 
 /*
  Index of other global variables not within this file due to relevancy to their files.
@@ -18,6 +20,7 @@ import Foundation
  */
 
 var instrumentType: String = "Error"
+var auditionData: freshmenConcertPercussion = freshmenConcertPercussion(instrument: instrumentType, firstname: "Test") //Creates storage space for data
 
 /*
  When adding a new audition object, use the following syntax:
@@ -43,7 +46,8 @@ var instrumentType: String = "Error"
  freshmenAuditions[14] == percussion
  */
 var freshmenAuditions: [[audition]] = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
-
+let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+let ArchiveURL = DocumentsDirectory.appendingPathComponent("FreshmenConcertAuditions")
 
 /*
  List the index in relation to the instrument arrays here:
@@ -78,3 +82,23 @@ var varsityAuditions: [[audition]] = [[], [], [], [], [], [], [], [], [], [], []
  jazzAuditions[7] == vibraphone
  */
 var jazzAuditions: [[audition]] = [[], [], [], [], [], [], [], []]
+
+
+func saveFreshmenAuditions()
+{
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(freshmenAuditions, toFile: ArchiveURL.path)
+    if isSuccessfulSave
+    {
+        os_log("Freshmen Auditions successfully saved.", log: OSLog.default, type: .debug)
+    }
+    else
+    {
+        os_log("Failed to save groups...", log: OSLog.default, type: .error)
+    }
+}
+
+func loadFreshmenAuditions() -> [[audition]]?
+{
+    return NSKeyedUnarchiver.unarchiveObject(withFile: freshmenConcertPercussion.ArchiveURL.path) as? [[audition]]
+    
+}
