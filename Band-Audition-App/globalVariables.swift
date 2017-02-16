@@ -20,7 +20,6 @@ import os.log
  */
 
 var instrumentType: String = "Error"
-var auditionData: freshmenConcertPercussion = freshmenConcertPercussion(instrument: instrumentType, firstname: "Test") //Creates storage space for data
 
 /*
  When adding a new audition object, use the following syntax:

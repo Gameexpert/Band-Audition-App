@@ -81,7 +81,8 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         
         static var finalScore = "finalScore"
     }
-    
+   
+/*
     init(instrument: String, firstname: String)
     {
         self.first_name = firstname
@@ -114,6 +115,8 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         
         self.finalScore = 0
     }
+ */
+    
     init(first_name: String, last_name: String, instrument: String, comments: String, scale1_pitch: Int, scale1_production: Int, scale2_pitch: Int, scale2_production: Int, snare_rhythm: Int, snare_tempo: Int, snare_dynamic: Int, snare_production: Int, mallet_rhythm: Int, mallet_pitch: Int, mallet_tempo: Int, mallet_dynamic: Int, mallet_production: Int, snareRead_rhythm: Int, snareRead_production: Int, malletRead_rhythm: Int, malletRead_pitch: Int, malletRead_production: Int, finalScore: Int)
     {
         self.first_name = first_name
@@ -147,18 +150,7 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         self.finalScore = finalScore
     }
     
-    func calculateFinalScore() -> Int
-    {
-        //Next five statements adds every single int together
-        var score: Int = scale1_pitch + scale1_production + scale2_pitch + scale2_production
-        score = score + snare_rhythm + snare_tempo + snare_dynamic + snare_production
-        score = score + mallet_rhythm + mallet_pitch + mallet_tempo + mallet_dynamic + mallet_production
-        score = score + snareRead_rhythm + snareRead_production
-        score = score + malletRead_rhythm + malletRead_pitch + malletRead_production
-            
-        self.finalScore = score
-        return self.finalScore
-    }
+    
     
     func encode(with aCoder: NSCoder)
     {
