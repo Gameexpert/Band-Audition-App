@@ -15,6 +15,7 @@ class FreshmenViewController: UIViewController
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
     @IBOutlet var rightSwipe: UISwipeGestureRecognizer!
     
+    @IBOutlet weak var percussionButton: UIButton!
     
     override func viewDidLoad()
     {
@@ -57,4 +58,20 @@ class FreshmenViewController: UIViewController
             tabBarController?.selectedIndex -= 1
         }
     }
+    
+    
+    @IBAction func segueToFPAudition(_ sender: UIButton)
+    {
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "FPAudition"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    
 }

@@ -83,4 +83,18 @@ class varsityConcertPercussion: audition //Audition is the protocol
         
         finalScore = 0
     }
+    
+    func calculateFinalScore() -> Int
+    {
+        //Next five statements adds every single int together
+        var score: Int = scale1_pitch + scale1_production + scale2_pitch + scale2_production + scale3_pitch + scale3_production
+        score = score + snare_rhythm + snare_tempo + snare_dynamic + snare_production
+        score = score + mallet_rhythm + mallet_tempo + mallet_dynamic + mallet_production
+        score = score + timpani_rhythm + timpani_tempo + timpani_dynamic + timpani_production
+        score = score + snareRead_rhythm + snareRead_production
+        score = score + malletRead_rhythm + malletRead_pitch + malletRead_production
+        
+        self.finalScore = score
+        return self.finalScore
+    }
 }
