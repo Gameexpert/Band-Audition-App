@@ -215,7 +215,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     @IBAction func loadData(_ sender: UIButton)
     {
-        var freshmenAuditions = loadFreshmenAuditions()!
+        loadFreshmenAuditions()
         for i in 0..<freshmenAuditions.count
         {
             for j in 0..<freshmenAuditions[i].count
@@ -228,7 +228,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     func loadData()
     {
-        var freshmenAuditions = loadFreshmenAuditions()!
+        loadFreshmenAuditions()
         for i in 0..<freshmenAuditions.count
         {
             for j in 0..<freshmenAuditions[i].count
@@ -239,6 +239,28 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         }
     }
     
+    
+    //Following method creates the label popover
+    @IBAction func giveDescription(_ sender: UIButton)
+    {
+        desiredLabel = sender.titleLabel!.text!
+        
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "labelPopover")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+
+    }
     //Following methods assign the values to the button labels.
     @IBAction func changeDataValue(_ sender: UIButton)
     {

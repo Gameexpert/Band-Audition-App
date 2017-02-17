@@ -143,9 +143,15 @@ func saveFreshmenAuditions()
     }
 }
 
-func loadFreshmenAuditions() -> [[audition]]?
+func loadFreshmenAuditions()
 {
-    return NSKeyedUnarchiver.unarchiveObject(withFile: freshmenConcertPercussion.ArchiveURL.path) as? [[audition]]
-    
+    if let test = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLFA.path) as? [[audition]]
+    {
+        freshmenAuditions = test
+    }
+    else
+    {
+        os_log("Failed to Load Auditions", log: OSLog.default, type: .error)
+    }
 }
 */

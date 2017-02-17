@@ -404,9 +404,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="Xsa-G2-FWo" kind="popoverPresentation" identifier="labelPopover" popoverAnchorView="5NO-fs-QXE" id="wL0-Cp-f8J">
-                                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                            </segue>
+                                                            <action selector="giveDescription:" destination="UYB-UT-d75" eventType="touchUpInside" id="yVD-lW-y1k"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IkT-K8-Er6">
@@ -433,6 +431,9 @@
                                                         <state key="normal" title="UpperRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="UYB-UT-d75" eventType="touchUpInside" id="5Cy-tM-dvA"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3Z-rL-4Do">
                                                         <state key="normal" title="Button"/>
@@ -462,6 +463,9 @@
                                                         <state key="normal" title="LowerLeft">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="UYB-UT-d75" eventType="touchUpInside" id="3jw-Pk-1Df"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cH-PR-2PU">
                                                         <state key="normal" title="Button"/>
@@ -487,6 +491,9 @@
                                                         <state key="normal" title="LowerRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="UYB-UT-d75" eventType="touchUpInside" id="NYF-mp-m6F"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWs-eO-OQC">
                                                         <state key="normal" title="Button"/>
@@ -514,6 +521,9 @@
                                                 <state key="normal" title="Middle">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="giveDescription:" destination="UYB-UT-d75" eventType="touchUpInside" id="BnT-1B-huL"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1F-Mp-gqr">
                                                 <state key="normal" title="Button"/>
@@ -830,7 +840,7 @@
         <!--Label Pop Over View Controller-->
         <scene sceneID="xx8-cU-bkl">
             <objects>
-                <viewController id="Xsa-G2-FWo" customClass="LabelPopOverViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="labelPopover" id="Xsa-G2-FWo" customClass="LabelPopOverViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vna-zb-Oi1"/>
                         <viewControllerLayoutGuide type="bottom" id="uVb-Yi-Z89"/>
@@ -838,14 +848,30 @@
                     <view key="view" contentMode="scaleToFill" id="0Wb-bv-tUg">
                         <rect key="frame" x="0.0" y="0.0" width="180" height="120"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oBS-r9-AV7">
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oBS-r9-AV7" firstAttribute="trailing" secondItem="0Wb-bv-tUg" secondAttribute="trailingMargin" constant="5" id="avJ-9D-d7e"/>
+                            <constraint firstItem="oBS-r9-AV7" firstAttribute="leading" secondItem="0Wb-bv-tUg" secondAttribute="leadingMargin" constant="5" id="iPd-BF-ahD"/>
+                            <constraint firstItem="oBS-r9-AV7" firstAttribute="top" secondItem="vna-zb-Oi1" secondAttribute="bottom" constant="5" id="zZf-17-nQi"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="180" height="120"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="oBS-r9-AV7" id="ZkR-RT-ZeG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vcv-Bg-Fbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="580"/>
+            <point key="canvasLocation" x="1311.71875" y="579.4921875"/>
         </scene>
         <!--Jazz-->
         <scene sceneID="bVL-7b-vmv">
