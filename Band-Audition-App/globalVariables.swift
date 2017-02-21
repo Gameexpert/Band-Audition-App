@@ -85,6 +85,8 @@ var jazzAuditions: [[audition]] = [[], [], [], [], [], [], [], []]
 let DocumentsDirectoryJ = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
 let ArchiveURLJ = DocumentsDirectoryJ.appendingPathComponent("JazzAuditions")
 
+
+//Freshmen Functions
 func saveFreshmenAuditions()
 {
     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(freshmenAuditions, toFile: ArchiveURLFA.path)
@@ -94,7 +96,7 @@ func saveFreshmenAuditions()
     }
     else
     {
-        os_log("Failed to save auditions...", log: OSLog.default, type: .error)
+        os_log("Failed to save Freshmen Auditions...", log: OSLog.default, type: .error)
     }
 }
 
@@ -106,52 +108,58 @@ func loadFreshmenAuditions()
     }
     else
     {
-        os_log("Failed to load auditions...", log: OSLog.default, type: .error)
+        os_log("Failed to load Freshmen Auditions...", log: OSLog.default, type: .error)
     }
 }
 
-/*
+//Varsity Functions
 func saveVarsityAuditions()
 {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(freshmenAuditions, toFile: ArchiveURLFA.path)
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(varsityAuditions, toFile: ArchiveURLVA.path)
     if isSuccessfulSave
     {
-        os_log("Freshmen Auditions successfully saved.", log: OSLog.default, type: .debug)
+        os_log("Varsity Auditions successfully saved.", log: OSLog.default, type: .debug)
     }
     else
     {
-        os_log("Failed to save groups...", log: OSLog.default, type: .error)
+        os_log("Failed to save Varsity Auditions...", log: OSLog.default, type: .error)
     }
 }
 
-func loadVarsityAuditions() -> [[audition]]?
+func loadVarsityAuditions()
 {
-    return NSKeyedUnarchiver.unarchiveObject(withFile: freshmenConcertPercussion.ArchiveURL.path) as? [[audition]]
-    
+    if let test = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLVA.path) as? [[audition]]
+    {
+        varsityAuditions = test
+    }
+    else
+    {
+        os_log("Failed to load Varsity Auditions...", log: OSLog.default, type: .error)
+    }
 }
 
-func saveFreshmenAuditions()
+//Jazz Functions
+func saveJazzAuditions()
 {
-    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(freshmenAuditions, toFile: ArchiveURLFA.path)
+    let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(jazzAuditions, toFile: ArchiveURLJ.path)
     if isSuccessfulSave
     {
-        os_log("Freshmen Auditions successfully saved.", log: OSLog.default, type: .debug)
+        os_log("Jazz Auditions successfully saved.", log: OSLog.default, type: .debug)
     }
     else
     {
-        os_log("Failed to save groups...", log: OSLog.default, type: .error)
+        os_log("Failed to save Jazz Auditions...", log: OSLog.default, type: .error)
     }
 }
 
-func loadFreshmenAuditions()
+func loadJazzAuditions()
 {
-    if let test = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLFA.path) as? [[audition]]
+    if let test = NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURLJ.path) as? [[audition]]
     {
-        freshmenAuditions = test
+        jazzAuditions = test
     }
     else
     {
-        os_log("Failed to Load Auditions", log: OSLog.default, type: .error)
+        os_log("Failed to load Jazz Auditions...", log: OSLog.default, type: .error)
     }
 }
-*/
