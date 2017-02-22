@@ -27,6 +27,7 @@ class varsityConcertPercussion: audition //Audition is the protocol
     var snare_production: Int
     
     var mallet_rhythm: Int
+    var mallet_pitch: Int
     var mallet_tempo: Int
     var mallet_dynamic: Int
     var mallet_production: Int
@@ -65,6 +66,7 @@ class varsityConcertPercussion: audition //Audition is the protocol
         snare_production = 0
         
         mallet_rhythm = 0
+        mallet_pitch = 0
         mallet_tempo = 0
         mallet_dynamic = 0
         mallet_production = 0
