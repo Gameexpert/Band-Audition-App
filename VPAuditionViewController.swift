@@ -128,19 +128,17 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         dataBorder.addSubview(dataControl)
         setUpDataControl(object: dataControl)
         
-        //Adding the Data Boxes to the dataBorder
+        //Adding the Data Boxes to the dataBorder so they are interactable
         dataBorder.addSubview(mainStackView)
         
         //Adding the necessary delegates for the view
-        /*
          self.commentsView.delegate = self
          self.firstNameBox.delegate = self
          self.lastNameBox.delegate = self
-         */
         
         //Adds listeners to the NSNotification center for the comments keyboard and the popoverkeyboard to work as intended
         NotificationCenter.default.addObserver(self, selector: #selector(VPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        //(Set as real code)NotificationCenter.default.addObserver(self, selector: #selector (VPAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector (VPAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
         
         //Creates a listener to the Segmented control object to call selected function when segmented control changes
         dataControl.addTarget(self, action: #selector(VPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
@@ -180,6 +178,30 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
                 subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
             }
         }//This Rotates the text 90 degrees so it is horizontal for the user
+    }
+    
+    //The next three methods prevent the keyboard from covering the comments box when editing
+    func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        self.keyboardHeight = Int(keyboardRectangle.height)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -(CGFloat(keyboardHeight)))
+        if (!textViewCleared)
+        {
+            textView.text = ""
+            self.textViewCleared = true
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
+        //auditionProperty.comments = textView.text! //Saves the data
+        
     }
     
     func segmentedControlValueChanged(segment: UISegmentedControl)
@@ -262,34 +284,55 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
             middleStack.isHidden = false
-        //Insert Case five and rest here
+        case 5: //Timpani Etude
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.timpani_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Tempo Accuracy", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.timpani_tempo)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Dynamic Accuracy", for: .normal)
+            lowerLeftData.setTitle("\(auditionProperty.timpani_dynamic)", for: .normal)
+            
+            lowerRightLabel.setTitle("Sound Production", for: .normal)
+            lowerRightData.setTitle("\(auditionProperty.timpani_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRightStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+            middleStack.isHidden = true
+        case 6: //Snare Sight Reading
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.snareRead_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Sound Production", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.snareRead_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRightStack.isHidden = false
+            lowerLeftStack.isHidden = true
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
+            
+        case 7: //Mallet Sight Reading
+            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.malletRead_rhythm)", for: .normal)
+            
+            upperRightLabel.setTitle("Pitch Accuracy", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.malletRead_pitch)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Sound Production", for: .normal)
+            lowerLeftData.setTitle("\(auditionProperty.malletRead_production)", for: .normal)
+            
+            upperLeftStack.isHidden = false
+            upperRightStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = true
+            middleStack.isHidden = true
         default:
             Swift.print("segmentedControlValueChanged default case called. controlIndex = \(controlIndex)")
         }
-    }
-    
-    //The next three methods prevent the keyboard from covering the comments box when editing
-    func keyboardWillShow(notification:NSNotification) {
-        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
-        let keyboardRectangle = keyboardFrame.cgRectValue
-        self.keyboardHeight = Int(keyboardRectangle.height)
-    }
-    
-    func textViewDidBeginEditing(_ textView: UITextView)
-    {
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: -(CGFloat(keyboardHeight)))
-        if (!textViewCleared)
-        {
-            textView.text = ""
-            self.textViewCleared = true
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
-        //auditionProperty.comments = textView.text! //Saves the data
-    
     }
     
     /*
@@ -316,7 +359,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         // present the popover
         self.present(popController, animated: true, completion: nil)
     }
-    /*
+    
     func recieveKeyboardData(notification: NSNotification)
     {
         //This function uses global variables (senderButton, returnedValue) found within the keyboardViewController class document. Both are strings
@@ -332,13 +375,17 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
                 auditionProperty.scale1_pitch = Int(returnedValue)!
             case 1: //Scale 2
                 auditionProperty.scale2_pitch = Int(returnedValue)!
-            case 2: //Snare Etude
+            case 2: //Scale 3
+                auditionProperty.scale3_pitch = Int(returnedValue)!
+            case 3: //Snare Etude
                 auditionProperty.snare_rhythm = Int(returnedValue)!
-            case 3: //Mallet Etude
+            case 4: //Mallet Etude
                 auditionProperty.mallet_rhythm = Int(returnedValue)!
-            case 4: //Snare Sight Reading
+            case 5: //Timpani Etude
+                auditionProperty.timpani_rhythm = Int(returnedValue)!
+            case 6: //Snare Reading
                 auditionProperty.snareRead_rhythm = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
+            case 7: //Mallet Reading
                 auditionProperty.malletRead_rhythm = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case upperLeftData. index = \(index)")
@@ -353,13 +400,17 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
                 auditionProperty.scale1_production = Int(returnedValue)!
             case 1: //Scale 2
                 auditionProperty.scale2_production = Int(returnedValue)!
-            case 2: //Snare Etude
+            case 2: //Scale 3
+                auditionProperty.scale3_production = Int(returnedValue)!
+            case 3: //Snare Etude
                 auditionProperty.snare_tempo = Int(returnedValue)!
-            case 3: //Mallet Etude
+            case 4: //Mallet Etude
                 auditionProperty.mallet_pitch = Int(returnedValue)!
-            case 4: //Snare Sight Reading
+            case 5: //Timpani Etude
+                auditionProperty.timpani_tempo = Int(returnedValue)!
+            case 6: //Snare Reading
                 auditionProperty.snareRead_production = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
+            case 7: //Mallet Reading
                 auditionProperty.malletRead_pitch = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case upperRightData. index = \(index)")
@@ -371,17 +422,19 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 2: //Snare Etude
+            case 3: //Snare Etude
                 auditionProperty.snare_dynamic = Int(returnedValue)!
-            case 3: //Mallet Etude
+            case 4: //Mallet Etude
                 auditionProperty.mallet_tempo = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
+            case 5: //Timpani Etude
+                auditionProperty.timpani_dynamic = Int(returnedValue)!
+            case 7: //Mallet Reading
                 auditionProperty.malletRead_production = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case lowerLeftData. index = \(index)")
             }
             
-        case "lowerRightData":
+        case "lowerRightData": //This is the next Section of switch cases that needs adjusting LOOK HERE EVAN!!!!!!!!
             lowerRightData.setTitle(returnedValue, for: .normal)
             //Following switch-case saves the returned value to the auditionProperty object
             //NOTICE: some cases do not exist because button is invisible!
@@ -411,6 +464,6 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             //Given an error message in console
             Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
         }
-    }*/
+    }
     
 }
