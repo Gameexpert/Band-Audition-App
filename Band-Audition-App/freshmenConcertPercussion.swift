@@ -190,7 +190,7 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         // The name is required. If we cannot decode a name string, the initializer should fail.
         guard let first_name = aDecoder.decodeObject(forKey: PropertyKey.first_name) as? String else
         {
-            os_log("Unable to decode the name for a Meal object.", log: OSLog.default, type: .debug)
+            os_log("Unable to decode the name for the Freshmen Percussion object.", log: OSLog.default, type: .debug)
             return nil
         }
         
