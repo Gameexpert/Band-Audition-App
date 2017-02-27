@@ -46,57 +46,45 @@ class varsityConcertPercussion: audition //Audition is the protocol
     
     var finalScore: Int
     
-    init(instrument: String)
+    init(first_name: String, last_name: String, instrument: String, comments: String, scale1_pitch: Int, scale1_production: Int, scale2_pitch: Int, scale2_production: Int, scale3_pitch: Int, scale3_production: Int, snare_rhythm: Int, snare_tempo: Int, snare_dynamic: Int, snare_production: Int, mallet_rhythm: Int, mallet_pitch: Int, mallet_tempo: Int, mallet_dynamic: Int, mallet_production: Int, timpani_rhythm: Int, timpani_tempo: Int, timpani_dynamic: Int, timpani_production: Int, snareRead_rhythm: Int, snareRead_production: Int, malletRead_rhythm: Int, malletRead_pitch: Int, malletRead_production: Int, finalScore: Int)
     {
-        first_name = ""
-        last_name = ""
+        self.first_name = first_name
+        self.last_name = last_name
         self.instrument = instrument
-        comments = ""
+        self.comments = comments
         
-        scale1_pitch = 0
-        scale1_production = 0
-        scale2_pitch = 0
-        scale2_production = 0
-        scale3_pitch = 0
-        scale3_production = 0
+        self.scale1_pitch = scale1_pitch
+        self.scale1_production = scale1_production
+        self.scale2_pitch = scale2_pitch
+        self.scale2_production = scale2_production
+        self.scale3_pitch = scale3_pitch
+        self.scale3_production = scale3_production
         
-        snare_rhythm = 0
-        snare_tempo = 0
-        snare_dynamic = 0
-        snare_production = 0
+        self.snare_rhythm = snare_rhythm
+        self.snare_tempo = snare_tempo
+        self.snare_dynamic = snare_dynamic
+        self.snare_production = snare_production
         
-        mallet_rhythm = 0
-        mallet_pitch = 0
-        mallet_tempo = 0
-        mallet_dynamic = 0
-        mallet_production = 0
+        self.mallet_rhythm = mallet_rhythm
+        self.mallet_pitch = mallet_pitch
+        self.mallet_tempo = mallet_tempo
+        self.mallet_dynamic = mallet_dynamic
+        self.mallet_production = mallet_production
         
-        timpani_rhythm = 0
-        timpani_tempo = 0
-        timpani_dynamic = 0
-        timpani_production = 0
+        self.timpani_rhythm = timpani_rhythm
+        self.timpani_tempo = timpani_tempo
+        self.timpani_dynamic = timpani_dynamic
+        self.timpani_production = timpani_production
         
-        snareRead_rhythm = 0
-        snareRead_production = 0
+        self.snareRead_rhythm = snareRead_rhythm
+        self.snareRead_production = snareRead_production
         
-        malletRead_rhythm = 0
-        malletRead_pitch = 0
-        malletRead_production = 0
+        self.malletRead_rhythm = malletRead_rhythm
+        self.malletRead_pitch = malletRead_pitch
+        self.malletRead_production = malletRead_production
         
-        finalScore = 0
+        self.finalScore = finalScore
     }
     
-    func calculateFinalScore() -> Int
-    {
-        //Next five statements adds every single int together
-        var score: Int = scale1_pitch + scale1_production + scale2_pitch + scale2_production + scale3_pitch + scale3_production
-        score = score + snare_rhythm + snare_tempo + snare_dynamic + snare_production
-        score = score + mallet_rhythm + mallet_tempo + mallet_dynamic + mallet_production
-        score = score + timpani_rhythm + timpani_tempo + timpani_dynamic + timpani_production
-        score = score + snareRead_rhythm + snareRead_production
-        score = score + malletRead_rhythm + malletRead_pitch + malletRead_production
-        
-        self.finalScore = score
-        return self.finalScore
-    }
+
 }

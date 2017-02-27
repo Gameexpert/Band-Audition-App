@@ -145,6 +145,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         //Calls the segmented control changed method to properly set up the GUI for the selected Index (0)
         segmentedControlValueChanged(segment: dataControl)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -180,6 +181,27 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         }//This Rotates the text 90 degrees so it is horizontal for the user
     }
     
+    //Following method creates the label popover
+    @IBAction func giveDescription(_ sender: UIButton)
+    {
+        desiredLabel = sender.titleLabel!.text!
+        
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "labelPopover")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+    }
+    
     //The next three methods prevent the keyboard from covering the comments box when editing
     func keyboardWillShow(notification:NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
@@ -200,7 +222,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy:CGFloat(keyboardHeight))
-        //auditionProperty.comments = textView.text! //Saves the data
+        auditionProperty.comments = textView.text! //Saves the data
         
     }
     
@@ -441,10 +463,12 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 2: //Snare Etude
+            case 3: //Snare Etude
                 auditionProperty.snare_production = Int(returnedValue)!
-            case 3: //Mallet Etude
+            case 4: //Mallet Etude
                 auditionProperty.mallet_dynamic = Int(returnedValue)!
+            case 5: //Timpani Etude
+                auditionProperty.timpani_production = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case lowerRightData. index = \(index)")
             }
@@ -455,7 +479,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 3: //Mallet Etude
+            case 4: //Mallet Etude
                 auditionProperty.mallet_production = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case middleData. index = \(index)")
@@ -464,6 +488,14 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             //Given an error message in console
             Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
         }
+        //Now it calculates the final score of the item and sets the title of the finalScore label to that.
+        let total = calculateFinalScore()
+        finalScoreLabel.text = "Total: \(total)"
     }
-    
+    func calculateFinalScore() -> Int
+    {
+        let score: Int = auditionProperty.scale1_pitch + auditionProperty.scale1_production + auditionProperty.scale2_pitch + auditionProperty.scale2_production + auditionProperty.scale3_pitch + auditionProperty.scale3_production + auditionProperty.snare_rhythm + auditionProperty.snare_tempo + auditionProperty.snare_dynamic + auditionProperty.snare_production + auditionProperty.mallet_rhythm + auditionProperty.mallet_pitch + auditionProperty.mallet_tempo + auditionProperty.mallet_dynamic + auditionProperty.mallet_production + auditionProperty.timpani_rhythm + auditionProperty.timpani_tempo + auditionProperty.timpani_dynamic + auditionProperty.timpani_production + auditionProperty.snareRead_rhythm + auditionProperty.snareRead_production + auditionProperty.malletRead_rhythm + auditionProperty.malletRead_pitch + auditionProperty.malletRead_production
+        return score
+    }
+ 
 }

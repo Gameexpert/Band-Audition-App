@@ -1034,9 +1034,15 @@
                                                         <state key="normal" title="UpperLeft">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="4w4-Ne-seY" eventType="touchUpInside" id="hpJ-5E-WCS"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qDW-q6-bfs">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="4w4-Ne-seY" eventType="touchUpInside" id="hD0-Hf-ywC"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1056,9 +1062,15 @@
                                                         <state key="normal" title="UpperRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="4w4-Ne-seY" eventType="touchUpInside" id="WSM-2A-QsB"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNX-8d-MIn">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="4w4-Ne-seY" eventType="touchUpInside" id="OaT-mC-Ndo"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1082,9 +1094,15 @@
                                                         <state key="normal" title="LowerLeft">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="4w4-Ne-seY" eventType="touchUpInside" id="Yei-ar-uiV"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyp-eg-ULF">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="4w4-Ne-seY" eventType="touchUpInside" id="vqz-aC-0BR"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1104,9 +1122,15 @@
                                                         <state key="normal" title="LowerRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="4w4-Ne-seY" eventType="touchUpInside" id="Q2G-yM-bbl"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0a-F8-HTj">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="4w4-Ne-seY" eventType="touchUpInside" id="HB2-6L-87T"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1128,9 +1152,15 @@
                                                 <state key="normal" title="Middle">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="giveDescription:" destination="4w4-Ne-seY" eventType="touchUpInside" id="s5y-l2-bGI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rF4-gr-NYh">
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="changeDataValue:" destination="4w4-Ne-seY" eventType="touchUpInside" id="aKl-Vc-phI"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
