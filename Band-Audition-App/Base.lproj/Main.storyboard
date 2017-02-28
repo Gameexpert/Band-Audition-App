@@ -1036,6 +1036,9 @@
                                                                 <state key="normal" title="UpperLeft">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="giveDescription:" destination="DiD-1b-CTq" eventType="touchUpInside" id="t0A-1U-cOK"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYK-09-fIv">
                                                                 <state key="normal" title="Button"/>
@@ -1058,6 +1061,9 @@
                                                                 <state key="normal" title="UpperRight">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="giveDescription:" destination="DiD-1b-CTq" eventType="touchUpInside" id="O9V-NK-16h"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFk-PS-K7U">
                                                                 <state key="normal" title="Button"/>
@@ -1082,6 +1088,9 @@
                                                         <state key="normal" title="Middle">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="DiD-1b-CTq" eventType="touchUpInside" id="yHM-sv-Rfe"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PN-z6-c6t">
                                                         <state key="normal" title="Button"/>
@@ -1117,8 +1126,11 @@
                                                         <state key="normal" title="Improvisation">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="DiD-1b-CTq" eventType="touchUpInside" id="CfA-9J-h5F"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x7-bY-eN1">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="improvisationData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x7-bY-eN1">
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
@@ -1139,8 +1151,11 @@
                                                         <state key="normal" title="Left Hand Independence">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="DiD-1b-CTq" eventType="touchUpInside" id="adn-Z9-fmK"/>
+                                                        </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-kk-s3w">
+                                                    <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="leftHandData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-kk-s3w">
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                 </subviews>
@@ -1157,9 +1172,15 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BL-n9-dII">
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveData:" destination="DiD-1b-CTq" eventType="touchUpInside" id="fUy-2X-4RE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-np-50F">
                                 <state key="normal" title="Load"/>
+                                <connections>
+                                    <action selector="loadData:" destination="DiD-1b-CTq" eventType="touchUpInside" id="qgD-Jm-mVH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

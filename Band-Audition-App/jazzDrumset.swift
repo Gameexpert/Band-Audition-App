@@ -1,9 +1,9 @@
 //
-//  jazzAudition.swift
+//  jazzDrumset.swift
 //  Band-Audition-App
 //
-//  Created by VANDER HOEVEN, EVAN on 12/5/16.
-//  Copyright © 2016 Copy Pasta Coding. All rights reserved.
+//  Created by ECCLES, JUSTIN on 2/28/17.
+//  Copyright © 2017 Copy Pasta Coding. All rights reserved.
 //
 
 import Foundation
@@ -36,8 +36,8 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
     
     struct PropertyKey
     {
-        static var first_Name = "first_Name"
-        static var last_Name = "last_Name"
+        static var first_name = "first_name"
+        static var last_name = "last_name"
         static var instrument = "instrument"
         static var comments = "comments"
         
@@ -58,11 +58,10 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         
         static var finalScore = "finalScore"
     }
-
-    init(first_Name: String, last_name: String, instrument: String, comments: String, swing_Support: Int, swing_Stability: Int, swing_Articulations: Int, straight_Support: Int, straight_Stability: Int, straight_Articulations: Int, sight_Support: Int, sight_Stability: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
+    init(first_name: String, last_name: String, instrument: String, comments: String, swing_Support: Int, swing_Stability: Int, swing_Articulations: Int, straight_Support: Int, straight_Stability: Int, straight_Articulations: Int, sight_Support: Int, sight_Stability: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
     {
-        self.first_Name = first_Name
-        self.last_Name = last_Name
+        self.first_name = first_name
+        self.last_name = last_name
         self.instrument = instrument
         self.comments = comments
         
@@ -83,6 +82,33 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         
         self.finalScore = finalScore
     }
+    
+    /*
+     init(first_name: first_name, last_name: last_name, instrument: instrument, comments: comments, swing_Support: swing_Support, swing_Stability: swing_Stability, swing_Articulations: swing_Articulations, straight_Support: straight_Support, straight_Stability: straight_Stability, straight_Articulations: straight_Articulations, sight_Support: sight_Support, sight_Stability: sight_Stability, sight_Articulations: sight_Articulations, improvisation: improvisation, leftHand_Independence: leftHand_Independence, finalScore: finalScore)
+     {
+     self.first_name = first_name
+     self.last_name = last_name
+     self.instrument = instrument
+     self.comments = comments
+     
+     self.swing_Support = swing_Support
+     self.swing_Stability = swing_Stability
+     self.swing_Articulations = swing_Articulations
+     
+     self.straight_Support = straight_Support
+     self.straight_Stability = straight_Stability
+     self.straight_Articulations = straight_Articulations
+     
+     self.sight_Support = sight_Support
+     self.sight_Stability = sight_Stability
+     self.sight_Articulations = sight_Articulations
+     
+     self.improvisation = improvisation
+     self.leftHand_Independence = leftHand_Independence
+     
+     self.finalScore = finalScore
+     }
+     */
     
     func encode(with aCoder: NSCoder)
     {
@@ -122,24 +148,24 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         let instrument = aDecoder.decodeObject(forKey: PropertyKey.instrument)
         let comments = aDecoder.decodeObject(forKey: PropertyKey.comments)
         
-        let swing_Support = aDecoder.decodeInteger(forKey: PropertyKey.scale1_pitch)
-        let swing_Stability = aDecoder.decodeInteger(forKey: PropertyKey.scale1_production)
-        let swing_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.scale2_pitch)
+        let swing_Support = aDecoder.decodeInteger(forKey: PropertyKey.swing_Support)
+        let swing_Stability = aDecoder.decodeInteger(forKey: PropertyKey.swing_Stability)
+        let swing_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.swing_Articulations)
         
-        let straight_Support = aDecoder.decodeInteger(forKey: PropertyKey.snare_rhythm)
-        let straight_Stability = aDecoder.decodeInteger(forKey: PropertyKey.snare_tempo)
-        let straight_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.snare_dynamic)
+        let straight_Support = aDecoder.decodeInteger(forKey: PropertyKey.straight_Support)
+        let straight_Stability = aDecoder.decodeInteger(forKey: PropertyKey.straight_Stability)
+        let straight_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.straight_Articulations)
         
-        let sight_Support = aDecoder.decodeInteger(forKey: PropertyKey.mallet_rhythm)
-        let sight_Stability = aDecoder.decodeInteger(forKey: PropertyKey.mallet_pitch)
-        let sight_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.mallet_tempo)
+        let sight_Support = aDecoder.decodeInteger(forKey: PropertyKey.sight_Support)
+        let sight_Stability = aDecoder.decodeInteger(forKey: PropertyKey.sight_Stability)
+        let sight_Articulations = aDecoder.decodeInteger(forKey: PropertyKey.sight_Articulations)
         
-        let improvisation = aDecoder.decodeInteger(forKey: PropertyKey.mallet_dynamic)
-        let leftHand_Independence = aDecoder.decodeInteger(forKey: PropertyKey.mallet_production)
+        let improvisation = aDecoder.decodeInteger(forKey: PropertyKey.improvisation)
+        let leftHand_Independence = aDecoder.decodeInteger(forKey: PropertyKey.leftHand_Independence)
         
         let finalScore = aDecoder.decodeInteger(forKey: PropertyKey.finalScore)
         
-        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, scale1_pitch: scale1_pitch as! Int, scale1_production: scale1_production as! Int, scale2_pitch: scale2_pitch as! Int, scale2_production: scale2_production as! Int, snare_rhythm: snare_rhythm as! Int, snare_tempo: snare_tempo as! Int, snare_dynamic: snare_dynamic as! Int, snare_production: snare_production as! Int, mallet_rhythm: mallet_rhythm as! Int, mallet_pitch: mallet_pitch as! Int, mallet_tempo: mallet_tempo as! Int, mallet_dynamic: mallet_dynamic as! Int, mallet_production: mallet_production as! Int, snareRead_rhythm: snareRead_rhythm as! Int, snareRead_production: snareRead_production as! Int, malletRead_rhythm: malletRead_rhythm as! Int, malletRead_pitch: malletRead_pitch as! Int, malletRead_production: malletRead_production as! Int, finalScore: finalScore as! Int)
+        self.init(first_name: first_name as! String, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, swing_Support: swing_Support, swing_Stability: swing_Stability, swing_Articulations: swing_Articulations, straight_Support: straight_Support, straight_Stability: straight_Stability, straight_Articulations: straight_Articulations, sight_Support: sight_Support, sight_Stability: sight_Stability, sight_Articulations: sight_Articulations, improvisation: improvisation, leftHand_Independence: leftHand_Independence, finalScore: finalScore)
     }
     
     

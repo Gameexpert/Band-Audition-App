@@ -181,23 +181,22 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         auditionProperty.comments = textView.text! //Saves the data
     }
     
-    /*
     @IBAction func saveData(_ sender: UIButton)
     {
         self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
-        let auditionData: freshmenConcertPercussion = freshmenConcertPercussion(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, scale1_pitch: auditionProperty.scale1_pitch, scale1_production: auditionProperty.scale1_production, scale2_pitch: auditionProperty.scale2_pitch, scale2_production: auditionProperty.scale2_production, snare_rhythm: auditionProperty.snare_rhythm, snare_tempo: auditionProperty.snare_tempo, snare_dynamic: auditionProperty.snare_dynamic, snare_production: auditionProperty.snare_production, mallet_rhythm: auditionProperty.mallet_rhythm, mallet_pitch: auditionProperty.mallet_pitch, mallet_tempo: auditionProperty.mallet_tempo, mallet_dynamic: auditionProperty.mallet_dynamic, mallet_production: auditionProperty.mallet_production, snareRead_rhythm: auditionProperty.snareRead_rhythm, snareRead_production: auditionProperty.snareRead_production, malletRead_rhythm: auditionProperty.malletRead_rhythm, malletRead_pitch: auditionProperty.malletRead_pitch, malletRead_production: auditionProperty.malletRead_production, finalScore: auditionProperty.finalScore)
-        freshmenAuditions[14].append(auditionData)
-        saveFreshmenAuditions()
+        let auditionData: jazzDrumset = jazzDrumset(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, swing_Support: auditionProperty.swing_Support, swing_Stability: auditionProperty.swing_Stability, swing_Articulations: auditionProperty.swing_Articulations, straight_Support: auditionProperty.straight_Support, straight_Stability: auditionProperty.straight_Stability, straight_Articulations: auditionProperty.straight_Articulations, sight_Support: auditionProperty.sight_Support, sight_Stability: auditionProperty.sight_Stability, sight_Articulations: auditionProperty.sight_Articulations, improvisation: auditionProperty.improvisation, leftHand_Independence: auditionProperty.leftHand_Independence, finalScore: auditionProperty.finalScore)
+        jazzAuditions[6].append(auditionData)
+        saveJazzAuditions()
     }
     
     @IBAction func loadData(_ sender: UIButton)
     {
-        loadFreshmenAuditions()
-        for i in 0..<freshmenAuditions.count
+        loadJazzAuditions()
+        for i in 0..<jazzAuditions.count
         {
-            for j in 0..<freshmenAuditions[i].count
+            for j in 0..<jazzAuditions[i].count
             {
-                print("\(i), \(j), \(freshmenAuditions[i][j]), \(freshmenAuditions[i][j].first_name), \(freshmenAuditions[i][j].last_name)")
+                print("\(i), \(j), \(jazzAuditions[i][j]), \(jazzAuditions[i][j].first_name), \(jazzAuditions[i][j].last_name)")
             }
             
         }
@@ -205,12 +204,12 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     func loadData()
     {
-        loadFreshmenAuditions()
-        for i in 0..<freshmenAuditions.count
+        loadJazzAuditions()
+        for i in 0..<jazzAuditions.count
         {
-            for j in 0..<freshmenAuditions[i].count
+            for j in 0..<jazzAuditions[i].count
             {
-                print("\(i), \(j), \(freshmenAuditions[i][j]), \(freshmenAuditions[i][j].first_name), \(freshmenAuditions[i][j].last_name)")
+                print("\(i), \(j), \(jazzAuditions[i][j]), \(jazzAuditions[i][j].first_name), \(jazzAuditions[i][j].last_name)")
             }
             
         }
@@ -238,6 +237,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         self.present(popController, animated: true, completion: nil)
         
     }
+     
     //Following methods assign the values to the button labels.
     @IBAction func changeDataValue(_ sender: UIButton)
     {
@@ -359,7 +359,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         calculateFinalScore()
         finalScoreLabel.text! = "Total: \(auditionProperty.finalScore)"
     }
-    
+    /*
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         let itemName: String = textField.restorationIdentifier!
