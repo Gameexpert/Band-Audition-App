@@ -46,6 +46,47 @@ class varsityConcertPercussion: audition //Audition is the protocol
     
     var finalScore: Int
     
+    //MARK: Types
+    struct propertyKey
+    {
+        static var first_name = "first_name"
+        static var last_name = "last_name"
+        static var instrument = "instrument"
+        
+        static var scale1_pitch = "scale1_pitch"
+        static var scale1_production = "scale1_production"
+        
+        static var scale2_pitch = "scale2_pitch"
+        static var scale2_production = "scale2_production"
+        
+        static var scale3_pitch = "scale3_pitch"
+        static var scale3_production = "scale3_production"
+        
+        static var snare_rhythm = "snare_rhythm"
+        static var snare_tempo = "snare_tempo"
+        static var snare_dynamic = "snare_dynamic"
+        static var snare_production = "snare_production"
+        
+        static var mallet_rhythm = "mallet_rhythm"
+        static var mallet_pitch = "mallet_pitch"
+        static var mallet_tempo = "mallet_tempo"
+        static var mallet_dynamic = "mallet_dynamic"
+        static var mallet_production = "mallet_production"
+        
+        static var timpani_rhythm = "timpani_rhythm"
+        static var timpani_tempo = "timpani_tempo"
+        static var timpani_dynamic = "timpani_dynamic"
+        static var timpani_production = "timpani_production"
+        
+        static var snareRead_rhythm = "snareRead_rhythm"
+        static var snareRead_production = "snareRead_production"
+        
+        static var malletRead_rhythm = "malletRead_rhythm"
+        static var malletRead_ptich = "malletRead_ptich"
+        static var malletRead_production = "malletRead_production"
+    }
+    
+        
     init(first_name: String, last_name: String, instrument: String, comments: String, scale1_pitch: Int, scale1_production: Int, scale2_pitch: Int, scale2_production: Int, scale3_pitch: Int, scale3_production: Int, snare_rhythm: Int, snare_tempo: Int, snare_dynamic: Int, snare_production: Int, mallet_rhythm: Int, mallet_pitch: Int, mallet_tempo: Int, mallet_dynamic: Int, mallet_production: Int, timpani_rhythm: Int, timpani_tempo: Int, timpani_dynamic: Int, timpani_production: Int, snareRead_rhythm: Int, snareRead_production: Int, malletRead_rhythm: Int, malletRead_pitch: Int, malletRead_production: Int, finalScore: Int)
     {
         self.first_name = first_name

@@ -34,8 +34,8 @@ class jazzDrumset: audition //Audition is the protocol
 
     init(instrument: String)
     {
-        first_Name = ""
-        last_Name = ""
+        first_name = ""
+        last_name = ""
         self.instrument = instrument
         preferredRange = ""
         comments = ""

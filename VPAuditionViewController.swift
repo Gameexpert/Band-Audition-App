@@ -145,7 +145,6 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         //Calls the segmented control changed method to properly set up the GUI for the selected Index (0)
         segmentedControlValueChanged(segment: dataControl)
-        
     }
     
     override func didReceiveMemoryWarning() {
