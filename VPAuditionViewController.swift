@@ -145,6 +145,8 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         //Calls the segmented control changed method to properly set up the GUI for the selected Index (0)
         segmentedControlValueChanged(segment: dataControl)
+        
+        loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -164,6 +166,28 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
      */
     
     //MARK: Functions
+    
+    //Following function saves the audition form
+    @IBAction func saveData(_ sender: UIButton)
+    {
+        self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
+        let auditionData: varsityConcertPercussion = varsityConcertPercussion(first_name: auditionProperty.first_name, last_name:  auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, scale1_pitch:  auditionProperty.scale1_pitch, scale1_production:  auditionProperty.scale1_production, scale2_pitch:  auditionProperty.scale2_pitch, scale2_production: auditionProperty.scale2_production, scale3_pitch: auditionProperty.scale3_pitch, scale3_production: auditionProperty.scale3_production, snare_rhythm: auditionProperty.snare_rhythm, snare_tempo: auditionProperty.snare_tempo, snare_dynamic: auditionProperty.snare_dynamic, snare_production: auditionProperty.snare_production, mallet_rhythm: auditionProperty.mallet_rhythm, mallet_pitch: auditionProperty.mallet_pitch, mallet_tempo: auditionProperty.mallet_tempo, mallet_dynamic: auditionProperty.mallet_dynamic, mallet_production: auditionProperty.mallet_production, timpani_rhythm: auditionProperty.timpani_rhythm, timpani_tempo: auditionProperty.timpani_tempo, timpani_dynamic: auditionProperty.timpani_dynamic, timpani_production: auditionProperty.timpani_production, snareRead_rhythm: auditionProperty.snareRead_rhythm, snareRead_production: auditionProperty.snareRead_production, malletRead_rhythm: auditionProperty.malletRead_rhythm, malletRead_pitch: auditionProperty.malletRead_pitch, malletRead_production: auditionProperty.malletRead_production, finalScore: auditionProperty.finalScore)
+    }
+    
+    //Following Function loads the 2D array object so that it is possible to save the data when the form is filled.
+    func loadData()
+    {
+        Swift.print("HEY! LOOK HERE!")
+        loadVarsityAuditions()
+        for i in 0..<varsityAuditions.count
+        {
+            for j in 0..<varsityAuditions[i].count
+            {
+                print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+            }
+            
+        }
+    }
     
     //Following function rotates the UISegmentedControl 1/2 pi radians
     func setUpDataControl(object: UISegmentedControl)

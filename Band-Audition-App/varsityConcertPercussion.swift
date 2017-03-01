@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+import os.log
+
 class varsityConcertPercussion: audition //Audition is the protocol
 {
     var first_name: String
@@ -52,6 +55,7 @@ class varsityConcertPercussion: audition //Audition is the protocol
         static var first_name = "first_name"
         static var last_name = "last_name"
         static var instrument = "instrument"
+        static var comments = "comments"
         
         static var scale1_pitch = "scale1_pitch"
         static var scale1_production = "scale1_production"
@@ -82,8 +86,10 @@ class varsityConcertPercussion: audition //Audition is the protocol
         static var snareRead_production = "snareRead_production"
         
         static var malletRead_rhythm = "malletRead_rhythm"
-        static var malletRead_ptich = "malletRead_ptich"
+        static var malletRead_pitch = "malletRead_pitch"
         static var malletRead_production = "malletRead_production"
+        
+        static var finalScore = "finalScore"
     }
     
         
@@ -127,5 +133,90 @@ class varsityConcertPercussion: audition //Audition is the protocol
         self.finalScore = finalScore
     }
     
+    func encode (with aCoder: NSCoder)
+    {
+        aCoder.encode(first_name, forKey: propertyKey.first_name)
+        aCoder.encode(last_name, forKey: propertyKey.last_name)
+        aCoder.encode(instrument, forKey: propertyKey.instrument)
+        aCoder.encode(comments, forKey: propertyKey.comments)
+        
+        aCoder.encode(scale1_pitch, forKey: propertyKey.scale1_pitch)
+        aCoder.encode(scale1_production, forKey: propertyKey.scale1_production)
+        aCoder.encode(scale2_pitch, forKey: propertyKey.scale2_pitch)
+        aCoder.encode(scale2_production, forKey: propertyKey.scale2_production)
+        aCoder.encode(scale3_pitch, forKey: propertyKey.scale3_pitch)
+        aCoder.encode(scale3_production, forKey: propertyKey.scale3_production)
+        
+        aCoder.encode(snare_rhythm, forKey: propertyKey.snare_rhythm)
+        aCoder.encode(snare_tempo, forKey: propertyKey.snare_tempo)
+        aCoder.encode(snare_dynamic, forKey: propertyKey.snare_dynamic)
+        aCoder.encode(snare_production, forKey: propertyKey.snare_production)
+        
+        aCoder.encode(mallet_rhythm, forKey: propertyKey.mallet_rhythm)
+        aCoder.encode(mallet_pitch, forKey: propertyKey.mallet_pitch)
+        aCoder.encode(mallet_tempo, forKey: propertyKey.mallet_tempo)
+        aCoder.encode(mallet_dynamic, forKey: propertyKey.mallet_dynamic)
+        aCoder.encode(mallet_production, forKey: propertyKey.mallet_production)
+        
+        aCoder.encode(timpani_rhythm, forKey: propertyKey.timpani_rhythm)
+        aCoder.encode(timpani_tempo, forKey: propertyKey.timpani_tempo)
+        aCoder.encode(timpani_dynamic, forKey: propertyKey.timpani_dynamic)
+        aCoder.encode(timpani_production, forKey: propertyKey.timpani_production)
+        
+        aCoder.encode(snareRead_rhythm, forKey: propertyKey.snareRead_rhythm)
+        aCoder.encode(snareRead_production, forKey: propertyKey.snareRead_production)
+        
+        aCoder.encode(malletRead_rhythm, forKey: propertyKey.malletRead_rhythm)
+        aCoder.encode(malletRead_pitch, forKey: propertyKey.malletRead_pitch)
+        aCoder.encode(malletRead_production, forKey: propertyKey.malletRead_production)
+        
+        aCoder.encode(finalScore, forKey: propertyKey.finalScore)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder)
+    {
+        //The name is required. If we cannot decode a name string, the initializer should fail
+        guard let first_name = aDecoder.decodeObject(forKey: propertyKey.first_name) as? String else {
+            os_log("Unable to decode the name for a VPAudition Object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        let last_name = aDecoder.decodeObject(forKey: propertyKey.last_name)
+        let instrument = aDecoder.decodeObject(forKey: propertyKey.instrument)
+        let comments = aDecoder.decodeObject(forKey: propertyKey.comments)
+        
+        let scale1_pitch = aDecoder.decodeObject(forKey: propertyKey.scale1_pitch)
+        let scale1_production = aDecoder.decodeObject(forKey: propertyKey.scale1_production)
+        let scale2_pitch = aDecoder.decodeObject(forKey: propertyKey.scale2_pitch)
+        let scale2_production = aDecoder.decodeObject(forKey: propertyKey.scale2_production)
+        let scale3_pitch = aDecoder.decodeObject(forKey: propertyKey.scale3_pitch)
+        let scale3_production = aDecoder.decodeObject(forKey: propertyKey.scale3_production)
+        
+        let snare_rhythm = aDecoder.decodeObject(forKey: propertyKey.snare_rhythm)
+        let snare_tempo = aDecoder.decodeObject(forKey: propertyKey.snare_tempo)
+        let snare_dynamic = aDecoder.decodeObject(forKey: propertyKey.snare_dynamic)
+        let snare_production = aDecoder.decodeObject(forKey: propertyKey.snare_production)
+        
+        let mallet_rhythm = aDecoder.decodeObject(forKey: propertyKey.mallet_rhythm)
+        let mallet_pitch = aDecoder.decodeObject(forKey: propertyKey.mallet_pitch)
+        let mallet_tempo = aDecoder.decodeObject(forKey: propertyKey.mallet_tempo)
+        let mallet_dynamic = aDecoder.decodeObject(forKey: propertyKey.mallet_dynamic)
+        let mallet_production = aDecoder.decodeObject(forKey: propertyKey.mallet_production)
+        
+        let timpani_rhythm = aDecoder.decodeObject(forKey: propertyKey.timpani_rhythm)
+        let timpani_tempo = aDecoder.decodeObject(forKey: propertyKey.timpani_tempo)
+        let timpani_dynamic = aDecoder.decodeObject(forKey: propertyKey.timpani_dynamic)
+        let timpani_production = aDecoder.decodeObject(forKey: propertyKey.timpani_production)
+        
+        let snareRead_rhythm = aDecoder.decodeObject(forKey: propertyKey.snareRead_rhythm)
+        let snareRead_production = aDecoder.decodeObject(forKey: propertyKey.snareRead_production)
+        
+        let malletRead_rhythm = aDecoder.decodeObject(forKey: propertyKey.malletRead_rhythm)
+        let malletRead_pitch = aDecoder.decodeObject(forKey: propertyKey.malletRead_pitch)
+        let malletRead_production = aDecoder.decodeObject(forKey: propertyKey.malletRead_production)
+        
+        let finalScore = aDecoder.decodeObject(forKey: propertyKey.finalScore)
+        
+        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, scale1_pitch: scale1_pitch as! Int, scale1_production: scale1_production as! Int, scale2_pitch: scale2_pitch as! Int, scale2_production: scale2_production as! Int, scale3_pitch: scale3_pitch as! Int, scale3_production: scale3_production as! Int, snare_rhythm: snare_rhythm as! Int, snare_tempo: snare_tempo as! Int, snare_dynamic: snare_dynamic as! Int, snare_production: snare_production as! Int, mallet_rhythm: mallet_rhythm as! Int, mallet_pitch: mallet_pitch as! Int, mallet_tempo: mallet_tempo as! Int, mallet_dynamic: mallet_dynamic as! Int, mallet_production: mallet_production as! Int, timpani_rhythm: timpani_rhythm as! Int, timpani_tempo: timpani_tempo as! Int, timpani_dynamic: timpani_dynamic as! Int, timpani_production: timpani_production as! Int, snareRead_rhythm: snareRead_rhythm as! Int, snareRead_production: snareRead_production as! Int, malletRead_rhythm: malletRead_rhythm as! Int, malletRead_pitch: malletRead_pitch as! Int, malletRead_production: malletRead_production as! Int, finalScore: finalScore as! Int)
+    }
 
 }

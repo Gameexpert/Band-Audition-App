@@ -1188,6 +1188,9 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78C-1u-ryu">
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveData:" destination="4w4-Ne-seY" eventType="touchUpInside" id="M4K-8f-9T4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
