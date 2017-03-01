@@ -124,7 +124,13 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         //Creates a listener for the NSNotification center to stop the keyboard from covering the comments box
         NotificationCenter.default.addObserver(self, selector: #selector(JDAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
+        
+        dataControl.addTarget(self, action: #selector(FPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        
+        segmentedControlValueChanged(segment: dataControl)
+        
+        loadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -273,18 +279,12 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 0: //Scale 1
-                auditionProperty.scale1_pitch = Int(returnedValue)!
-            case 1: //Scale 2
-                auditionProperty.scale2_pitch = Int(returnedValue)!
-            case 2: //Snare Etude
-                auditionProperty.snare_rhythm = Int(returnedValue)!
-            case 3: //Mallet Etude
-                auditionProperty.mallet_rhythm = Int(returnedValue)!
-            case 4: //Snare Sight Reading
-                auditionProperty.snareRead_rhythm = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
-                auditionProperty.malletRead_rhythm = Int(returnedValue)!
+            case 0: //Swing Etude
+                auditionProperty.swing_Support = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Support = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Support = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case upperLeftData. index = \(index)")
             }
@@ -294,51 +294,14 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 0: //Scale 1
-                auditionProperty.scale1_production = Int(returnedValue)!
-            case 1: //Scale 2
-                auditionProperty.scale2_production = Int(returnedValue)!
-            case 2: //Snare Etude
-                auditionProperty.snare_tempo = Int(returnedValue)!
-            case 3: //Mallet Etude
-                auditionProperty.mallet_pitch = Int(returnedValue)!
-            case 4: //Snare Sight Reading
-                auditionProperty.snareRead_production = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
-                auditionProperty.malletRead_pitch = Int(returnedValue)!
+            case 0: //Swing Etude
+                auditionProperty.swing_Stability = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Stability = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Stability = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case upperRightData. index = \(index)")
-            }
-        case "lowerLeftData":
-            lowerLeftData.setTitle(returnedValue, for: .normal)
-            //Following switch-case saves the returned value to the auditionProperty object
-            //NOTICE: some cases do not exist because button is invisible!
-            let index: Int = dataControl.selectedSegmentIndex
-            switch index
-            {
-            case 2: //Snare Etude
-                auditionProperty.snare_dynamic = Int(returnedValue)!
-            case 3: //Mallet Etude
-                auditionProperty.mallet_tempo = Int(returnedValue)!
-            case 5: //Mallet Sight Reading
-                auditionProperty.malletRead_production = Int(returnedValue)!
-            default:
-                Swift.print("Data didn't write, case lowerLeftData. index = \(index)")
-            }
-            
-        case "lowerRightData":
-            lowerRightData.setTitle(returnedValue, for: .normal)
-            //Following switch-case saves the returned value to the auditionProperty object
-            //NOTICE: some cases do not exist because button is invisible!
-            let index: Int = dataControl.selectedSegmentIndex
-            switch index
-            {
-            case 2: //Snare Etude
-                auditionProperty.snare_production = Int(returnedValue)!
-            case 3: //Mallet Etude
-                auditionProperty.mallet_dynamic = Int(returnedValue)!
-            default:
-                Swift.print("Data didn't write, case lowerRightData. index = \(index)")
             }
         case "middleData":
             middleData.setTitle(returnedValue, for: .normal)
@@ -347,11 +310,21 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             let index: Int = dataControl.selectedSegmentIndex
             switch index
             {
-            case 3: //Mallet Etude
-                auditionProperty.mallet_production = Int(returnedValue)!
+            case 0: //Swing Etude
+                auditionProperty.swing_Articulations = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Articulations = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Articulations = Int(returnedValue)!
             default:
                 Swift.print("Data didn't write, case middleData. index = \(index)")
             }
+        case "improvisationData":
+            improvisationData.setTitle(returnedValue, for: .normal)
+            auditionProperty.improvisation = Int(returnedValue)!
+        case "leftHandData":
+            leftHandData.setTitle(returnedValue, for: .normal)
+            auditionProperty.leftHand_Independence = Int(returnedValue)!
         default:
             //Given an error message in console
             Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
@@ -359,7 +332,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         calculateFinalScore()
         finalScoreLabel.text! = "Total: \(auditionProperty.finalScore)"
     }
-    /*
+    
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         let itemName: String = textField.restorationIdentifier!
@@ -379,117 +352,45 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         let controlIndex: Int = self.dataControl.selectedSegmentIndex
         switch controlIndex
         {
-        case 0: //Scale 1
-            upperLeftLabel.setTitle("Pitch Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.scale1_pitch)", for: .normal)
+        case 0: //Swing Etude
+            upperLeftLabel.setTitle("Support of Wind", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.swing_Support)", for: .normal)
             
-            upperRightLabel.setTitle("Sound Production", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.scale1_production)", for: .normal)
+            upperRightLabel.setTitle("Time Stability", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.swing_Stability)", for: .normal)
             
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = true
-            lowerRightStack.isHidden = true
-            middleStack.isHidden = true
+            middleLabel.setTitle("Articulations and Jazz Feel", for: .normal)
+            middleData.setTitle("\(auditionProperty.swing_Articulations)", for: .normal)
             
-        case 1: //Scale 2
-            upperLeftLabel.setTitle("Pitch Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.scale2_pitch)", for: .normal)
+        case 1: //Straight Etude
+            upperLeftData.setTitle("\(auditionProperty.straight_Support)", for: .normal)
             
-            upperRightLabel.setTitle("Sound Production", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.scale2_production)", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.straight_Stability)", for: .normal)
             
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = true
-            lowerRightStack.isHidden = true
-            middleStack.isHidden = true
+            middleData.setTitle("\(auditionProperty.straight_Articulations)", for: .normal)
             
-        case 2: //Snare Etude
-            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.snare_rhythm)", for: .normal)
+        case 2: //Sight Reading
+            upperLeftData.setTitle("\(auditionProperty.sight_Support)", for: .normal)
             
-            upperRightLabel.setTitle("Tempo Accuracy", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.snare_tempo)", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.sight_Stability)", for: .normal)
             
-            lowerLeftLabel.setTitle("Dynamic Accuracy", for: .normal)
-            lowerLeftData.setTitle("\(auditionProperty.snare_dynamic)", for: .normal)
+            middleData.setTitle("\(auditionProperty.sight_Articulations)", for: .normal)
             
-            lowerRightLabel.setTitle("Sound Production", for: .normal)
-            lowerRightData.setTitle("\(auditionProperty.snare_production)", for: .normal)
-            
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = false
-            lowerRightStack.isHidden = false
-            middleStack.isHidden = true
-            
-        case 3: //Mallet Etude
-            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.mallet_rhythm)", for: .normal)
-            
-            upperRightLabel.setTitle("Pitch Accuracy", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.mallet_pitch)", for: .normal)
-            
-            lowerLeftLabel.setTitle("Tempo Accuracy", for: .normal)
-            lowerLeftData.setTitle("\(auditionProperty.mallet_tempo)", for: .normal)
-            
-            lowerRightLabel.setTitle("Dynamic Accuracy", for: .normal)
-            lowerRightData.setTitle("\(auditionProperty.mallet_dynamic)", for: .normal)
-            
-            middleLabel.setTitle("Sound Production", for: .normal)
-            middleData.setTitle("\(auditionProperty.mallet_production)", for: .normal)
-            
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = false
-            lowerRightStack.isHidden = false
-            middleStack.isHidden = false
-            
-        case 4: //Snare Sight Reading
-            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.snareRead_rhythm)", for: .normal)
-            
-            upperRightLabel.setTitle("Sound Production", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.snareRead_production)", for: .normal)
-            
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = true
-            lowerRightStack.isHidden = true
-            middleStack.isHidden = true
-            
-        case 5: //Mallet Sight Reading
-            upperLeftLabel.setTitle("Rhythmic Accuracy", for: .normal)
-            upperLeftData.setTitle("\(auditionProperty.malletRead_rhythm)", for: .normal)
-            
-            upperRightLabel.setTitle("Pitch Accuracy", for: .normal)
-            upperRightData.setTitle("\(auditionProperty.malletRead_pitch)", for: .normal)
-            
-            lowerLeftLabel.setTitle("Sound Production", for: .normal)
-            lowerLeftData.setTitle("\(auditionProperty.malletRead_production)", for: .normal)
-            
-            upperLeftStack.isHidden = false
-            upperRIghtStack.isHidden = false
-            lowerLeftStack.isHidden = false
-            lowerRightStack.isHidden = true
-            middleStack.isHidden = true
         default:
             Swift.print("segmentedControlValueChanged Default Called")
         }
+        improvisationData.setTitle("\(auditionProperty.improvisation)", for: .normal)
+        leftHandData.setTitle("\(auditionProperty.leftHand_Independence)", for: .normal)
     }
     
     func calculateFinalScore()
     {
         //Next five statements adds every single int together
-        var score: Int = auditionProperty.scale1_pitch + auditionProperty.scale1_production + auditionProperty.scale2_pitch + auditionProperty.scale2_production
-        score = score + auditionProperty.snare_rhythm + auditionProperty.snare_tempo + auditionProperty.snare_dynamic + auditionProperty.snare_production
-        score = score + auditionProperty.mallet_rhythm + auditionProperty.mallet_pitch + auditionProperty.mallet_tempo + auditionProperty.mallet_dynamic + auditionProperty.mallet_production
-        score = score + auditionProperty.snareRead_rhythm + auditionProperty.snareRead_production
-        score = score + auditionProperty.malletRead_rhythm + auditionProperty.malletRead_pitch + auditionProperty.malletRead_production
+        var score: Int = auditionProperty.swing_Support + auditionProperty.swing_Stability + auditionProperty.swing_Articulations
+        score = score + auditionProperty.straight_Support + auditionProperty.straight_Stability + auditionProperty.straight_Articulations
+        score = score + auditionProperty.sight_Support + auditionProperty.sight_Stability + auditionProperty.sight_Articulations
+        score = score + auditionProperty.improvisation + auditionProperty.leftHand_Independence
         
         auditionProperty.finalScore = score
     }
-    */
-
 }

@@ -66,7 +66,7 @@ class LabelPopOverViewController: UIViewController
             return dynamicAccuracy
         case "Sound Production":
             return soundProduction
-        case "Support Of Winds":
+        case "Support of Wind":
             return supportOfWinds
         case "Time Stability":
             return timeStability

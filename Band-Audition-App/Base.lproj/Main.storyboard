@@ -1042,6 +1042,9 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYK-09-fIv">
                                                                 <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="changeDataValue:" destination="DiD-1b-CTq" eventType="touchUpInside" id="PQF-0x-8t6"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -1067,6 +1070,9 @@
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFk-PS-K7U">
                                                                 <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="changeDataValue:" destination="DiD-1b-CTq" eventType="touchUpInside" id="xNe-vX-LCr"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
@@ -1094,6 +1100,9 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PN-z6-c6t">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="DiD-1b-CTq" eventType="touchUpInside" id="ptF-7b-Ajf"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1132,6 +1141,9 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="improvisationData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5x7-bY-eN1">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="DiD-1b-CTq" eventType="touchUpInside" id="RlQ-XZ-NFP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1157,6 +1169,9 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="leftHandData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-kk-s3w">
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="changeDataValue:" destination="DiD-1b-CTq" eventType="touchUpInside" id="CxV-ie-Y6p"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
