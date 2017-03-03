@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate
 {
@@ -17,6 +18,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     @IBOutlet weak var lastNameBox: UITextField!
     @IBOutlet weak var finalScoreLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var upperLeftStack: UIStackView!
@@ -172,6 +174,10 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     {
         self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
         let auditionData: varsityConcertPercussion = varsityConcertPercussion(first_name: auditionProperty.first_name, last_name:  auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, scale1_pitch:  auditionProperty.scale1_pitch, scale1_production:  auditionProperty.scale1_production, scale2_pitch:  auditionProperty.scale2_pitch, scale2_production: auditionProperty.scale2_production, scale3_pitch: auditionProperty.scale3_pitch, scale3_production: auditionProperty.scale3_production, snare_rhythm: auditionProperty.snare_rhythm, snare_tempo: auditionProperty.snare_tempo, snare_dynamic: auditionProperty.snare_dynamic, snare_production: auditionProperty.snare_production, mallet_rhythm: auditionProperty.mallet_rhythm, mallet_pitch: auditionProperty.mallet_pitch, mallet_tempo: auditionProperty.mallet_tempo, mallet_dynamic: auditionProperty.mallet_dynamic, mallet_production: auditionProperty.mallet_production, timpani_rhythm: auditionProperty.timpani_rhythm, timpani_tempo: auditionProperty.timpani_tempo, timpani_dynamic: auditionProperty.timpani_dynamic, timpani_production: auditionProperty.timpani_production, snareRead_rhythm: auditionProperty.snareRead_rhythm, snareRead_production: auditionProperty.snareRead_production, malletRead_rhythm: auditionProperty.malletRead_rhythm, malletRead_pitch: auditionProperty.malletRead_pitch, malletRead_production: auditionProperty.malletRead_production, finalScore: auditionProperty.finalScore)
+        varsityAuditions[14].append(auditionData)
+        saveVarsityAuditions()
+        
+        resetAuditionProperty(sender)
     }
     
     //Following Function loads the 2D array object so that it is possible to save the data when the form is filled.
@@ -187,6 +193,49 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             }
             
         }
+    }
+    
+    @IBAction func resetAuditionProperty(_ sender: UIButton)
+    {
+        let zero: Int = 0
+        let blank: String = ""
+        
+        auditionProperty.first_name = blank
+        auditionProperty.last_name = blank
+        auditionProperty.instrument = blank
+        auditionProperty.comments = blank
+        
+        auditionProperty.scale1_pitch = zero
+        auditionProperty.scale1_production = zero
+        auditionProperty.scale2_pitch = zero
+        auditionProperty.scale2_production = zero
+        auditionProperty.scale3_pitch = zero
+        auditionProperty.scale3_production = zero
+        
+        auditionProperty.snare_rhythm = zero
+        auditionProperty.snare_tempo = zero
+        auditionProperty.snare_dynamic = zero
+        auditionProperty.snare_production = zero
+        
+        auditionProperty.mallet_rhythm = zero
+        auditionProperty.mallet_pitch = zero
+        auditionProperty.mallet_tempo = zero
+        auditionProperty.mallet_dynamic = zero
+        auditionProperty.mallet_production = zero
+        
+        auditionProperty.timpani_rhythm = zero
+        auditionProperty.timpani_tempo = zero
+        auditionProperty.timpani_dynamic = zero
+        auditionProperty.timpani_production = zero
+        
+        auditionProperty.snareRead_rhythm = zero
+        auditionProperty.snareRead_production = zero
+        
+        auditionProperty.malletRead_rhythm = zero
+        auditionProperty.malletRead_pitch = zero
+        auditionProperty.malletRead_production = zero
+        
+        auditionProperty.finalScore = zero
     }
     
     //Following function rotates the UISegmentedControl 1/2 pi radians

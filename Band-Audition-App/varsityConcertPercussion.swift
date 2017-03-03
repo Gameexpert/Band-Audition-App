@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import os.log
 
-class varsityConcertPercussion: audition //Audition is the protocol
+class varsityConcertPercussion: NSObject, NSCoding, audition //Audition is the protocol
 {
     var first_name: String
     var last_name: String
@@ -184,39 +184,39 @@ class varsityConcertPercussion: audition //Audition is the protocol
         let instrument = aDecoder.decodeObject(forKey: propertyKey.instrument)
         let comments = aDecoder.decodeObject(forKey: propertyKey.comments)
         
-        let scale1_pitch = aDecoder.decodeObject(forKey: propertyKey.scale1_pitch)
-        let scale1_production = aDecoder.decodeObject(forKey: propertyKey.scale1_production)
-        let scale2_pitch = aDecoder.decodeObject(forKey: propertyKey.scale2_pitch)
-        let scale2_production = aDecoder.decodeObject(forKey: propertyKey.scale2_production)
-        let scale3_pitch = aDecoder.decodeObject(forKey: propertyKey.scale3_pitch)
-        let scale3_production = aDecoder.decodeObject(forKey: propertyKey.scale3_production)
+        let scale1_pitch = aDecoder.decodeInteger(forKey: propertyKey.scale1_pitch)
+        let scale1_production = aDecoder.decodeInteger(forKey: propertyKey.scale1_production)
+        let scale2_pitch = aDecoder.decodeInteger(forKey: propertyKey.scale2_pitch)
+        let scale2_production = aDecoder.decodeInteger(forKey: propertyKey.scale2_production)
+        let scale3_pitch = aDecoder.decodeInteger(forKey: propertyKey.scale3_pitch)
+        let scale3_production = aDecoder.decodeInteger(forKey: propertyKey.scale3_production)
         
-        let snare_rhythm = aDecoder.decodeObject(forKey: propertyKey.snare_rhythm)
-        let snare_tempo = aDecoder.decodeObject(forKey: propertyKey.snare_tempo)
-        let snare_dynamic = aDecoder.decodeObject(forKey: propertyKey.snare_dynamic)
-        let snare_production = aDecoder.decodeObject(forKey: propertyKey.snare_production)
+        let snare_rhythm = aDecoder.decodeInteger(forKey: propertyKey.snare_rhythm)
+        let snare_tempo = aDecoder.decodeInteger(forKey: propertyKey.snare_tempo)
+        let snare_dynamic = aDecoder.decodeInteger(forKey: propertyKey.snare_dynamic)
+        let snare_production = aDecoder.decodeInteger(forKey: propertyKey.snare_production)
         
-        let mallet_rhythm = aDecoder.decodeObject(forKey: propertyKey.mallet_rhythm)
-        let mallet_pitch = aDecoder.decodeObject(forKey: propertyKey.mallet_pitch)
-        let mallet_tempo = aDecoder.decodeObject(forKey: propertyKey.mallet_tempo)
-        let mallet_dynamic = aDecoder.decodeObject(forKey: propertyKey.mallet_dynamic)
-        let mallet_production = aDecoder.decodeObject(forKey: propertyKey.mallet_production)
+        let mallet_rhythm = aDecoder.decodeInteger(forKey: propertyKey.mallet_rhythm)
+        let mallet_pitch = aDecoder.decodeInteger(forKey: propertyKey.mallet_pitch)
+        let mallet_tempo = aDecoder.decodeInteger(forKey: propertyKey.mallet_tempo)
+        let mallet_dynamic = aDecoder.decodeInteger(forKey: propertyKey.mallet_dynamic)
+        let mallet_production = aDecoder.decodeInteger(forKey: propertyKey.mallet_production)
         
-        let timpani_rhythm = aDecoder.decodeObject(forKey: propertyKey.timpani_rhythm)
-        let timpani_tempo = aDecoder.decodeObject(forKey: propertyKey.timpani_tempo)
-        let timpani_dynamic = aDecoder.decodeObject(forKey: propertyKey.timpani_dynamic)
-        let timpani_production = aDecoder.decodeObject(forKey: propertyKey.timpani_production)
+        let timpani_rhythm = aDecoder.decodeInteger(forKey: propertyKey.timpani_rhythm)
+        let timpani_tempo = aDecoder.decodeInteger(forKey: propertyKey.timpani_tempo)
+        let timpani_dynamic = aDecoder.decodeInteger(forKey: propertyKey.timpani_dynamic)
+        let timpani_production = aDecoder.decodeInteger(forKey: propertyKey.timpani_production)
         
-        let snareRead_rhythm = aDecoder.decodeObject(forKey: propertyKey.snareRead_rhythm)
-        let snareRead_production = aDecoder.decodeObject(forKey: propertyKey.snareRead_production)
+        let snareRead_rhythm = aDecoder.decodeInteger(forKey: propertyKey.snareRead_rhythm)
+        let snareRead_production = aDecoder.decodeInteger(forKey: propertyKey.snareRead_production)
         
-        let malletRead_rhythm = aDecoder.decodeObject(forKey: propertyKey.malletRead_rhythm)
-        let malletRead_pitch = aDecoder.decodeObject(forKey: propertyKey.malletRead_pitch)
-        let malletRead_production = aDecoder.decodeObject(forKey: propertyKey.malletRead_production)
+        let malletRead_rhythm = aDecoder.decodeInteger(forKey: propertyKey.malletRead_rhythm)
+        let malletRead_pitch = aDecoder.decodeInteger(forKey: propertyKey.malletRead_pitch)
+        let malletRead_production = aDecoder.decodeInteger(forKey: propertyKey.malletRead_production)
         
-        let finalScore = aDecoder.decodeObject(forKey: propertyKey.finalScore)
+        let finalScore = aDecoder.decodeInteger(forKey: propertyKey.finalScore)
         
-        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, scale1_pitch: scale1_pitch as! Int, scale1_production: scale1_production as! Int, scale2_pitch: scale2_pitch as! Int, scale2_production: scale2_production as! Int, scale3_pitch: scale3_pitch as! Int, scale3_production: scale3_production as! Int, snare_rhythm: snare_rhythm as! Int, snare_tempo: snare_tempo as! Int, snare_dynamic: snare_dynamic as! Int, snare_production: snare_production as! Int, mallet_rhythm: mallet_rhythm as! Int, mallet_pitch: mallet_pitch as! Int, mallet_tempo: mallet_tempo as! Int, mallet_dynamic: mallet_dynamic as! Int, mallet_production: mallet_production as! Int, timpani_rhythm: timpani_rhythm as! Int, timpani_tempo: timpani_tempo as! Int, timpani_dynamic: timpani_dynamic as! Int, timpani_production: timpani_production as! Int, snareRead_rhythm: snareRead_rhythm as! Int, snareRead_production: snareRead_production as! Int, malletRead_rhythm: malletRead_rhythm as! Int, malletRead_pitch: malletRead_pitch as! Int, malletRead_production: malletRead_production as! Int, finalScore: finalScore as! Int)
+        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, scale1_pitch: scale1_pitch, scale1_production: scale1_production, scale2_pitch: scale2_pitch as! Int, scale2_production: scale2_production, scale3_pitch: scale3_pitch, scale3_production: scale3_production, snare_rhythm: snare_rhythm, snare_tempo: snare_tempo, snare_dynamic: snare_dynamic, snare_production: snare_production, mallet_rhythm: mallet_rhythm, mallet_pitch: mallet_pitch, mallet_tempo: mallet_tempo, mallet_dynamic: mallet_dynamic, mallet_production: mallet_production, timpani_rhythm: timpani_rhythm, timpani_tempo: timpani_tempo, timpani_dynamic: timpani_dynamic, timpani_production: timpani_production, snareRead_rhythm: snareRead_rhythm, snareRead_production: snareRead_production, malletRead_rhythm: malletRead_rhythm , malletRead_pitch: malletRead_pitch, malletRead_production: malletRead_production, finalScore: finalScore)
     }
 
 }

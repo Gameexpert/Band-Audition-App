@@ -981,6 +981,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCu-SD-Cg4">
                                 <state key="normal" title="&lt;Back"/>
                                 <connections>
+                                    <action selector="resetAuditionProperty:" destination="4w4-Ne-seY" eventType="touchUpInside" id="30A-Dy-FvQ"/>
                                     <segue destination="0D6-H5-h6h" kind="unwind" unwindAction="recieveVPUnwindSegueWithUnwindSegue:" id="GhC-Js-m77"/>
                                 </connections>
                             </button>
@@ -1216,6 +1217,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="GCu-SD-Cg4" id="wfg-Hl-aPZ"/>
                         <outlet property="commentsView" destination="Qbo-qP-M5t" id="KpQ-f3-7Nw"/>
                         <outlet property="finalScoreLabel" destination="3RC-Gs-HVb" id="F8F-kh-xzW"/>
                         <outlet property="firstNameBox" destination="rQh-hl-56r" id="fQU-GE-7RM"/>
