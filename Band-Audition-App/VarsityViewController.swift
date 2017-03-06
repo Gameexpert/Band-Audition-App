@@ -57,5 +57,18 @@ class VarsityViewController: UIViewController
     }
     
     
+    @IBAction func segueToVPAudition(_ sender: UIButton)
+    {
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "VPAudition"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+
+    @IBAction func recieveVPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 
 }
