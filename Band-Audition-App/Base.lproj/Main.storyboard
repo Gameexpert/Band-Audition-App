@@ -981,6 +981,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHa-l5-jAk">
                                 <state key="normal" title="&lt;Back"/>
                                 <connections>
+                                    <action selector="resetAuditionProperty:" destination="DiD-1b-CTq" eventType="touchUpInside" id="yIW-Td-PPL"/>
                                     <segue destination="TVG-pA-aaW" kind="unwind" unwindAction="recieveJDUnwindSegueWithUnwindSegue:" id="u7n-ni-WYD"/>
                                 </connections>
                             </button>
@@ -1191,12 +1192,6 @@
                                     <action selector="saveData:" destination="DiD-1b-CTq" eventType="touchUpInside" id="fUy-2X-4RE"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jqo-np-50F">
-                                <state key="normal" title="Load"/>
-                                <connections>
-                                    <action selector="loadData:" destination="DiD-1b-CTq" eventType="touchUpInside" id="qgD-Jm-mVH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1218,10 +1213,8 @@
                             <constraint firstItem="AcB-8c-q6e" firstAttribute="top" secondItem="dBJ-J7-vas" secondAttribute="top" constant="20" id="epX-rJ-r8X"/>
                             <constraint firstItem="FR4-e6-tCQ" firstAttribute="top" secondItem="NY9-qS-F3f" secondAttribute="bottom" constant="790" id="iiG-mC-YGA"/>
                             <constraint firstItem="AcB-8c-q6e" firstAttribute="centerX" secondItem="dBJ-J7-vas" secondAttribute="centerX" id="k3G-BE-PTg"/>
-                            <constraint firstAttribute="trailing" secondItem="Jqo-np-50F" secondAttribute="trailing" constant="20" id="n7f-zx-zcm"/>
                             <constraint firstItem="8BL-n9-dII" firstAttribute="top" secondItem="dBJ-J7-vas" secondAttribute="top" constant="20" id="nb3-Jo-UVA"/>
                             <constraint firstItem="NRL-Jo-Y4A" firstAttribute="leading" secondItem="dBJ-J7-vas" secondAttribute="leading" constant="15" id="wUn-at-sM4"/>
-                            <constraint firstItem="Jqo-np-50F" firstAttribute="top" secondItem="rmo-ON-MyI" secondAttribute="bottom" constant="30" id="ydd-t9-DVa"/>
                         </constraints>
                     </view>
                     <connections>

@@ -165,7 +165,7 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         
         let finalScore = aDecoder.decodeInteger(forKey: PropertyKey.finalScore)
         
-        self.init(first_name: first_name as! String, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, swing_Support: swing_Support, swing_Stability: swing_Stability, swing_Articulations: swing_Articulations, straight_Support: straight_Support, straight_Stability: straight_Stability, straight_Articulations: straight_Articulations, sight_Support: sight_Support, sight_Stability: sight_Stability, sight_Articulations: sight_Articulations, improvisation: improvisation, leftHand_Independence: leftHand_Independence, finalScore: finalScore)
+        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, swing_Support: swing_Support as! Int, swing_Stability: swing_Stability as! Int, swing_Articulations: swing_Articulations as! Int, straight_Support: straight_Support as! Int, straight_Stability: straight_Stability as! Int, straight_Articulations: straight_Articulations as! Int, sight_Support: sight_Support as! Int, sight_Stability: sight_Stability as! Int, sight_Articulations: sight_Articulations as! Int, improvisation: improvisation as! Int, leftHand_Independence: leftHand_Independence as! Int, finalScore: finalScore as! Int)
     }
     
     

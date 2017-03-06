@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate
 {
@@ -193,19 +194,10 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         let auditionData: jazzDrumset = jazzDrumset(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, swing_Support: auditionProperty.swing_Support, swing_Stability: auditionProperty.swing_Stability, swing_Articulations: auditionProperty.swing_Articulations, straight_Support: auditionProperty.straight_Support, straight_Stability: auditionProperty.straight_Stability, straight_Articulations: auditionProperty.straight_Articulations, sight_Support: auditionProperty.sight_Support, sight_Stability: auditionProperty.sight_Stability, sight_Articulations: auditionProperty.sight_Articulations, improvisation: auditionProperty.improvisation, leftHand_Independence: auditionProperty.leftHand_Independence, finalScore: auditionProperty.finalScore)
         jazzAuditions[6].append(auditionData)
         saveJazzAuditions()
-    }
-    
-    @IBAction func loadData(_ sender: UIButton)
-    {
-        loadJazzAuditions()
-        for i in 0..<jazzAuditions.count
-        {
-            for j in 0..<jazzAuditions[i].count
-            {
-                print("\(i), \(j), \(jazzAuditions[i][j]), \(jazzAuditions[i][j].first_name), \(jazzAuditions[i][j].last_name)")
-            }
-            
-        }
+        
+        resetAuditionProperty(sender)
+        
+        
     }
     
     func loadData()
@@ -219,6 +211,34 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             }
             
         }
+    }
+    
+    @IBAction func resetAuditionProperty(_ sender: UIButton)
+    {
+        let blank: String = ""
+        let zero: Int = 0
+        
+        auditionProperty.first_name = blank
+        auditionProperty.last_name = blank
+        auditionProperty.instrument = blank
+        auditionProperty.comments = blank
+        
+        auditionProperty.swing_Support = zero
+        auditionProperty.swing_Stability = zero
+        auditionProperty.swing_Articulations = zero
+        
+        auditionProperty.straight_Support = zero
+        auditionProperty.straight_Stability = zero
+        auditionProperty.straight_Articulations = zero
+        
+        auditionProperty.sight_Support = zero
+        auditionProperty.sight_Stability = zero
+        auditionProperty.sight_Articulations = zero
+        
+        auditionProperty.improvisation = zero
+        auditionProperty.leftHand_Independence = zero
+        
+        auditionProperty.finalScore = zero
     }
     
     
