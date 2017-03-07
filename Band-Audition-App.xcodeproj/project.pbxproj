@@ -147,10 +147,10 @@
 				77E06A581DFB13C50082BA8C /* audition.swift */,
 				77296B4E1E5CA31E003E956C /* VPAuditionViewController.swift */,
 				25A2A50B1E01B32F002B9E0F /* FPAuditionViewController.swift */,
+				77169DC21E6DC80200712061 /* concertWindsViewController.swift */,
 				250439381E269CA8007D080A /* LabelPopOverViewController.swift */,
 				778428C51E27BE6500786327 /* keyboardViewController.swift */,
 				25419EF61E390D660006E4D9 /* globalVariables.swift */,
-				77169DC21E6DC80200712061 /* concertWindsViewController.swift */,
 			);
 			path = "Band-Audition-App";
 			sourceTree = "<group>";
