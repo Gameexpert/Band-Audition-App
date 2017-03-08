@@ -13,7 +13,7 @@ class concertWinds: audition //Audition is the protocol
     var first_name: String
     var last_name: String
     var instrument: String
-    var category: String //Either "Varsity" or "Freshmen"
+    var concert_type: String //Either "Varsity" or "Freshmen"
     var comments: String
     var memorized: Bool
     
@@ -47,7 +47,7 @@ class concertWinds: audition //Audition is the protocol
         first_name = ""
         last_name = ""
         self.instrument = instrument
-        self.category = category
+        self.concert_type = category
         comments = ""
         memorized = false
         

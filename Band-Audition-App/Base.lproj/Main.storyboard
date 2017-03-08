@@ -29,58 +29,100 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDZ-t6-M0W">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Flute"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="wgO-zi-SLC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObZ-ik-E7i">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Oboe"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="iUL-qh-Hja"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mam-pt-nCa">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Clarinet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="cRW-J4-mYn"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-GZ-jK3">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bass Clarinet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="U0n-Av-FgI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvG-SV-12z">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bassoon"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="V7r-1m-L2Q"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XtT-58-c9T">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Alto Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="l6B-2s-5Jw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezP-Oc-ysh">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Tenor Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="tWW-oc-2lz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfh-QM-8kE">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bari Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="5kY-RG-vwr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1j-9f-CTj">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Trumpet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="c6m-2s-8jr"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oz0-pc-fU4">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="French Horn"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="RDh-yC-K5d"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1bw-ZV-mBj">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Trombone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="02S-X9-1A1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qU-bL-8h0">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Euphonium"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="jif-rv-AzE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SW-UY-gfV">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="String Bass"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="03H-E3-CNx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byy-EL-JCj">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Tuba"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ruh-lV-V8I" eventType="touchUpInside" id="ene-PR-60k"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkh-8X-pAb">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -231,58 +273,100 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48j-Zv-6eX">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Flute"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="JAV-yr-t9T"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0X-5C-U9r">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Oboe"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="Pkg-1l-gaE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-kt-rzf">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Clarinet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="nlQ-8g-JUC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6EW-zE-9dq">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bass Clarinet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="Vi3-Di-SRS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhR-nZ-OMJ">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bassoon"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="0Qb-4d-PR3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haK-mB-55j">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Alto Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="WSg-dZ-hFw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sD3-Ct-HAC">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Tenor Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="Y8u-Fh-weN"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJ4-0T-3jn">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Bari Saxophone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="dzm-9Q-5yy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-rn-LnO">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Trumpet"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="U8s-7p-hOI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RO-IU-vEk">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="French Horn"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="jdo-2P-SNv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJH-sn-exh">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Trombone"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="C3O-Vl-LBx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Atx-hX-y9u">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Euphonium"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="Qb4-bS-GMx"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRx-GQ-ZVm">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="String Bass"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="fun-Kh-fqX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBC-C1-nEn">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                         <state key="normal" title="Tuba"/>
+                                        <connections>
+                                            <action selector="segueToConcertWinds:" destination="Ygb-d3-Ovw" eventType="touchUpInside" id="6M0-Zq-3sK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugc-n7-Gym">
                                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
@@ -1159,17 +1243,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="78C-1u-ryu">
                                 <state key="normal" title="Save"/>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vPh-x8-VWb">
-                                <frame key="frameInset" minX="141" minY="102" width="51" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memorized?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1x-KU-96H">
-                                <frame key="frameInset" minX="20" minY="107" width="123" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1241,15 +1314,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Instrument Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-Fj-hN9">
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8lA-Tt-1tw">
+                                <frame key="frameInset" minX="15" minY="70" width="175" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Instrument Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nPk-Fj-hN9">
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="dGb-e7-UDe">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorized?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uPN-yc-es1">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k12-T7-jwx"/>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRe-Fm-2c6">
                                 <state key="normal" title="&lt;Back"/>
                                 <connections>
-                                    <segue destination="Fyh-mN-iOc" kind="unwind" unwindAction="recieveFPUnwindSegueWithUnwindSegue:" id="H4m-Yq-Vrb"/>
+                                    <segue destination="Fyh-mN-iOc" kind="unwind" unwindAction="recieveConcertWindsUnwindSegueToVarsityWithUnwindSegue:" id="JU2-C7-kPm"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="firstNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-8D-iSK">
@@ -1450,23 +1538,23 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cLS-t9-1ji" secondAttribute="trailing" constant="50" id="0CF-nK-k7r"/>
+                            <constraint firstItem="8lA-Tt-1tw" firstAttribute="leading" secondItem="j69-d9-Yq1" secondAttribute="leading" constant="15" id="0cc-Co-fAM"/>
                             <constraint firstItem="1bk-oE-NEe" firstAttribute="top" secondItem="j69-d9-Yq1" secondAttribute="top" constant="20" id="0y0-zG-tuR"/>
-                            <constraint firstItem="nPk-Fj-hN9" firstAttribute="leading" secondItem="j69-d9-Yq1" secondAttribute="leading" constant="15" id="136-42-NU6"/>
                             <constraint firstItem="Raq-LD-c8N" firstAttribute="top" secondItem="j69-d9-Yq1" secondAttribute="top" constant="20" id="4b9-93-3Uw"/>
                             <constraint firstItem="dkl-E0-ghx" firstAttribute="top" secondItem="ijh-8D-iSK" secondAttribute="bottom" constant="790" id="Acb-RT-Hpg"/>
                             <constraint firstItem="dkl-E0-ghx" firstAttribute="leading" secondItem="j69-d9-Yq1" secondAttribute="leading" constant="10" id="FU3-Qm-bN4"/>
                             <constraint firstItem="fyO-bo-peA" firstAttribute="top" secondItem="Pvc-dg-9fR" secondAttribute="bottom" constant="790" id="Fku-OW-cv2"/>
+                            <constraint firstItem="ijh-8D-iSK" firstAttribute="leading" secondItem="8lA-Tt-1tw" secondAttribute="trailing" constant="40" id="Ljy-5d-Gbb"/>
                             <constraint firstAttribute="trailing" secondItem="fyO-bo-peA" secondAttribute="trailing" constant="30" id="MXC-3b-XTK"/>
                             <constraint firstItem="eRe-Fm-2c6" firstAttribute="top" secondItem="j69-d9-Yq1" secondAttribute="top" constant="20" id="MXR-Oh-ANf"/>
                             <constraint firstItem="Pvc-dg-9fR" firstAttribute="leading" secondItem="ijh-8D-iSK" secondAttribute="trailing" constant="20" id="QIr-iD-b5Q"/>
+                            <constraint firstItem="8lA-Tt-1tw" firstAttribute="top" secondItem="eRe-Fm-2c6" secondAttribute="bottom" constant="10" id="SAk-6D-XIE"/>
                             <constraint firstItem="1bk-oE-NEe" firstAttribute="centerX" secondItem="j69-d9-Yq1" secondAttribute="centerX" id="gVD-Xs-2MQ"/>
                             <constraint firstItem="ijh-8D-iSK" firstAttribute="top" secondItem="1bk-oE-NEe" secondAttribute="bottom" constant="23" id="gkt-7b-a30"/>
                             <constraint firstItem="eRe-Fm-2c6" firstAttribute="leading" secondItem="j69-d9-Yq1" secondAttribute="leading" constant="20" id="h48-wq-B3T"/>
                             <constraint firstItem="cLS-t9-1ji" firstAttribute="top" secondItem="j69-d9-Yq1" secondAttribute="top" constant="200" id="wL6-qQ-9mj"/>
-                            <constraint firstItem="nPk-Fj-hN9" firstAttribute="top" secondItem="eRe-Fm-2c6" secondAttribute="bottom" constant="20" id="wqf-BX-bUb"/>
                             <constraint firstItem="Pvc-dg-9fR" firstAttribute="top" secondItem="1bk-oE-NEe" secondAttribute="bottom" constant="23" id="xgl-M2-B2c"/>
                             <constraint firstAttribute="trailing" secondItem="Raq-LD-c8N" secondAttribute="trailing" constant="20" id="y85-1q-SBe"/>
-                            <constraint firstItem="ijh-8D-iSK" firstAttribute="leading" secondItem="nPk-Fj-hN9" secondAttribute="trailing" constant="40" id="yl6-mi-Czh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1483,6 +1571,7 @@
                         <outlet property="lowerRightLabel" destination="itE-Mt-Nix" id="tgx-sO-bHg"/>
                         <outlet property="lowerRightStack" destination="sbb-ic-9g2" id="Ceh-6d-rW7"/>
                         <outlet property="mainStackView" destination="cLS-t9-1ji" id="aMh-Jh-4xE"/>
+                        <outlet property="memorizedSwitch" destination="k12-T7-jwx" id="65T-5J-w2d"/>
                         <outlet property="middleLeftData" destination="TzI-Ha-htd" id="QTk-qV-G9k"/>
                         <outlet property="middleLeftLabel" destination="Z3G-Uv-1Jx" id="8sL-JW-xkU"/>
                         <outlet property="middleLeftStack" destination="NCZ-XZ-W0g" id="fWw-tH-vsk"/>
