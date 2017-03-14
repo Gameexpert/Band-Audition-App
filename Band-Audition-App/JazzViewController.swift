@@ -46,4 +46,17 @@ class JazzViewController: UIViewController
             tabBarController?.selectedIndex -= 1
         }
     }
+    @IBAction func segueToJDAudition(_ sender: UIButton)
+    {
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "JDAudition"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    @IBAction func recieveJDUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+
 }

@@ -89,7 +89,6 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         
         self.instrumentNameLabel.text! = instrumentType
-        //Sets up the data object with known variables
         auditionProperty.instrument = instrumentType
         
         
@@ -182,7 +181,8 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     }
     
     //The next three methods prevent the keyboard from covering the comments box when editing
-    func keyboardWillShow(notification:NSNotification) {
+    func keyboardWillShow(notification:NSNotification)
+    {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
         let keyboardRectangle = keyboardFrame.cgRectValue
