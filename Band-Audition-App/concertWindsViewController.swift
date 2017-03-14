@@ -55,7 +55,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     var textViewCleared: Bool = false
     
     //See setUpDataControl to see it's transformations
-    var dataControl: UISegmentedControl = UISegmentedControl(items: ["Knowledge \n&\n Performance", "Etude 1", "Etude 2", "Sight Read"])
+    var dataControl: UISegmentedControl = UISegmentedControl(items: ["Knowledge\n&\nPerformance", "Etude 1", "Etude 2", "Sight Read"])
     
     //Structure to store data until we save the data
     struct auditionProperty
@@ -72,8 +72,8 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         static var scale3: Double = 0
         static var scale4: Double = 0
         static var scale5: Double = 0
-        
         static var chromatic_scale: Double = 0
+        
         static var etude1_pitch: Double = 0
         static var etude1_rhythm: Double = 0
         static var etude1_articulation: Double = 0
@@ -178,7 +178,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     //Following function saves the audition form
     @IBAction func saveData(_ sender: UIButton)
     {
-        loadData()
+        loadData()//Place holder code to prevent an error message
     }
     
     func loadData()
@@ -233,10 +233,14 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         
         for view in object.subviews
         {
-            view.titleLabel?.numberOfLines = 0
             for subview in view.subviews
             {
                 subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
+                if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
+                {
+                    segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
+                    segmentLabel.adjustsFontSizeToFitWidth = true //Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                }
             }
         }//This Rotates the text 90 degrees so it is horizontal for the user
         
@@ -290,9 +294,61 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     func segmentedControlValueChanged(segment: UISegmentedControl)
     {
         let controlIndex: Int = self.dataControl.selectedSegmentIndex
-        //Make a long switch case here
+        switch controlIndex
+        {
+        case 0: //Knowledge & Performance
+            upperLeftLabel.setTitle("Scale 1", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.scale1)", for: .normal)
+            
+            upperRightLabel.setTitle("Scale 2", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.scale2)", for: .normal)
+            
+            middleLeftLabel.setTitle("Scale 3", for: .normal)
+            middleLeftData.setTitle("\(auditionProperty.scale3)", for: .normal)
+            
+            middleRightLabel.setTitle("Scale 4", for: .normal)
+            middleRightData.setTitle("\(auditionProperty.scale4)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Scale 5", for: .normal)
+            lowerLeftData.setTitle("\(auditionProperty.scale5)", for: .normal)
+            
+            lowerRightLabel.setTitle("Chromatic Scale", for: .normal)
+            lowerRightData.setTitle("\(auditionProperty.chromatic_scale)", for: .normal)
+            
+            upperRightStack.isHidden = false
+            upperLeftStack.isHidden = false
+            middleLeftStack.isHidden = false
+            middleRightStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+        case 1: //Etude 1
+            upperLeftLabel.setTitle("Pitch", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.etude1_pitch)", for: .normal)
+            
+            upperRightLabel.setTitle("Rhythm", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.etude1_rhythm)", for: .normal)
+            
+            middleLeftLabel.setTitle("Articulation", for: .normal)
+            middleLeftData.setTitle("\(auditionProperty.etude1_articulation)", for: .normal)
+            
+            middleRightLabel.setTitle("Dynamics", for: .normal)
+            middleRightData.setTitle("\(auditionProperty.etude1_dynamics)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Tone", for: .normal)
+            lowerLeftData.setTitle("\(auditionProperty.etude1_tone)", for: .normal)
+            
+            lowerRightLabel.setTitle("Style", for: .normal)
+            lowerRightData.setTitle("\(auditionProperty.etude1_style)", for: .normal)
+            
+            upperRightStack.isHidden = false
+            upperLeftStack.isHidden = false
+            middleLeftStack.isHidden = false
+            middleRightStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+        }
     }
-    
+ 
     /*
      The following two methods assign values to button labels. It sets things up for the keyboard popover and retrieves data from the popover.
      */
