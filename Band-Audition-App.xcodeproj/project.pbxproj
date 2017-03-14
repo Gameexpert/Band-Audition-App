@@ -73,7 +73,6 @@
 		772DA3371DF5CD0200718EB6 /* Band-Audition-AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Band-Audition-AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		772DA33B1DF5CD0200718EB6 /* Band_Audition_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Band_Audition_AppUITests.swift; sourceTree = "<group>"; };
 		772DA33D1DF5CD0200718EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		772DA34B1DF5CF2900718EB6 /* jazzRhythm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jazzRhythm.swift; sourceTree = "<group>"; };
 		772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = freshmenConcertPercussion.swift; sourceTree = "<group>"; };
 		772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = varsityConcertPercussion.swift; sourceTree = "<group>"; };
 		772DA3511DF5CF9200718EB6 /* concertWinds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWinds.swift; sourceTree = "<group>"; };
@@ -137,7 +136,6 @@
 				772DA3241DF5CD0100718EB6 /* LaunchScreen.storyboard */,
 				772DA3271DF5CD0100718EB6 /* Info.plist */,
 				25D365E41E76F8AD002DFEC5 /* JDAuditionViewController.swift */,
-				772DA34B1DF5CF2900718EB6 /* jazzRhythm.swift */,
 				772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */,
 				772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */,
 				772DA3511DF5CF9200718EB6 /* concertWinds.swift */,
