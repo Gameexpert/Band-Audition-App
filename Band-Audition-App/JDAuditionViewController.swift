@@ -127,7 +127,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         NotificationCenter.default.addObserver(self, selector: #selector(JDAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
         
-        dataControl.addTarget(self, action: #selector(FPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        dataControl.addTarget(self, action: #selector(JDAuditionViewController.segmentedControlValueChanged), for: .allEvents)
         
         segmentedControlValueChanged(segment: dataControl)
         
