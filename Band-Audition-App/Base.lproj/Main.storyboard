@@ -1942,6 +1942,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hsv-Qo-VdN">
                                 <rect key="frame" x="714" y="20" width="34" height="30"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveData:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="oax-bG-fjZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1969,7 +1972,29 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="QUr-Rz-j1d" id="7SK-hH-Msb"/>
+                        <outlet property="commentsView" destination="R6j-lK-ByT" id="LLu-gM-UvO"/>
+                        <outlet property="finalScoreLabel" destination="UfD-ay-lLb" id="8Dw-Ta-SXv"/>
+                        <outlet property="firstNameBox" destination="bsk-Wd-Dc3" id="797-Tc-5nu"/>
+                        <outlet property="improvisationData" destination="fih-hY-DB4" id="tHB-Xi-wew"/>
+                        <outlet property="improvisationLabel" destination="Kj2-QA-N5A" id="zV3-jc-wMS"/>
+                        <outlet property="improvisationStack" destination="X6u-DK-HQZ" id="upJ-L9-jkw"/>
                         <outlet property="instrumentNameLabel" destination="HYq-r7-C31" id="I1e-Ox-tbq"/>
+                        <outlet property="lastNameBox" destination="O7u-uo-GiS" id="Zmf-RC-mbi"/>
+                        <outlet property="leftHandData" destination="YAw-6O-SHg" id="5D8-4Z-kzT"/>
+                        <outlet property="leftHandLabel" destination="0OP-Nb-G9v" id="jm2-AT-El7"/>
+                        <outlet property="leftHandStack" destination="h9H-Bd-K7Q" id="wu6-8v-XDP"/>
+                        <outlet property="mainStackView" destination="6CW-Lr-jm4" id="SvA-xr-vBy"/>
+                        <outlet property="middleData" destination="a0i-t8-xZr" id="kLe-9o-lcj"/>
+                        <outlet property="middleLabel" destination="F2w-xR-OsB" id="Acu-a0-p4O"/>
+                        <outlet property="middleStack" destination="gTh-Wc-yv9" id="nN6-HJ-ibH"/>
+                        <outlet property="saveButton" destination="Hsv-Qo-VdN" id="sOD-7T-RpL"/>
+                        <outlet property="upperLeftData" destination="sHq-qc-96f" id="h4h-Dz-wyf"/>
+                        <outlet property="upperLeftLabel" destination="Zit-pw-I9V" id="3e4-Cn-UXx"/>
+                        <outlet property="upperLeftStack" destination="ZMb-Ph-Obz" id="edj-Ww-0ce"/>
+                        <outlet property="upperRightData" destination="jJ0-uS-neG" id="DT9-yI-eeh"/>
+                        <outlet property="upperRightLabel" destination="mOF-5z-oY3" id="ggy-Kh-77L"/>
+                        <outlet property="upperRightStack" destination="AqF-Sl-ccF" id="5fm-uf-9OO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmj-wn-Fbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
