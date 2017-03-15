@@ -239,7 +239,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
                 if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
                 {
                     segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
-                    segmentLabel.adjustsFontSizeToFitWidth = true //Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                    segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
                 }
             }
         }//This Rotates the text 90 degrees so it is horizontal for the user
@@ -322,10 +322,10 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
         case 1: //Etude 1
-            upperLeftLabel.setTitle("Pitch", for: .normal)
+            upperLeftLabel.setTitle("Pitch Production", for: .normal)
             upperLeftData.setTitle("\(auditionProperty.etude1_pitch)", for: .normal)
             
-            upperRightLabel.setTitle("Rhythm", for: .normal)
+            upperRightLabel.setTitle("Rhythm Production", for: .normal)
             upperRightData.setTitle("\(auditionProperty.etude1_rhythm)", for: .normal)
             
             middleLeftLabel.setTitle("Articulation", for: .normal)
@@ -337,7 +337,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftLabel.setTitle("Tone", for: .normal)
             lowerLeftData.setTitle("\(auditionProperty.etude1_tone)", for: .normal)
             
-            lowerRightLabel.setTitle("Style", for: .normal)
+            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
             lowerRightData.setTitle("\(auditionProperty.etude1_style)", for: .normal)
             
             upperRightStack.isHidden = false
@@ -346,6 +346,46 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             middleRightStack.isHidden = false
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
+        case 2: //Etude 2
+            upperLeftLabel.setTitle("Pitch Production", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.etude2_pitch)", for: .normal)
+            
+            upperRightLabel.setTitle("Rhythm Production", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.etude2_rhythm)", for: .normal)
+            
+            middleLeftLabel.setTitle("Articulation", for: .normal)
+            middleLeftData.setTitle("\(auditionProperty.etude2_articulation)", for: .normal)
+            
+            middleRightLabel.setTitle("Dynamics", for: .normal)
+            middleRightData.setTitle("\(auditionProperty.etude2_dynamics)", for: .normal)
+            
+            lowerLeftLabel.setTitle("Tone", for: .normal)
+            lowerLeftData.setTitle("\(auditionProperty.etude2_tone)", for: .normal)
+            
+            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
+            lowerRightData.setTitle("\(auditionProperty.etude2_style)", for: .normal)
+            
+            upperRightStack.isHidden = false
+            upperLeftStack.isHidden = false
+            middleLeftStack.isHidden = false
+            middleRightStack.isHidden = false
+            lowerLeftStack.isHidden = false
+            lowerRightStack.isHidden = false
+        case 3: //Sight Read
+            upperLeftLabel.setTitle("Pitch Production", for: .normal)
+            upperLeftData.setTitle("\(auditionProperty.read_pitch)", for: .normal)
+            
+            upperRightLabel.setTitle("Rhythm Production", for: .normal)
+            upperRightData.setTitle("\(auditionProperty.read_rhythm)", for: .normal)
+            
+            upperRightStack.isHidden = false
+            upperLeftStack.isHidden = false
+            middleLeftStack.isHidden = true
+            middleRightStack.isHidden = true
+            lowerLeftStack.isHidden = true
+            lowerRightStack.isHidden = true
+        default:
+            Swift.print("Default case in segmentedControlValueChanged. controlIndex: \(controlIndex)")
         }
     }
  
