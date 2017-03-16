@@ -147,8 +147,8 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         self.lastNameBox.delegate = self
     
         //Adds listeners to the NSNotification center for the comments keyboard and the popoverkeyboard to work as intended
-        NotificationCenter.default.addObserver(self, selector: #selector(VPAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector (VPAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(concertWindsViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector (concertWindsViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
         
         //Creates a listener to the Segmented control object to call selected function when segmented control changes
         dataControl.addTarget(self, action: #selector(VPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
@@ -388,6 +388,13 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             Swift.print("Default case in segmentedControlValueChanged. controlIndex: \(controlIndex)")
         }
     }
+    
+    @IBAction func memorizedChanged(_ sender: UISwitch)
+    {
+        auditionProperty.memorized = sender.isOn
+        calculateFinalScore()
+        finalScoreLabel.text = "Total: \(auditionProperty.finalScore)"
+    }
  
     /*
      The following two methods assign values to button labels. It sets things up for the keyboard popover and retrieves data from the popover.
@@ -397,7 +404,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         //Next line of code stores which button was pressed
         senderButton = sender.restorationIdentifier!
         //Next line of code tells the popover keyboard that we want an Int in a string
-        keyboardIsEditingInt = true
+        keyboardIsEditingInt = false
         // get a reference to the view controller for the popover
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverKeyboard")
         
@@ -417,7 +424,112 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     func recieveKeyboardData(notification: NSNotification)
     {
         //This function uses global variables (senderButton, returnedValue) found within the keyboardViewController class document. Both are strings
-        
-        //Make a long switch case here
+        let index: Int = dataControl.selectedSegmentIndex
+        switch senderButton
+        {
+        case "upperLeftData":
+            upperLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            
+            switch index
+            {
+            case 0: //Knowledge & Performance
+                auditionProperty.scale1 = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_pitch = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_pitch = Double(returnedValue)!
+            case 3: //Sight Reading
+                auditionProperty.read_pitch = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperLeftData. index = \(index)")
+            }
+        case "upperRightData":
+            upperRightData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            switch index
+            {
+            case 0: //Knowledge & Performance
+                auditionProperty.scale2 = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_rhythm = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_rhythm = Double(returnedValue)!
+            case 3: //Sight Reading
+                auditionProperty.read_rhythm = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperRightData. index = \(index)")
+            }
+        case "middleLeftData":
+            middleLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            switch index
+            {
+            case 0: //Knowledge & performance
+                auditionProperty.scale3 = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_articulation = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_articulation = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case middleLeftData. index = \(index)")
+            }
+        case "middleRightData":
+            middleLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            switch index
+            {
+            case 0: //Knowledge & performance
+                auditionProperty.scale4 = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_dynamics = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_dynamics = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case middleRightData. index = \(index)")
+            }
+        case "lowerLeftData":
+            middleLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            switch index
+            {
+            case 0: //Knowledge & performance
+                auditionProperty.scale5 = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_tone = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_tone = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case lowerRightData. index = \(index)")
+            }
+        case "lowerRightData":
+            middleLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            switch index
+            {
+            case 0: //Knowledge & performance
+                auditionProperty.chromatic_scale = Double(returnedValue)!
+            case 1: //Etude 1
+                auditionProperty.etude1_style = Double(returnedValue)!
+            case 2: //Etude 2
+                auditionProperty.etude2_style = Double(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case lowerRightData. index = \(index)")
+            }
+        default:
+            Swift.print("Error, default case in recieveKeyboardData was called. senderButton= \(senderButton)")
+        }
+        //Now it calculates the final score of the items and sets the title of the final score to that.
+        calculateFinalScore()
+        finalScoreLabel.text = "Total: \(auditionProperty.finalScore)"
+    }
+    func calculateFinalScore()
+    {
+    var score: Double = auditionProperty.scale1 + auditionProperty.scale2 + auditionProperty.scale3 + auditionProperty.scale4 + auditionProperty.scale5 + auditionProperty.etude1_style + auditionProperty.etude1_tone + auditionProperty.etude1_dynamics + auditionProperty.etude1_articulation + auditionProperty.etude1_rhythm + auditionProperty.etude1_pitch + auditionProperty.etude2_rhythm + auditionProperty.etude2_tone + auditionProperty.etude2_pitch + auditionProperty.etude2_style + auditionProperty.etude2_dynamics + auditionProperty.etude2_articulation + auditionProperty.read_rhythm + auditionProperty.read_pitch
+    if auditionProperty.memorized
+        {
+            score = score + 1
+        }
+    auditionProperty.finalScore = score
     }
 }
