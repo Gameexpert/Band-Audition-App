@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverPresentationControllerDelegate, UITextFieldDelegate
 {
@@ -129,7 +130,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         segmentedControlValueChanged(segment: dataControl)
         
-        //loadData()
+        loadData()
 
     }
 
@@ -184,17 +185,191 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         switch instrumentType
         {
         case "Saxophone":
-            <#code#>
+            jazzAuditions[0].append(auditionData)
         case "Trombone":
+            jazzAuditions[1].append(auditionData)
         case "Trumpet":
+            jazzAuditions[2].append(auditionData)
+        case "Piano":
+            jazzAuditions[3].append(auditionData)
+        case "Bass Guitar":
+            jazzAuditions[4].append(auditionData)
+        case "Guitar":
+            jazzAuditions[5].append(auditionData)
+        case "Vibraphone":
+            jazzAuditions[7].append(auditionData)
         default:
-            <#code#>
+            Swift.print("Default case called in JRAudition saveData()")
         }
         saveJazzAuditions()
         
         //resetAuditionProperty(sender)
     }
    
+    func loadData()
+    {
+        loadJazzAuditions()
+        for i in 0..<jazzAuditions.count
+        {
+            for j in 0..<jazzAuditions[i].count
+            {
+                print("\(i), \(j), \(jazzAuditions[i][j]), \(jazzAuditions[i][j].first_name), \(jazzAuditions[i][j].last_name)")
+            }
+            
+        }
+    }
+
+    @IBAction func resetAuditionProperty(_ sender: UIButton)
+    {
+        let blank: String = ""
+        let zero: Int = 0
+        
+        auditionProperty.first_name = blank
+        auditionProperty.last_name = blank
+        auditionProperty.instrument = blank
+        auditionProperty.comments = blank
+        
+        auditionProperty.swing_Production = zero
+        auditionProperty.swing_Rhythm = zero
+        auditionProperty.swing_Articulations = zero
+        
+        auditionProperty.straight_Production = zero
+        auditionProperty.straight_Rhythm = zero
+        auditionProperty.straight_Articulations = zero
+        
+        auditionProperty.sight_Production = zero
+        auditionProperty.sight_Rhythm = zero
+        auditionProperty.sight_Articulations = zero
+        
+        auditionProperty.improvisation = zero
+        auditionProperty.leftHand_Independence = zero
+        
+        auditionProperty.finalScore = zero
+    }
+    
+    //Following method creates the label popover
+    @IBAction func giveDescription(_ sender: UIButton)
+    {
+        desiredLabel = sender.titleLabel!.text!
+        
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "labelPopover")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func changeDataValue(_ sender: UIButton)
+    {
+        //Next line of code stores which button was pressed
+        senderButton = sender.restorationIdentifier!
+        //Next line of code tells the popover keyboard that we want an Int in a string
+        keyboardIsEditingInt = true
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverKeyboard")
+        
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender as UIView // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+    }
+    
+    //Following Function changes the data that was edited in the popover keyboard
+    func recieveKeyboardData(notification: NSNotification)
+    {
+        //This function uses global variables (senderButton, returnedValue) found within the keyboardViewController class document. Both are strings
+        switch senderButton
+        {
+        case "upperLeftData":
+            upperLeftData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 0: //Swing Etude
+                auditionProperty.swing_Production = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Production = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Production = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperLeftData. index = \(index)")
+            }
+        case "upperRightData":
+            upperRightData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 0: //Swing Etude
+                auditionProperty.swing_Rhythm = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Rhythm = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Rhythm = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case upperRightData. index = \(index)")
+            }
+        case "middleData":
+            middleData.setTitle(returnedValue, for: .normal)
+            //Following switch-case saves the returned value to the auditionProperty object
+            //NOTICE: some cases do not exist because button is invisible!
+            let index: Int = dataControl.selectedSegmentIndex
+            switch index
+            {
+            case 0: //Swing Etude
+                auditionProperty.swing_Articulations = Int(returnedValue)!
+            case 1: //Straight Etude
+                auditionProperty.straight_Articulations = Int(returnedValue)!
+            case 2: //Sight Reading
+                auditionProperty.sight_Articulations = Int(returnedValue)!
+            default:
+                Swift.print("Data didn't write, case middleData. index = \(index)")
+            }
+        case "improvisationData":
+            improvisationData.setTitle(returnedValue, for: .normal)
+            auditionProperty.improvisation = Int(returnedValue)!
+        case "leftHandData":
+            leftHandData.setTitle(returnedValue, for: .normal)
+            auditionProperty.leftHand_Independence = Int(returnedValue)!
+        default:
+            //Given an error message in console
+            Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
+        }
+        calculateFinalScore()
+        finalScoreLabel.text! = "Total: \(auditionProperty.finalScore)"
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        let itemName: String = textField.restorationIdentifier!
+        switch itemName
+        {
+        case "firstNameBox":
+            auditionProperty.first_name = textField.text!
+        case "lastNameBox":
+            auditionProperty.last_name = textField.text!
+        default:
+            Swift.print("Error: TextField End Editing Default Called")
+        }
+    }
     
     func segmentedControlValueChanged(segment: UISegmentedControl)
     {
@@ -205,7 +380,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             upperLeftLabel.setTitle("Pitch Production", for: .normal)
             upperLeftData.setTitle("\(auditionProperty.swing_Production)", for: .normal)
             
-            upperRightLabel.setTitle("Rhythmic Accuracy", for: .normal)
+            upperRightLabel.setTitle("Rhythmic Accuracy ", for: .normal) //Jazz needs a space after accuracy to differentiate it from the freshmen and varsity variation of Rhythmic Accuracy
             upperRightData.setTitle("\(auditionProperty.swing_Rhythm)", for: .normal)
             
             middleLabel.setTitle("Articulations and Jazz Feel", for: .normal)

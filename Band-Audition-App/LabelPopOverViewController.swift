@@ -25,7 +25,9 @@ class LabelPopOverViewController: UIViewController
     let soundProduction: String = "Sound Production is scored on the quality of sound produced on the appropriate instrument. Snare head playing positions and where mallets are striking the timpani and marimba bars are the focal point. For every measure that includes an error or inconsistent sound production, 1-2 points will be deducted."
     //Descriptions for Jazz Forms
     let supportOfWinds: String = "50 = accurate, precise, no hesitation\n40-49 = hesitations, 1-2 errors or corrections\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated errors\n10-19 = seldom performs rhythms accurately"
+    let pitchProduction: String = "50 = accurate, precise, no hesitation\n40-49 = hesitations, 1-2 errors or corrections\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated errors\n10-19 = seldom performs rhythms accurately"
     let timeStability: String = "50 = accurate, precise, no instability\n40-49 = slight instability, 1-2 errors\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated instability\n10-19 = seldom keeps stable time"
+    let rhythmicAccuracyJazz: String = "50 = accurate, precise, no hesitation\n40-49 = hesitations, 1-2 errors or corrections\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated errors\n10-19 = seldom performs rhythms accurately"
     let articulationsJazzFeel: String = "50-40 = plays with great sensitivity & balance\n30-39 = plays with good sensitivity & balance\n20-29 = plays the style but sounds mechanical\n10-19 = very mechanical & poor balance\n0-9 = ohmigosh"
     let improvisation: String = "(drums, 1x through)\n50-40 = great notes & rhythm, swings doing it\n30-39 = good notes/rhythm, style diminishes\n20-29 = some OK note/rhythm choices\n10-19 = gave it a shot, but it's not happening\n10 = chose NOT to improvise, repeated melody"
     let leftHandIndependence: String = "50 = accurate, precise, no hesitation\n40-49 = hesitations, 1-2 errors or corrections\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated errors\n10-19 = seldom performs rhythms accurately"
@@ -68,8 +70,12 @@ class LabelPopOverViewController: UIViewController
             return soundProduction
         case "Support of Wind":
             return supportOfWinds
+        case "Pitch Production":
+            return pitchProduction
         case "Time Stability":
             return timeStability
+        case "Rhythmic Accuracy ": //Jazz needs a space after accuracy to differentiate it from the freshmen and varsity variation of Rhythmic Accuracy
+            return rhythmicAccuracyJazz
         case "Articulations and Jazz Feel":
             return articulationsJazzFeel
         case "Improvisation":
