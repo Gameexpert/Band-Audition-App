@@ -1475,7 +1475,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="firstNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ijh-8D-iSK">
-                                <rect key="frame" x="229" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="229.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="ZQq-hj-ePQ"/>
                                     <constraint firstAttribute="width" constant="200" id="zyd-S0-0H3"/>
@@ -1485,7 +1485,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="lastNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Pvc-dg-9fR">
-                                <rect key="frame" x="449" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="449.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="XEY-hG-haW"/>
                                     <constraint firstAttribute="height" constant="25" id="o1I-aX-AK0"/>
@@ -1739,6 +1739,7 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="eRe-Fm-2c6" id="vFr-Ti-Q18"/>
+                        <outlet property="categoryLabel" destination="1bk-oE-NEe" id="cc7-4R-LAp"/>
                         <outlet property="commentsView" destination="dkl-E0-ghx" id="VTc-cM-dTu"/>
                         <outlet property="finalScoreLabel" destination="fyO-bo-peA" id="tda-HP-L04"/>
                         <outlet property="firstNameBox" destination="ijh-8D-iSK" id="vjP-d4-SvJ"/>

@@ -16,6 +16,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
 {
     //MARK: Properties
     @IBOutlet weak var instrumentNameLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var firstNameBox: UITextField!
     @IBOutlet weak var lastNameBox: UITextField!
     @IBOutlet weak var finalScoreLabel: UILabel!
@@ -101,7 +102,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         //Sets up the data object with known variables
         self.instrumentNameLabel.text! = instrumentType
         auditionProperty.concert_type = category
-        
+        categoryLabel.text = "\(auditionProperty.concert_type) Winds"
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -475,7 +476,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
                 Swift.print("Data didn't write, case middleLeftData. index = \(index)")
             }
         case "middleRightData":
-            middleLeftData.setTitle(returnedValue, for: .normal)
+            middleRightData.setTitle(returnedValue, for: .normal)
             //Following switch-case saves the returned value to the auditionProperty object
             switch index
             {
@@ -489,7 +490,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
                 Swift.print("Data didn't write, case middleRightData. index = \(index)")
             }
         case "lowerLeftData":
-            middleLeftData.setTitle(returnedValue, for: .normal)
+            lowerLeftData.setTitle(returnedValue, for: .normal)
             //Following switch-case saves the returned value to the auditionProperty object
             switch index
             {
@@ -503,7 +504,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
                 Swift.print("Data didn't write, case lowerRightData. index = \(index)")
             }
         case "lowerRightData":
-            middleLeftData.setTitle(returnedValue, for: .normal)
+            lowerRightData.setTitle(returnedValue, for: .normal)
             //Following switch-case saves the returned value to the auditionProperty object
             switch index
             {

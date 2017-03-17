@@ -42,7 +42,42 @@ class concertWinds: audition //Audition is the protocol
     var read_rhythm: Double
     var finalScore: Double
     
-    init(instrument: String, category: String)
+    struct propertyKey
+    {
+        static var first_name = "first_name"
+        static var last_name = "last_name"
+        static var instrument = "instrument"
+        static var concert_type = "concert_type"
+        static var comments = "comments"
+        static var memorized = "memorized"
+        
+        static var scale1 = "scale1"
+        static var scale2 = "scale2"
+        static var scale3 = "scale3"
+        static var scale4 = "scale4"
+        static var scale5 = "scale5"
+        
+        static var chromatic_scale = "chromatic_scale"
+        static var etude1_pitch = "etude1_pitch"
+        static var etude1_rhythm = "etude1_rhythm"
+        static var etude1_articulation = "etude1_articulation"
+        static var etude1_dynamics = "etude1_dynamics"
+        static var etude1_tone = "etude1_tone"
+        static var etude1_style = "etude1_style"
+        
+        static var etude2_pitch = "etude2_pitch"
+        static var etude2_rhythm = "etude2_rhythm"
+        static var etude2_articulation = "etude2_articulation"
+        static var etude2_dynamics = "etude2_dynamics"
+        static var etude2_tone = "etude2_tone"
+        static var etude2_style = "etude2_style"
+        
+        static var read_pitch = "read_pitch"
+        static var read_rhythm = "read_rhythm"
+        static var finalScore = "finalScore"
+    }
+    
+    init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double)
     {
         first_name = ""
         last_name = ""
@@ -76,17 +111,6 @@ class concertWinds: audition //Audition is the protocol
         read_rhythm = 0.0
         finalScore = 0.0
     }
-    func calculateFinalScore() -> Double
-    {
-        var score: Double = scale1 + scale2 + scale3 + scale4 + scale5
-        score = score + chromatic_scale + etude1_pitch + etude1_rhythm + etude1_articulation + etude1_dynamics + etude1_tone + etude1_style
-        score = score + etude2_pitch + etude2_rhythm + etude2_articulation + etude2_dynamics + etude2_tone + etude2_style
-        score = score + read_pitch + read_rhythm
-        if memorized == true
-        {
-            score += 1
-        }
-        self.finalScore = score
-        return finalScore
-    }
+    
+    
 }
