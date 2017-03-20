@@ -528,7 +528,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
                 Swift.print("Data didn't write, case lowerLeftData. index = \(index)")
             }
             
-        case "lowerRightData": //This is the next Section of switch cases that needs adjusting LOOK HERE EVAN!!!!!!!!
+        case "lowerRightData":
             lowerRightData.setTitle(returnedValue, for: .normal)
             //Following switch-case saves the returned value to the auditionProperty object
             //NOTICE: some cases do not exist because button is invisible!
@@ -561,13 +561,14 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             Swift.print("Error, default case in recieveKeyboardData was called. senderButton = \(senderButton)")
         }
         //Now it calculates the final score of the item and sets the title of the finalScore label to that.
-        let total = calculateFinalScore()
-        finalScoreLabel.text = "Total: \(total)"
+        calculateFinalScore()
+        finalScoreLabel.text! = "Total: \(auditionProperty.finalScore)"
     }
-    func calculateFinalScore() -> Int
+    func calculateFinalScore()
     {
         let score: Int = auditionProperty.scale1_pitch + auditionProperty.scale1_production + auditionProperty.scale2_pitch + auditionProperty.scale2_production + auditionProperty.scale3_pitch + auditionProperty.scale3_production + auditionProperty.snare_rhythm + auditionProperty.snare_tempo + auditionProperty.snare_dynamic + auditionProperty.snare_production + auditionProperty.mallet_rhythm + auditionProperty.mallet_pitch + auditionProperty.mallet_tempo + auditionProperty.mallet_dynamic + auditionProperty.mallet_production + auditionProperty.timpani_rhythm + auditionProperty.timpani_tempo + auditionProperty.timpani_dynamic + auditionProperty.timpani_production + auditionProperty.snareRead_rhythm + auditionProperty.snareRead_production + auditionProperty.malletRead_rhythm + auditionProperty.malletRead_pitch + auditionProperty.malletRead_production
-        return score
+        
+        auditionProperty.finalScore = score
     }
  
 }
