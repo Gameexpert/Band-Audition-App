@@ -203,7 +203,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         }
         saveJazzAuditions()
         
-        //resetAuditionProperty(sender)
+        resetAuditionProperty(sender)
     }
    
     func loadData()

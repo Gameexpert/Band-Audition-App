@@ -210,7 +210,10 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
         let auditionData: freshmenConcertPercussion = freshmenConcertPercussion(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, scale1_pitch: auditionProperty.scale1_pitch, scale1_production: auditionProperty.scale1_production, scale2_pitch: auditionProperty.scale2_pitch, scale2_production: auditionProperty.scale2_production, snare_rhythm: auditionProperty.snare_rhythm, snare_tempo: auditionProperty.snare_tempo, snare_dynamic: auditionProperty.snare_dynamic, snare_production: auditionProperty.snare_production, mallet_rhythm: auditionProperty.mallet_rhythm, mallet_pitch: auditionProperty.mallet_pitch, mallet_tempo: auditionProperty.mallet_tempo, mallet_dynamic: auditionProperty.mallet_dynamic, mallet_production: auditionProperty.mallet_production, snareRead_rhythm: auditionProperty.snareRead_rhythm, snareRead_production: auditionProperty.snareRead_production, malletRead_rhythm: auditionProperty.malletRead_rhythm, malletRead_pitch: auditionProperty.malletRead_pitch, malletRead_production: auditionProperty.malletRead_production, finalScore: auditionProperty.finalScore)
         freshmenAuditions[14].append(auditionData)
+        
         saveFreshmenAuditions()
+        
+        resetAuditionProperty(sender)
     }
     
     @IBAction func loadData(_ sender: UIButton)
@@ -237,6 +240,42 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             }
             
         }
+    }
+    
+    @IBAction func resetAuditionProperty(_ sender: UIButton)
+    {
+        let blank: String = ""
+        let zero: Int = 0
+        
+        auditionProperty.first_name = blank
+        auditionProperty.last_name = blank
+        auditionProperty.instrument = blank
+        auditionProperty.comments = blank
+        
+        auditionProperty.scale1_pitch = zero
+        auditionProperty.scale1_production = zero
+        auditionProperty.scale2_pitch = zero
+        auditionProperty.scale2_production = zero
+        
+        auditionProperty.snare_rhythm = zero
+        auditionProperty.snare_tempo = zero
+        auditionProperty.snare_dynamic = zero
+        auditionProperty.snare_production = zero
+        
+        auditionProperty.mallet_rhythm = zero
+        auditionProperty.mallet_pitch = zero
+        auditionProperty.mallet_tempo = zero
+        auditionProperty.mallet_dynamic = zero
+        auditionProperty.mallet_production = zero
+        
+        auditionProperty.snareRead_rhythm = zero
+        auditionProperty.snareRead_production = zero
+        
+        auditionProperty.malletRead_rhythm = zero
+        auditionProperty.malletRead_pitch = zero
+        auditionProperty.malletRead_production = zero
+        
+        auditionProperty.finalScore = zero
     }
     
     
