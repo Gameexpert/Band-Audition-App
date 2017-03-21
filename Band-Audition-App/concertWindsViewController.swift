@@ -101,6 +101,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         
         //Sets up the data object with known variables
         self.instrumentNameLabel.text! = instrumentType
+        auditionProperty.instrument = instrumentType
         auditionProperty.concert_type = category
         categoryLabel.text = "\(auditionProperty.concert_type) Winds"
         
@@ -179,12 +180,113 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     //Following function saves the audition form
     @IBAction func saveData(_ sender: UIButton)
     {
-        loadData()//Place holder code to prevent an error message
+        self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
+        let auditionData: concertWinds = concertWinds(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, concert_type: auditionProperty.concert_type, comments: auditionProperty.comments, memorized: auditionProperty.memorized, scale1: auditionProperty.scale1, scale2: auditionProperty.scale2, scale3: auditionProperty.scale3, scale4: auditionProperty.scale4, scale5: auditionProperty.scale5, chromatic_scale: auditionProperty.chromatic_scale, etude1_pitch: auditionProperty.etude1_pitch, etude1_rhythm: auditionProperty.etude1_rhythm, etude1_articulation: auditionProperty.etude1_articulation, etude1_dynamics: auditionProperty.etude1_dynamics, etude1_tone: auditionProperty.etude1_tone, etude1_style: auditionProperty.etude1_style, etude2_pitch: auditionProperty.etude2_pitch, etude2_rhythm: auditionProperty.etude2_rhythm, etude2_articulation: auditionProperty.etude2_articulation, etude2_dynamics: auditionProperty.etude2_dynamics, etude2_tone: auditionProperty.etude2_tone, etude2_style: auditionProperty.etude2_style, read_pitch: auditionProperty.read_pitch, read_rhythm: auditionProperty.read_rhythm, finalScore: auditionProperty.finalScore)
+        
+        let information = auditionData.instrument
+        if auditionData.concert_type == "Varsity" //Checks which 2D array I must save to
+        {
+            switch information
+            {
+            case "Flute":
+                varsityAuditions[0].append(auditionData)
+            case "Oboe":
+                varsityAuditions[1].append(auditionData)
+            case "Clarinet":
+                varsityAuditions[2].append(auditionData)
+            case "Bass Clarinet":
+                varsityAuditions[3].append(auditionData)
+            case "Bassoon":
+                varsityAuditions[4].append(auditionData)
+            case "Alto Saxophone":
+                varsityAuditions[5].append(auditionData)
+            case "Tenor Saxophone":
+                varsityAuditions[6].append(auditionData)
+            case "Bari Saxophone":
+                varsityAuditions[7].append(auditionData)
+            case "Trumpet":
+                varsityAuditions[8].append(auditionData)
+            case "French Horn":
+                varsityAuditions[9].append(auditionData)
+            case "Trombone":
+                varsityAuditions[10].append(auditionData)
+            case "Euphonium":
+                varsityAuditions[11].append(auditionData)
+            case "String Bass":
+                varsityAuditions[12].append(auditionData)
+            case "Tuba":
+                varsityAuditions[13].append(auditionData)
+            default:
+                Swift.print("Save failed, varsity winds audition. instrument = \(information)")
+            }
+            saveVarsityAuditions()
+        }
+        else //String reads "Freshmen"
+        {
+            switch information
+            {
+            case "Flute":
+                freshmenAuditions[0].append(auditionData)
+            case "Oboe":
+                freshmenAuditions[1].append(auditionData)
+            case "Clarinet":
+                freshmenAuditions[2].append(auditionData)
+            case "Bass Clarinet":
+                freshmenAuditions[3].append(auditionData)
+            case "Bassoon":
+                freshmenAuditions[4].append(auditionData)
+            case "Alto Saxophone":
+                freshmenAuditions[5].append(auditionData)
+            case "Tenor Saxophone":
+                freshmenAuditions[6].append(auditionData)
+            case "Bari Saxophone":
+                freshmenAuditions[7].append(auditionData)
+            case "Trumpet":
+                freshmenAuditions[8].append(auditionData)
+            case "French Horn":
+                freshmenAuditions[9].append(auditionData)
+            case "Trombone":
+                freshmenAuditions[10].append(auditionData)
+            case "Euphonium":
+                freshmenAuditions[11].append(auditionData)
+            case "String Bass":
+                freshmenAuditions[12].append(auditionData)
+            case "Tuba":
+                freshmenAuditions[13].append(auditionData)
+            default:
+                Swift.print("Save failed, freshmen winds audition. instrument = \(information)")
+            }
+            saveFreshmenAuditions()
+        }
+        resetAuditionProperty(sender)
     }
     
     func loadData()
     {
         Swift.print("HEY! Link Listen! - Navi")
+        if auditionProperty.concert_type == "Varsity"
+        {
+            loadVarsityAuditions()
+            for i in 0..<varsityAuditions.count
+            {
+                for j in 0..<varsityAuditions[i].count
+                {
+                    print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+                }
+            }
+        }
+        else
+        {
+            loadFreshmenAuditions()
+            for i in 0..<freshmenAuditions.count
+            {
+                for j in 0..<freshmenAuditions[i].count
+                {
+                    print("\(i), \(j), \(freshmenAuditions[i][j]), \(freshmenAuditions[i][j].first_name), \(freshmenAuditions[i][j].last_name)")
+                }
+                
+            }
+        }
     }
     
     @IBAction func resetAuditionProperty(_ sender: UIButton)
@@ -204,8 +306,8 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         auditionProperty.scale3 = ZERO
         auditionProperty.scale4 = ZERO
         auditionProperty.scale5 = ZERO
-        
         auditionProperty.chromatic_scale = ZERO
+        
         auditionProperty.etude1_pitch = ZERO
         auditionProperty.etude1_rhythm = ZERO
         auditionProperty.etude1_articulation = ZERO

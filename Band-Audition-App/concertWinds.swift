@@ -7,9 +7,12 @@
 //
 
 import Foundation
-class concertWinds: audition //Audition is the protocol
+import UIKit
+import os.log
+
+class concertWinds: NSObject, audition, NSCoding //Audition is the protocol
 {
-   //MARK: Properties
+    //MARK: Properties
     var first_name: String
     var last_name: String
     var instrument: String
@@ -56,8 +59,8 @@ class concertWinds: audition //Audition is the protocol
         static var scale3 = "scale3"
         static var scale4 = "scale4"
         static var scale5 = "scale5"
-        
         static var chromatic_scale = "chromatic_scale"
+        
         static var etude1_pitch = "etude1_pitch"
         static var etude1_rhythm = "etude1_rhythm"
         static var etude1_articulation = "etude1_articulation"
@@ -77,40 +80,115 @@ class concertWinds: audition //Audition is the protocol
         static var finalScore = "finalScore"
     }
     
-    init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double)
+    init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double, chromatic_scale: Double, etude1_pitch: Double, etude1_rhythm: Double, etude1_articulation: Double, etude1_dynamics: Double, etude1_tone: Double, etude1_style: Double, etude2_pitch: Double, etude2_rhythm: Double, etude2_articulation: Double, etude2_dynamics: Double, etude2_tone: Double, etude2_style: Double, read_pitch: Double, read_rhythm: Double, finalScore: Double)
     {
-        first_name = ""
-        last_name = ""
+        self.first_name = first_name
+        self.last_name = last_name
         self.instrument = instrument
-        self.concert_type = category
-        comments = ""
-        memorized = false
+        self.concert_type = concert_type
+        self.comments = comments
+        self.memorized = memorized
         
-        scale1 = 0.0
-        scale2 = 0.0
-        scale3 = 0.0
-        scale4 = 0.0
-        scale5 = 0.0
+        self.scale1 = scale1
+        self.scale2 = scale2
+        self.scale3 = scale3
+        self.scale4 = scale4
+        self.scale5 = scale5
+        self.chromatic_scale = chromatic_scale
         
-        chromatic_scale = 0.0
-        etude1_pitch = 0.0
-        etude1_rhythm = 0.0
-        etude1_articulation = 0.0
-        etude1_dynamics = 0.0
-        etude1_tone = 0.0
-        etude1_style = 0.0
+        self.etude1_pitch = etude1_pitch
+        self.etude1_rhythm = etude1_rhythm
+        self.etude1_articulation = etude1_articulation
+        self.etude1_dynamics = etude1_dynamics
+        self.etude1_tone = etude1_tone
+        self.etude1_style = etude1_style
         
-        etude2_pitch = 0.0
-        etude2_rhythm = 0.0
-        etude2_articulation = 0.0
-        etude2_dynamics = 0.0
-        etude2_tone = 0.0
-        etude2_style = 0.0
+        self.etude2_pitch = etude2_pitch
+        self.etude2_rhythm = etude2_rhythm
+        self.etude2_articulation = etude2_articulation
+        self.etude2_dynamics = etude2_dynamics
+        self.etude2_tone = etude2_tone
+        self.etude2_style = etude2_style
         
-        read_pitch = 0.0
-        read_rhythm = 0.0
-        finalScore = 0.0
+        self.read_pitch = read_pitch
+        self.read_rhythm = read_rhythm
+        self.finalScore = finalScore
     }
     
+    func encode (with aCoder: NSCoder)
+    {
+        aCoder.encode(first_name, forKey: propertyKey.first_name)
+        aCoder.encode(last_name, forKey: propertyKey.last_name)
+        aCoder.encode(instrument, forKey: propertyKey.instrument)
+        aCoder.encode(concert_type, forKey: propertyKey.concert_type)
+        aCoder.encode(comments, forKey: propertyKey.comments)
+        aCoder.encode(memorized, forKey: propertyKey.memorized)
+        
+        aCoder.encode(scale1, forKey: propertyKey.scale1)
+        aCoder.encode(scale2, forKey: propertyKey.scale2)
+        aCoder.encode(scale3, forKey: propertyKey.scale3)
+        aCoder.encode(scale4, forKey: propertyKey.scale4)
+        aCoder.encode(scale5, forKey: propertyKey.scale5)
+        aCoder.encode(chromatic_scale, forKey: propertyKey.chromatic_scale)
+        
+        aCoder.encode(etude1_pitch, forKey: propertyKey.etude1_pitch)
+        aCoder.encode(etude1_rhythm, forKey: propertyKey.etude1_rhythm)
+        aCoder.encode(etude1_articulation, forKey: propertyKey.etude1_articulation)
+        aCoder.encode(etude1_dynamics, forKey: propertyKey.etude1_dynamics)
+        aCoder.encode(etude1_tone, forKey: propertyKey.etude1_tone)
+        aCoder.encode(etude1_style, forKey: propertyKey.etude1_style)
+        
+        aCoder.encode(etude2_pitch, forKey: propertyKey.etude2_pitch)
+        aCoder.encode(etude2_rhythm, forKey: propertyKey.etude2_rhythm)
+        aCoder.encode(etude2_articulation, forKey: propertyKey.etude2_articulation)
+        aCoder.encode(etude2_dynamics, forKey: propertyKey.etude2_dynamics)
+        aCoder.encode(etude2_tone, forKey: propertyKey.etude2_tone)
+        aCoder.encode(etude2_style, forKey: propertyKey.etude2_style)
+        
+        aCoder.encode(read_pitch, forKey: propertyKey.read_pitch)
+        aCoder.encode(read_rhythm, forKey: propertyKey.read_rhythm)
+        aCoder.encode(finalScore, forKey: propertyKey.finalScore)
+    }
     
+    required convenience init?(coder aDecoder: NSCoder)
+    {
+        //The name is required. If we cannot decode a name string, the initializer should fail
+        
+        guard let first_name = aDecoder.decodeObject(forKey: propertyKey.first_name) as? String else {
+            os_log("Unable to decode the name for a concertWinds object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        let last_name = aDecoder.decodeObject(forKey: propertyKey.last_name)
+        let instrument = aDecoder.decodeObject(forKey: propertyKey.instrument)
+        let concert_type = aDecoder.decodeObject(forKey: propertyKey.concert_type)
+        let comments = aDecoder.decodeObject(forKey: propertyKey.comments)
+        let memorized = aDecoder.decodeBool(forKey: propertyKey.memorized)
+        
+        let scale1 = aDecoder.decodeDouble(forKey: propertyKey.scale1)
+        let scale2 = aDecoder.decodeDouble(forKey: propertyKey.scale2)
+        let scale3 = aDecoder.decodeDouble(forKey: propertyKey.scale3)
+        let scale4 = aDecoder.decodeDouble(forKey: propertyKey.scale4)
+        let scale5 = aDecoder.decodeDouble(forKey: propertyKey.scale5)
+        let chromatic_scale = aDecoder.decodeDouble(forKey: propertyKey.chromatic_scale)
+        
+        let etude1_pitch = aDecoder.decodeDouble(forKey: propertyKey.etude1_pitch)
+        let etude1_rhythm = aDecoder.decodeDouble(forKey: propertyKey.etude1_rhythm)
+        let etude1_articulation = aDecoder.decodeDouble(forKey: propertyKey.etude1_articulation)
+        let etude1_dynamics = aDecoder.decodeDouble(forKey: propertyKey.etude1_dynamics)
+        let etude1_tone = aDecoder.decodeDouble(forKey: propertyKey.etude1_tone)
+        let etude1_style = aDecoder.decodeDouble(forKey: propertyKey.etude1_style)
+        
+        let etude2_pitch = aDecoder.decodeDouble(forKey: propertyKey.etude2_pitch)
+        let etude2_rhythm = aDecoder.decodeDouble(forKey: propertyKey.etude2_rhythm)
+        let etude2_articulation = aDecoder.decodeDouble(forKey: propertyKey.etude2_articulation)
+        let etude2_dynamics = aDecoder.decodeDouble(forKey: propertyKey.etude2_dynamics)
+        let etude2_tone = aDecoder.decodeDouble(forKey: propertyKey.etude2_tone)
+        let etude2_style = aDecoder.decodeDouble(forKey: propertyKey.etude2_style)
+        
+        let read_pitch = aDecoder.decodeDouble(forKey: propertyKey.read_pitch)
+        let read_rhythm = aDecoder.decodeDouble(forKey: propertyKey.read_rhythm)
+        let finalScore = aDecoder.decodeDouble(forKey: propertyKey.finalScore)
+        
+        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, concert_type: concert_type as! String, comments: comments as! String, memorized: memorized, scale1: scale1, scale2: scale2, scale3: scale3, scale4: scale4, scale5: scale5, chromatic_scale: chromatic_scale, etude1_pitch: etude1_pitch, etude1_rhythm: etude1_rhythm, etude1_articulation: etude1_articulation, etude1_dynamics: etude1_dynamics, etude1_tone: etude1_tone, etude1_style: etude1_style, etude2_pitch: etude2_pitch, etude2_rhythm: etude2_rhythm, etude2_articulation: etude2_articulation, etude2_dynamics: etude2_dynamics, etude2_tone: etude2_tone, etude2_style: etude2_style, read_pitch: read_pitch, read_rhythm: read_rhythm, finalScore: finalScore)
+    }
 }

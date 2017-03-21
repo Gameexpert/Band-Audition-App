@@ -84,7 +84,14 @@ class keyboardViewController: UIViewController
             let decimal: Character = "."
             if (sender.titleLabel!.text! == "." && !(self.data.text!.characters.contains(decimal))) || (sender.titleLabel!.text! != ".")
             {
+                if (self.data.text == "" && sender.titleLabel!.text == ".")//If the decimal is the first button pressed
+                {
+                    self.data.text = "0."
+                }
+                else
+                {
                 self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
+                }
                 let input: Double = Double(self.data.text!)!
                 if input > 5.0
                 {
