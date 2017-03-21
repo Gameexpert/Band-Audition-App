@@ -298,6 +298,20 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField)
+    {
+        let itemName: String = textField.restorationIdentifier!
+        switch itemName
+        {
+        case "firstNameBox":
+            auditionProperty.first_name = textField.text!
+        case "lastNameBox":
+            auditionProperty.last_name = textField.text!
+        default:
+            Swift.print("Error: TextField End Editing Default Called")
+        }
+    }
+    
     func segmentedControlValueChanged(segment: UISegmentedControl)
     {
         let controlIndex: Int = self.dataControl.selectedSegmentIndex

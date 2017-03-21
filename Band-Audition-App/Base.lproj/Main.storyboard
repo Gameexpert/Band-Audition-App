@@ -635,13 +635,6 @@
                                     <segue destination="vXg-Hp-vMu" kind="unwind" unwindAction="recieveFPUnwindSegueWithUnwindSegue:" id="yHh-vJ-oxy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdi-pb-5Dr">
-                                <rect key="frame" x="714" y="50" width="34" height="30"/>
-                                <state key="normal" title="Load"/>
-                                <connections>
-                                    <action selector="loadData:" destination="UYB-UT-d75" eventType="touchUpInside" id="RZL-cq-7CM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -654,7 +647,6 @@
                             <constraint firstItem="Zfh-cz-I5k" firstAttribute="top" secondItem="9tF-iX-zcc" secondAttribute="bottom" constant="790" id="Ted-JT-22h"/>
                             <constraint firstItem="Eqi-Wh-Mxh" firstAttribute="top" secondItem="mlo-hy-2ZN" secondAttribute="bottom" constant="790" id="UT0-z6-bih"/>
                             <constraint firstItem="xm2-CE-Gdw" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="200" id="YcB-ZS-HqE"/>
-                            <constraint firstItem="Hdi-pb-5Dr" firstAttribute="top" secondItem="SKo-Jh-TDs" secondAttribute="bottom" constant="30" id="b36-wc-gCQ"/>
                             <constraint firstAttribute="trailing" secondItem="Eqi-Wh-Mxh" secondAttribute="trailing" constant="30" id="eal-Aa-stW"/>
                             <constraint firstItem="Zfh-cz-I5k" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="10" id="ezL-7P-T8b"/>
                             <constraint firstItem="pNK-59-fYq" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="20" id="fWy-Ri-o5n"/>
@@ -662,7 +654,6 @@
                             <constraint firstItem="9tF-iX-zcc" firstAttribute="top" secondItem="6u7-oi-iiF" secondAttribute="bottom" constant="23" id="oaE-Et-5b6"/>
                             <constraint firstItem="6u7-oi-iiF" firstAttribute="centerX" secondItem="iNz-TB-BPD" secondAttribute="centerX" id="oax-tu-zbk"/>
                             <constraint firstAttribute="trailing" secondItem="xm2-CE-Gdw" secondAttribute="trailing" constant="50" id="oug-Sn-NDc"/>
-                            <constraint firstAttribute="trailing" secondItem="Hdi-pb-5Dr" secondAttribute="trailing" constant="20" id="tN3-i5-EAN"/>
                             <constraint firstItem="pNK-59-fYq" firstAttribute="leading" secondItem="iNz-TB-BPD" secondAttribute="leading" constant="20" id="wb8-Xm-XPq"/>
                             <constraint firstItem="6u7-oi-iiF" firstAttribute="top" secondItem="iNz-TB-BPD" secondAttribute="top" constant="20" id="xKb-og-FMK"/>
                         </constraints>
@@ -674,7 +665,6 @@
                         <outlet property="firstNameBox" destination="9tF-iX-zcc" id="kue-Zi-lVx"/>
                         <outlet property="instrumentNameLabel" destination="gBd-Ie-S1e" id="gXk-I6-Okf"/>
                         <outlet property="lastNameBox" destination="mlo-hy-2ZN" id="6PH-2h-8TI"/>
-                        <outlet property="loadButton" destination="Hdi-pb-5Dr" id="RVd-RH-9oR"/>
                         <outlet property="lowerLeftData" destination="5cH-PR-2PU" id="DiK-d9-SJJ"/>
                         <outlet property="lowerLeftLabel" destination="pn3-oT-wKe" id="CK9-5w-aae"/>
                         <outlet property="lowerLeftStack" destination="hgR-66-alo" id="Jb9-o4-57O"/>
@@ -1341,6 +1331,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveData:" destination="4w4-Ne-seY" eventType="touchUpInside" id="M4K-8f-9T4"/>
+                                    <segue destination="0D6-H5-h6h" kind="unwind" unwindAction="recieveVPUnwindSegueWithUnwindSegue:" id="dfT-V3-5nX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1658,6 +1649,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveData:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="YUz-5K-DE1"/>
+                                    <segue destination="o4i-gM-abL" kind="unwind" unwindAction="recieveJDUnwindSegueWithUnwindSegue:" id="Ped-KO-G04"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1977,6 +1969,7 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveData:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="oax-bG-fjZ"/>
+                                    <segue destination="g2b-AK-8mK" kind="unwind" unwindAction="recieveJRUnwindSegueWithUnwindSegue:" id="P0F-5Y-TwD"/>
                                 </connections>
                             </button>
                         </subviews>
