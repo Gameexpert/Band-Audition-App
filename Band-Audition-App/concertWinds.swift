@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import os.log
 
-class concertWinds: NSObject, audition, NSCoding //Audition is the protocol
+class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
 {
     //MARK: Properties
     var first_name: String

@@ -69,11 +69,11 @@ class keyboardViewController: UIViewController
             let input: Int = Int(self.data.text!)!
             if input > maxInteger //Dynamic max to fit multiple forms.
             {
-                self.data.text! = "20"
+                self.data.text! = "\(maxInteger)"
             }
             else if input < 0
             {
-                self.data.text! = "20" //should never be called.
+                self.data.text! = "0" //should never be called.
             }
         }
         else //Sets limits on double ranges
