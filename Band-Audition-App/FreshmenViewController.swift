@@ -69,9 +69,24 @@ class FreshmenViewController: UIViewController
         present(viewController!, animated: true, completion: nil)
     }
     
+    @IBAction func segueToConcertWinds(_ sender: UIButton)
+    {
+        //Sets up a global string in the concertWindsViewController file
+        category = "Freshmen"
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "concertWinds"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
     @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
     {
         //No code should go here.
     }
     
+    @IBAction func recieveConcertWindsUnwindSegueToFreshmen(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 }

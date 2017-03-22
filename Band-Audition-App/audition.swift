@@ -18,5 +18,5 @@ protocol audition
     var last_name:String {get set}
     var comments: String {get set}
     var instrument: String {get set}
-    var finalScore: Int {get set}
+    //Final Score is nescessary in order to sort the data in the results view. however, I cannot include it in the protocol because it is an Int OR a Double. So a var called finalScore is necessary to work.
 }

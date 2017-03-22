@@ -307,6 +307,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         senderButton = sender.restorationIdentifier!
         //Next line of code tells the popover keyboard that we want an Int in a string
         keyboardIsEditingInt = true
+        maxInteger = 20
         // get a reference to the view controller for the popover
         let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverKeyboard")
         

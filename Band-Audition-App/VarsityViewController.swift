@@ -65,10 +65,25 @@ class VarsityViewController: UIViewController
         let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
         present(viewController!, animated: true, completion: nil)
     }
+    
+    @IBAction func segueToConcertWinds(_ sender: UIButton)
+    {
+        //Sets up a global string in the concertWindsViewController file
+        category = "Varsity"
+        instrumentType = sender.titleLabel!.text!
+        //Following three lines "presents" the FPAuditionViewController programatically.
+        let newVCName = "concertWinds"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
 
     @IBAction func recieveVPUnwindSegue(unwindSegue: UIStoryboardSegue)
     {
         //No code should go here.
     }
 
+    @IBAction func recieveConcertWindsUnwindSegueToVarsity(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 }

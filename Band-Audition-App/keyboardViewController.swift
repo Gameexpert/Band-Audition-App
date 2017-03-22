@@ -11,6 +11,7 @@ import UIKit
 var returnedValue: String = "error" //Indicates if unedited
 var senderButton: String = "error, variable not overwritten"
 var keyboardIsEditingInt: Bool = true //True = int, false = double
+var maxInteger: Int = 20 //Should be either 20 or 50
 
 class keyboardViewController: UIViewController
 {
@@ -30,7 +31,7 @@ class keyboardViewController: UIViewController
     @IBOutlet weak var data: UILabel!
     @IBOutlet weak var clearButton: UIButton!
     
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -66,7 +67,7 @@ class keyboardViewController: UIViewController
         {
             self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
             let input: Int = Int(self.data.text!)!
-            if input > 20
+            if input > maxInteger //Dynamic max to fit multiple forms.
             {
                 self.data.text! = "20"
             }
@@ -81,9 +82,16 @@ class keyboardViewController: UIViewController
              If-Statement reads: if the button pressed was a decimal AND there are no decimals (to prevent multiple decimals) OR the button pressed was not a decimal.
              */
             let decimal: Character = "."
-            if (sender.titleLabel!.text! == "." && !(self.data.text!.characters.contains(decimal))) || (sender.titleLabel!.text! == ".")
+            if (sender.titleLabel!.text! == "." && !(self.data.text!.characters.contains(decimal))) || (sender.titleLabel!.text! != ".")
             {
+                if (self.data.text == "" && sender.titleLabel!.text == ".")//If the decimal is the first button pressed
+                {
+                    self.data.text = "0."
+                }
+                else
+                {
                 self.data.text = self.data.text! + "\(sender.titleLabel!.text!)" //Adds the title of the button to the textfield.
+                }
                 let input: Double = Double(self.data.text!)!
                 if input > 5.0
                 {
