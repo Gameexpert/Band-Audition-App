@@ -439,7 +439,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
         case 1: //Etude 1
-            upperLeftLabel.setTitle("Pitch Production", for: .normal)
+            upperLeftLabel.setTitle("Pitch Production ", for: .normal)
             upperLeftData.setTitle("\(auditionProperty.etude1_pitch)", for: .normal)
             
             upperRightLabel.setTitle("Rhythm Production", for: .normal)
@@ -464,7 +464,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
         case 2: //Etude 2
-            upperLeftLabel.setTitle("Pitch Production", for: .normal)
+            upperLeftLabel.setTitle("Pitch Production ", for: .normal)
             upperLeftData.setTitle("\(auditionProperty.etude2_pitch)", for: .normal)
             
             upperRightLabel.setTitle("Rhythm Production", for: .normal)
@@ -489,7 +489,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftStack.isHidden = false
             lowerRightStack.isHidden = false
         case 3: //Sight Read
-            upperLeftLabel.setTitle("Pitch Production", for: .normal)
+            upperLeftLabel.setTitle("Pitch Production ", for: .normal)
             upperLeftData.setTitle("\(auditionProperty.read_pitch)", for: .normal)
             
             upperRightLabel.setTitle("Rhythm Production", for: .normal)
