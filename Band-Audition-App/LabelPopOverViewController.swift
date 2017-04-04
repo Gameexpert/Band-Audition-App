@@ -32,7 +32,13 @@ class LabelPopOverViewController: UIViewController
     let improvisation: String = "(drums, 1x through)\n50-40 = great notes & rhythm, swings doing it\n30-39 = good notes/rhythm, style diminishes\n20-29 = some OK note/rhythm choices\n10-19 = gave it a shot, but it's not happening\n10 = chose NOT to improvise, repeated melody"
     let leftHandIndependence: String = "50 = accurate, precise, no hesitation\n40-49 = hesitations, 1-2 errors or corrections\n30-39 = 3 or more errors or corrections\n20-29 = frequent or repeated errors\n10-19 = seldom performs rhythms accurately"
     //Descriptions for Wind form
-    
+    let knowledgePerformance: String = "4.0-5.0 = NO errors, very secure pitches & rhythms.\nRange of score is determined by tempo\n3.0-3.9 = Less than perfect; a few errors or corrections.\n2.0-2.9 = several errors; less than 80% accuracy\n1.0-1.9 = Repeated or frequent errors (40%-60%)\n0-.9 = seldom performs pitches accurately. (0%-40%)"
+    let pitchProductionWinds: String = "(Most conservative scoring)\n5.0 = Virtually no errors and very securely played.\n4.0-4.9 = Accurate, but with hesitations or corrections\n3.0-3.9 = Isolated errors that have not been corrected\n2.0-2.9 = Frequent or repeated errors\n1.0-1.9 = Seldom performs pitches accurately"
+    let rhythmProduction: String = "(Most conservative scoring)\n5.0 = Rhythmically accurate and secure pulse.\n4.0-4.9 = Accurate, but w/ hesitation or few corrections\n3.0-3.9 = Performs w/ a few duration errors (ties, dots)\n2.0-2.9 = Performs w/ repeated erros or erratic pulse\n1.0-1.9 = Seldom rhythmically accurate or steady"
+    let articulation: String = "(Most conservative scoring)\n4.0-5.0 = Accurate to written articulations with good pedagogical responses to legato/staccato/marcato\n3.0-3.9 = SOMETIMES accurate or with inconsistant pedagogical responses to legato/staccato/marcato\n2.0-2.9 = OCCASIONALLY accurate, or accurate with fair pedagogical responses to legato/staccato/marcato;\nrandom at times\n1.0-1.9 = Seldom accurate to written articulations"
+    let dynamics: String = "(Highest Instance)\n4.0-5.0 = ALWAYS performs musically with dynamics as indicated, as well as with personal phrase shaping.\n3.0-3.9 = OFTEN performs with dynamics as indicated\n2.0-2.9 = Limited response to indicated dynamics\n1.0-1.9 = Performs with LITTLE OR NO ATTENTION to dynamics"
+    let tone: String = "(Highest Instance)\n4.0-5.0 = Plays with a full, resonant, mature sound (includes vibrato on flutes/saxophones\n3.0-3.9 = General command of tonal concept; NO DISTRACTING TONAL MANNERISMS (airy, spitty, etc.)\n2.0-2.9 = Produces a less acceptable tone, not focused, centered, or supported.\n1.0-1.9 = Seldom produces a quality tone."
+    let superiorExpessionStyle: String = "(Highest instance, indicative of truly superior performances.)\n4.0-5.0 = Consistant. Performs with superior nuance/style.\n3.0-3.9 = Occasional perf. w/ superior nuance/style.\n1.0-2.9 = A few indications of personal nuance/style."
   
     override func viewDidLoad()
     {
@@ -82,6 +88,31 @@ class LabelPopOverViewController: UIViewController
             return improvisation
         case "Left Hand Independence":
             return leftHandIndependence
+        //Space for concert winds descriptions
+        case "Scale 1":
+            return knowledgePerformance
+        case "Scale 2":
+            return knowledgePerformance
+        case "Scale 3":
+            return knowledgePerformance
+        case "Scale 4":
+            return knowledgePerformance
+        case "Scale 5":
+            return knowledgePerformance
+        case "Chromatic Scale":
+            return knowledgePerformance
+        case "Pitch Production "://Space necessary to differentiate percussion and winds
+            return pitchProductionWinds
+        case "Rhythm Production":
+            return rhythmProduction
+        case "Articulation":
+            return articulation
+        case "Dynamics":
+            return dynamics
+        case "Tone":
+            return tone
+        case "Superior Expression & Style":
+            return superiorExpessionStyle
         default:
             Swift.print("setDescription Default case called. desiredLabel: \(desiredLabel)")
             return "Default Called"

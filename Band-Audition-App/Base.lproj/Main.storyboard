@@ -2232,6 +2232,9 @@
                                                         <state key="normal" title="UpperLeft">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="SiU-62-Shi"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esj-5x-bJ0">
                                                         <rect key="frame" x="104" y="56" width="46" height="30"/>
@@ -2260,6 +2263,9 @@
                                                         <state key="normal" title="UpperRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="1dT-Ju-U0J"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="upperRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqZ-te-b8M">
                                                         <rect key="frame" x="104" y="56" width="46" height="30"/>
@@ -2293,6 +2299,9 @@
                                                         <state key="normal" title="middleLeft">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="kfs-aK-zbf"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uMk-AK-cpb">
                                                         <rect key="frame" x="104" y="56" width="46" height="30"/>
@@ -2321,6 +2330,9 @@
                                                         <state key="normal" title="middleRight">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="BZX-Y4-k23"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="middleRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67h-Ub-dzc">
                                                         <rect key="frame" x="104" y="56" width="46" height="30"/>
@@ -2357,6 +2369,9 @@
                                                                 <state key="normal" title="lowerLeft">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="dtn-Gb-5Sr"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerLeftData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jZb-fE-eMe">
                                                                 <rect key="frame" x="104" y="56" width="46" height="30"/>
@@ -2382,6 +2397,9 @@
                                                                 <state key="normal" title="lowerRight">
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="giveDescription:" destination="64B-vV-48o" eventType="touchUpInside" id="A94-XK-NZW"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="lowerRightData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nl6-Ah-Nay">
                                                                 <rect key="frame" x="104" y="54" width="46" height="30"/>
