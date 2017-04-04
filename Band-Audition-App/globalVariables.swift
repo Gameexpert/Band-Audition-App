@@ -163,3 +163,59 @@ func loadJazzAuditions()
         os_log("Failed to load Jazz Auditions...", log: OSLog.default, type: .error)
     }
 }
+
+func sortAuditionsByScore(array: Int) //1=Freshmen, 2=Varsity, 3=Jazz
+{
+    switch array
+    {
+    case 1://Freshmen
+        for subArray in freshmenAuditions
+        {
+            subArray = mergeSortByScore(array: subArray)
+            
+        }
+    case 2://Varsity
+        for subArray in freshmenAuditions
+        {
+            subArray = mergeSortByScore(array: subArray)
+            
+        }
+    case 3://Jazz
+        for subArray in freshmenAuditions
+        {
+            subArray = mergeSortByScore(array: subArray)
+            
+        }
+    default:
+        Swift.print("Default case called in sortAuditionsByScore. Array = \(array)")
+    }
+}
+
+func sortAuditionsByName(array: Int) //1=Freshmen, 2=Varsity, 3=Jazz
+{
+    
+}
+
+func mergeSortByScore(array: [audition]) -> [audition]
+{
+    let middleIndex = array.count / 2
+    //makes two halves of the array
+    let leftArray = mergeSortByScore(array: Array(array[0..<middleIndex]))
+    let rightArray = mergeSortByScore(array: Array(array[middleIndex..<array.count]))
+}
+
+func mergeByScore(left: [audition], right: [audition]) -> [audition]
+{
+    var leftIndex = 0
+    var rightIndex = 0
+    
+    var mergedArray: [audition] = []
+    
+    //Merging logic goes here
+    while leftIndex < left.count && rightIndex < right.count
+    {
+        
+    }
+    
+    return mergedArray
+}
