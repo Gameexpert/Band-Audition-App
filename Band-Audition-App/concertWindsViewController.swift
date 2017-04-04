@@ -159,6 +159,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         segmentedControlValueChanged(segment: dataControl)
         
         loadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -271,7 +272,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             {
                 for j in 0..<varsityAuditions[i].count
                 {
-                    print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+                    print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)", "\(varsityAuditions[i][j].comments)")
                 }
             }
         }
@@ -454,7 +455,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftLabel.setTitle("Tone", for: .normal)
             lowerLeftData.setTitle("\(auditionProperty.etude1_tone)", for: .normal)
             
-            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
+            lowerRightLabel.setTitle("Expression & Style", for: .normal)
             lowerRightData.setTitle("\(auditionProperty.etude1_style)", for: .normal)
             
             upperRightStack.isHidden = false
@@ -479,7 +480,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftLabel.setTitle("Tone", for: .normal)
             lowerLeftData.setTitle("\(auditionProperty.etude2_tone)", for: .normal)
             
-            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
+            lowerRightLabel.setTitle("Expression & Style", for: .normal)
             lowerRightData.setTitle("\(auditionProperty.etude2_style)", for: .normal)
             
             upperRightStack.isHidden = false
