@@ -1592,6 +1592,7 @@
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="giveDescription:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="4EZ-Gv-t7g"/>
                                                                     <action selector="giveDescription:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="UOk-X2-DZa"/>
                                                                 </connections>
                                                             </button>
@@ -1600,6 +1601,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <connections>
+                                                                    <action selector="changeDataValue:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="2mp-oV-xSt"/>
                                                                     <action selector="changeDataValue:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="svO-Dg-sfr"/>
                                                                 </connections>
                                                             </button>
@@ -1624,6 +1626,7 @@
                                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="giveDescription:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="F25-8j-AKy"/>
                                                                     <action selector="giveDescription:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="Ruh-03-1gk"/>
                                                                 </connections>
                                                             </button>
@@ -1633,6 +1636,7 @@
                                                                 <state key="normal" title="Button"/>
                                                                 <connections>
                                                                     <action selector="changeDataValue:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="fbV-DZ-cqX"/>
+                                                                    <action selector="changeDataValue:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="xUO-iX-1c6"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1658,6 +1662,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="giveDescription:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="g3D-RJ-LxO"/>
                                                             <action selector="giveDescription:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="r0b-dP-DgJ"/>
                                                         </connections>
                                                     </button>
@@ -1666,6 +1671,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
+                                                            <action selector="changeDataValue:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="BoM-UA-C3R"/>
                                                             <action selector="changeDataValue:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="abh-9l-z2r"/>
                                                         </connections>
                                                     </button>
@@ -1704,6 +1710,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="giveDescription:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="70W-hN-3JL"/>
                                                             <action selector="giveDescription:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="ihi-wu-C28"/>
                                                         </connections>
                                                     </button>
@@ -1712,6 +1719,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
+                                                            <action selector="changeDataValue:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="1Bo-5I-c9m"/>
                                                             <action selector="changeDataValue:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="jEk-IL-015"/>
                                                         </connections>
                                                     </button>
@@ -1734,6 +1742,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="giveDescription:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="YeA-dG-CoC"/>
+                                                            <action selector="giveDescription:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="g3r-0T-NS5"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="leftHandData" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dd-nX-Lop">
@@ -1742,6 +1751,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="changeDataValue:" destination="dz4-6V-KaQ" eventType="touchUpInside" id="hto-rh-XAt"/>
+                                                            <action selector="changeDataValue:" destination="UVM-eJ-Ms1" eventType="touchUpInside" id="wTa-ah-xqw"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
