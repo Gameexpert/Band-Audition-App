@@ -43,7 +43,9 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
     
     var read_pitch: Double
     var read_rhythm: Double
-    var finalScore: Double
+    
+    var finalScoreDouble: Double
+    var finalScore: Int //Necessary to comply with the protocol
     
     struct propertyKey
     {
@@ -77,10 +79,12 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         
         static var read_pitch = "read_pitch"
         static var read_rhythm = "read_rhythm"
+        
+        static var finalScoreDouble = "finalScoreDouble"
         static var finalScore = "finalScore"
     }
     
-    init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double, chromatic_scale: Double, etude1_pitch: Double, etude1_rhythm: Double, etude1_articulation: Double, etude1_dynamics: Double, etude1_tone: Double, etude1_style: Double, etude2_pitch: Double, etude2_rhythm: Double, etude2_articulation: Double, etude2_dynamics: Double, etude2_tone: Double, etude2_style: Double, read_pitch: Double, read_rhythm: Double, finalScore: Double)
+    init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double, chromatic_scale: Double, etude1_pitch: Double, etude1_rhythm: Double, etude1_articulation: Double, etude1_dynamics: Double, etude1_tone: Double, etude1_style: Double, etude2_pitch: Double, etude2_rhythm: Double, etude2_articulation: Double, etude2_dynamics: Double, etude2_tone: Double, etude2_style: Double, read_pitch: Double, read_rhythm: Double, finalScoreDouble: Double)
     {
         self.first_name = first_name
         self.last_name = last_name
@@ -112,7 +116,8 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         
         self.read_pitch = read_pitch
         self.read_rhythm = read_rhythm
-        self.finalScore = finalScore
+        self.finalScoreDouble = finalScoreDouble
+        self.finalScore = Int(finalScoreDouble * 10)
     }
     
     func encode (with aCoder: NSCoder)
@@ -147,6 +152,8 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         
         aCoder.encode(read_pitch, forKey: propertyKey.read_pitch)
         aCoder.encode(read_rhythm, forKey: propertyKey.read_rhythm)
+        
+        aCoder.encode(finalScoreDouble, forKey: propertyKey.finalScoreDouble)
         aCoder.encode(finalScore, forKey: propertyKey.finalScore)
     }
     
@@ -187,8 +194,8 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         
         let read_pitch = aDecoder.decodeDouble(forKey: propertyKey.read_pitch)
         let read_rhythm = aDecoder.decodeDouble(forKey: propertyKey.read_rhythm)
-        let finalScore = aDecoder.decodeDouble(forKey: propertyKey.finalScore)
+        let finalScoreDouble = aDecoder.decodeDouble(forKey: propertyKey.finalScoreDouble)
         
-        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, concert_type: concert_type as! String, comments: comments as! String, memorized: memorized, scale1: scale1, scale2: scale2, scale3: scale3, scale4: scale4, scale5: scale5, chromatic_scale: chromatic_scale, etude1_pitch: etude1_pitch, etude1_rhythm: etude1_rhythm, etude1_articulation: etude1_articulation, etude1_dynamics: etude1_dynamics, etude1_tone: etude1_tone, etude1_style: etude1_style, etude2_pitch: etude2_pitch, etude2_rhythm: etude2_rhythm, etude2_articulation: etude2_articulation, etude2_dynamics: etude2_dynamics, etude2_tone: etude2_tone, etude2_style: etude2_style, read_pitch: read_pitch, read_rhythm: read_rhythm, finalScore: finalScore)
+        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, concert_type: concert_type as! String, comments: comments as! String, memorized: memorized, scale1: scale1, scale2: scale2, scale3: scale3, scale4: scale4, scale5: scale5, chromatic_scale: chromatic_scale, etude1_pitch: etude1_pitch, etude1_rhythm: etude1_rhythm, etude1_articulation: etude1_articulation, etude1_dynamics: etude1_dynamics, etude1_tone: etude1_tone, etude1_style: etude1_style, etude2_pitch: etude2_pitch, etude2_rhythm: etude2_rhythm, etude2_articulation: etude2_articulation, etude2_dynamics: etude2_dynamics, etude2_tone: etude2_tone, etude2_style: etude2_style, read_pitch: read_pitch, read_rhythm: read_rhythm, finalScoreDouble: finalScoreDouble)
     }
 }

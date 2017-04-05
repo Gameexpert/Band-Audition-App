@@ -164,26 +164,28 @@ func loadJazzAuditions()
     }
 }
 
+
+/*All functions below this comment are for the purpose of sorting the data in the 2D arrays above. In the viewControllers, the only thing you should be calling is "sortAuditionsByScore" or "sortAuditionsByName"*/
 func sortAuditionsByScore(array: Int) //1=Freshmen, 2=Varsity, 3=Jazz
 {
     switch array
     {
     case 1://Freshmen
-        for subArray in freshmenAuditions
+        for index in 0 ..< freshmenAuditions.count
         {
-            subArray = mergeSortByScore(array: subArray)
+            freshmenAuditions[index] = mergeSortByScore(array: freshmenAuditions[index])
             
         }
     case 2://Varsity
-        for subArray in freshmenAuditions
+        for index in 0 ..< varsityAuditions.count
         {
-            subArray = mergeSortByScore(array: subArray)
+            varsityAuditions[index] = mergeSortByScore(array: varsityAuditions[index])
             
         }
     case 3://Jazz
-        for subArray in freshmenAuditions
+        for index in 0 ..< jazzAuditions.count
         {
-            subArray = mergeSortByScore(array: subArray)
+            jazzAuditions[index] = mergeSortByScore(array: jazzAuditions[index])
             
         }
     default:
@@ -193,7 +195,29 @@ func sortAuditionsByScore(array: Int) //1=Freshmen, 2=Varsity, 3=Jazz
 
 func sortAuditionsByName(array: Int) //1=Freshmen, 2=Varsity, 3=Jazz
 {
-    
+    switch array
+    {
+    case 1://Freshmen
+        for index in 0 ..< freshmenAuditions.count
+        {
+            freshmenAuditions[index] = mergeSortByName(array: freshmenAuditions[index])
+            
+        }
+    case 2://Varsity
+        for index in 0 ..< varsityAuditions.count
+        {
+            varsityAuditions[index] = mergeSortByName(array: varsityAuditions[index])
+            
+        }
+    case 3://Jazz
+        for index in 0 ..< jazzAuditions.count
+        {
+            jazzAuditions[index] = mergeSortByName(array: jazzAuditions[index])
+            
+        }
+    default:
+        Swift.print("Default case called in sortAuditionsByName. Array = \(array)")
+    }
 }
 
 func mergeSortByScore(array: [audition]) -> [audition]
@@ -202,6 +226,8 @@ func mergeSortByScore(array: [audition]) -> [audition]
     //makes two halves of the array
     let leftArray = mergeSortByScore(array: Array(array[0..<middleIndex]))
     let rightArray = mergeSortByScore(array: Array(array[middleIndex..<array.count]))
+    
+    return mergeByScore(left: leftArray, right: rightArray)
 }
 
 func mergeByScore(left: [audition], right: [audition]) -> [audition]
@@ -214,7 +240,96 @@ func mergeByScore(left: [audition], right: [audition]) -> [audition]
     //Merging logic goes here
     while leftIndex < left.count && rightIndex < right.count
     {
+        let leftAudition = left[leftIndex]
+        let rightAudition = right[rightIndex]
         
+        if leftAudition.finalScore > rightAudition.finalScore
+        {
+            mergedArray.append(leftAudition)
+            leftIndex += 1
+        }
+        else if leftAudition.finalScore < rightAudition.finalScore
+        {
+            mergedArray.append(rightAudition)
+            rightIndex += 1
+        }
+        else//Scores are equal
+        {
+            mergedArray.append(leftAudition)
+            leftIndex += 1
+            mergedArray.append(rightAudition)
+            rightIndex += 1
+        }
+    }
+    
+    while leftIndex < left.count
+    {
+        mergedArray.append(left[leftIndex])
+        leftIndex += 1
+    }
+    
+    while rightIndex < right.count
+    {
+        mergedArray.append(right[rightIndex])
+        rightIndex += 1
+    }
+    
+    return mergedArray
+}
+
+func mergeSortByName(array: [audition]) -> [audition]
+{
+    let middleIndex = array.count / 2
+    //makes two halves of the array
+    let leftArray = mergeSortByName(array: Array(array[0..<middleIndex]))
+    let rightArray = mergeSortByName(array: Array(array[middleIndex..<array.count]))
+    
+    return mergeByName(left: leftArray, right: rightArray)
+}
+
+func mergeByName(left: [audition], right: [audition]) -> [audition]
+{
+    var leftIndex = 0
+    var rightIndex = 0
+    
+    var mergedArray: [audition] = []
+    
+    //Merging logic goes here
+    while leftIndex < left.count && rightIndex < right.count
+    {
+        let leftAudition = left[leftIndex]
+        let rightAudition = right[rightIndex]
+        let compareResult: ComparisonResult = leftAudition.last_name.compare(_:rightAudition.last_name)
+        
+        if compareResult == ComparisonResult.orderedAscending //leftAudition.last_name < rightAudition.last_name lexically
+        {
+            mergedArray.append(leftAudition)
+            leftIndex += 1
+        }
+        else if compareResult == ComparisonResult.orderedDescending //leftAudition.last_name > rightAudition.last_name lexically
+        {
+            mergedArray.append(rightAudition)
+            rightIndex += 1
+        }
+        else// compareResult == ComparisonResult.orderedSame or they have the same last name.
+        {
+            mergedArray.append(leftAudition)
+            leftIndex += 1
+            mergedArray.append(rightAudition)
+            rightIndex += 1
+        }
+    }
+    
+    while leftIndex < left.count
+    {
+        mergedArray.append(left[leftIndex])
+        leftIndex += 1
+    }
+    
+    while rightIndex < right.count
+    {
+        mergedArray.append(right[rightIndex])
+        rightIndex += 1
     }
     
     return mergedArray
