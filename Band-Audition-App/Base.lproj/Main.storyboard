@@ -220,6 +220,9 @@
                                                 <rect key="frame" x="0.0" y="104" width="286" height="54"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                 <state key="normal" title="Freshmen Concert"/>
+                                                <connections>
+                                                    <action selector="segueToResultsList:" destination="Q4W-PR-TtR" eventType="touchUpInside" id="e4D-wc-Pde"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjo-T6-Qcn">
                                                 <rect key="frame" x="63" y="208" width="160" height="54"/>
@@ -314,6 +317,9 @@
                                 <rect key="frame" x="40" y="10" width="68" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="&lt;Back"/>
+                                <connections>
+                                    <segue destination="jwg-ef-fIl" kind="unwind" unwindAction="recieveResultsUnwindSegueWithUnwindSegue:" id="Kdc-zD-WGW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,9 +337,11 @@
                         <outlet property="deleteButton" destination="lq6-IC-del" id="aZ2-i6-x5K"/>
                         <outlet property="exportButton" destination="od5-Vp-bQK" id="355-9W-hd7"/>
                         <outlet property="sortControl" destination="6me-7L-IE4" id="7mi-jq-bz1"/>
+                        <outlet property="tableView" destination="etQ-mi-ymc" id="KsM-Yi-2Bp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzc-KR-hBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jwg-ef-fIl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="806" y="-693"/>
         </scene>
@@ -2247,7 +2255,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="firstNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="DpL-YN-Jkv">
-                                <rect key="frame" x="229" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="229.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="rkk-qV-e4V"/>
                                     <constraint firstAttribute="height" constant="25" id="yc4-D0-T4g"/>
@@ -2257,7 +2265,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="lastNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-Cv-490">
-                                <rect key="frame" x="449" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="449.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Y0V-cw-vEP"/>
                                     <constraint firstAttribute="width" constant="200" id="hLm-qx-fuj"/>

@@ -46,6 +46,16 @@ class ResultsViewController: UIViewController
         }
     }
     
-
+    @IBAction func segueToResultsList(_ sender: UIButton)
+    {
+        let newVCName = "resultsList"
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func recieveResultsUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 }
 
