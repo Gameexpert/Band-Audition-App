@@ -789,46 +789,46 @@
                         <viewControllerLayoutGuide type="bottom" id="HMF-PX-EUs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BEi-HW-doZ">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="175"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="233.33000000000001"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gBx-yU-eox">
-                                <rect key="frame" x="15" y="40" width="120" height="135"/>
+                                <rect key="frame" x="10" y="40.5" width="180" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jhG-jX-Tpt">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vLi-JN-e6u">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="OB2-Gt-EqX"/>
-                                                    <constraint firstAttribute="width" constant="30" id="iAP-OD-XJc"/>
+                                                    <constraint firstAttribute="height" constant="45" id="OB2-Gt-EqX"/>
+                                                    <constraint firstAttribute="width" constant="50" id="iAP-OD-XJc"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="1"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="Vxa-HN-dES"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPr-XY-gNo">
-                                                <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="65" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="KsE-oK-D0n"/>
-                                                    <constraint firstAttribute="height" constant="30" id="fWb-7J-1Z3"/>
+                                                    <constraint firstAttribute="width" constant="50" id="KsE-oK-D0n"/>
+                                                    <constraint firstAttribute="height" constant="45" id="fWb-7J-1Z3"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="2"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="SjU-1R-evN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vje-ZN-9QW">
-                                                <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="130" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="Ohd-4g-qyg"/>
-                                                    <constraint firstAttribute="width" constant="30" id="SCP-9D-gHf"/>
+                                                    <constraint firstAttribute="height" constant="45" id="Ohd-4g-qyg"/>
+                                                    <constraint firstAttribute="width" constant="50" id="SCP-9D-gHf"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="3"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="nvd-jq-spl"/>
@@ -837,39 +837,39 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Gxj-1M-EbW">
-                                        <rect key="frame" x="0.0" y="35" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="50" width="180" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QJM-HA-nxC">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="cj7-bQ-3fi"/>
-                                                    <constraint firstAttribute="height" constant="30" id="wIl-Ar-9sD"/>
+                                                    <constraint firstAttribute="width" constant="50" id="cj7-bQ-3fi"/>
+                                                    <constraint firstAttribute="height" constant="45" id="wIl-Ar-9sD"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="4"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="sdC-DN-fJA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmo-LK-ACj">
-                                                <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="65" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="B3U-R2-LUa"/>
-                                                    <constraint firstAttribute="height" constant="30" id="SHH-44-6qh"/>
+                                                    <constraint firstAttribute="width" constant="50" id="B3U-R2-LUa"/>
+                                                    <constraint firstAttribute="height" constant="45" id="SHH-44-6qh"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="5"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="sgP-d8-bsS"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St9-uo-vAf">
-                                                <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="130" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="96J-WP-ls8"/>
-                                                    <constraint firstAttribute="height" constant="30" id="ZOG-CA-lDm"/>
+                                                    <constraint firstAttribute="width" constant="50" id="96J-WP-ls8"/>
+                                                    <constraint firstAttribute="height" constant="45" id="ZOG-CA-lDm"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="6"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="3lN-wI-UtQ"/>
@@ -878,39 +878,39 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="cPI-lP-5s2">
-                                        <rect key="frame" x="0.0" y="70" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="100" width="180" height="45"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjY-3u-SFW">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="O1d-wT-mbd"/>
-                                                    <constraint firstAttribute="width" constant="30" id="kOd-JF-cYV"/>
+                                                    <constraint firstAttribute="height" constant="45" id="O1d-wT-mbd"/>
+                                                    <constraint firstAttribute="width" constant="50" id="kOd-JF-cYV"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="7"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="A18-9b-HjH"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vjh-fo-5gf">
-                                                <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="65" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="P5G-NW-m7J"/>
-                                                    <constraint firstAttribute="height" constant="30" id="hyX-bh-cBX"/>
+                                                    <constraint firstAttribute="width" constant="50" id="P5G-NW-m7J"/>
+                                                    <constraint firstAttribute="height" constant="45" id="hyX-bh-cBX"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="8"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="2fv-cU-obr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-ml-8HA">
-                                                <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="130" y="0.0" width="50" height="45"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="eT1-rS-ALA"/>
-                                                    <constraint firstAttribute="height" constant="30" id="mpJ-gM-kzH"/>
+                                                    <constraint firstAttribute="width" constant="50" id="eT1-rS-ALA"/>
+                                                    <constraint firstAttribute="height" constant="45" id="mpJ-gM-kzH"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="9"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="E0r-0A-hNB"/>
@@ -919,39 +919,39 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8yI-oX-Lqf">
-                                        <rect key="frame" x="0.0" y="105" width="120" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="180" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-Uq-7Sc">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="5cV-tY-imr" userLabel="width = 30"/>
+                                                    <constraint firstAttribute="width" constant="50" id="5cV-tY-imr" userLabel="width = 30"/>
                                                     <constraint firstAttribute="height" constant="30" id="aaM-IJ-UM9" userLabel="height = 30"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="."/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="1Uc-7L-WCL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3U-tN-bK0">
-                                                <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="65" y="0.0" width="50" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Agz-7i-kCf"/>
-                                                    <constraint firstAttribute="width" constant="30" id="lT6-Vm-xCg"/>
+                                                    <constraint firstAttribute="width" constant="50" id="lT6-Vm-xCg"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <state key="normal" title="0"/>
                                                 <connections>
                                                     <action selector="modifyData:" destination="tFb-s1-htO" eventType="touchUpInside" id="gTl-PY-0yR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQ5-7L-Uvk">
-                                                <rect key="frame" x="90" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="130" y="0.0" width="50" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="35R-Tf-StV"/>
+                                                    <constraint firstAttribute="width" constant="50" id="35R-Tf-StV"/>
                                                     <constraint firstAttribute="height" constant="30" id="un1-Sa-uIe"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                 <state key="normal" title="Done"/>
                                                 <connections>
                                                     <action selector="submitData:" destination="tFb-s1-htO" eventType="touchUpInside" id="GoJ-VE-Mlu"/>
@@ -961,34 +961,35 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-J1-0GP">
-                                <rect key="frame" x="15" y="8" width="60" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GhY-He-lAk">
-                                <rect key="frame" x="89" y="4" width="46" height="30"/>
+                                <rect key="frame" x="116" y="4.0000000000000853" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearData:" destination="tFb-s1-htO" eventType="touchUpInside" id="vYL-UQ-J7Y"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTi-J1-0GP">
+                                <rect key="frame" x="34" y="8" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HMF-PX-EUs" firstAttribute="top" secondItem="gBx-yU-eox" secondAttribute="bottom" id="8k6-PY-8Tq"/>
                             <constraint firstItem="gBx-yU-eox" firstAttribute="centerX" secondItem="BEi-HW-doZ" secondAttribute="centerX" id="jn1-Gx-Vh2"/>
+                            <constraint firstAttribute="bottom" secondItem="gBx-yU-eox" secondAttribute="bottom" constant="13" id="qyj-Qg-8Lj"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="150" height="175"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="233.30000000000001"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="150" height="175"/>
+                    <size key="freeformSize" width="200" height="233.33000000000001"/>
                     <connections>
                         <outlet property="butonDone" destination="eQ5-7L-Uvk" id="bRG-Hb-Rxz"/>
                         <outlet property="button0" destination="J3U-tN-bK0" id="1AE-6w-BjR"/>
@@ -1008,7 +1009,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y8o-JW-qro" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322.65625" y="933.69140624999989"/>
+            <point key="canvasLocation" x="1322.65625" y="933.39843749999989"/>
         </scene>
         <!--Label Pop Over View Controller-->
         <scene sceneID="xx8-cU-bkl">
