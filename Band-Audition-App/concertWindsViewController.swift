@@ -343,7 +343,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
                 if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
                 {
                     segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
-                    //segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                    segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
                 }
             }
         }//This Rotates the text 90 degrees so it is horizontal for the user
