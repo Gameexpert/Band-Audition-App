@@ -49,6 +49,19 @@ class ResultsViewController: UIViewController
     @IBAction func segueToResultsList(_ sender: UIButton)
     {
         let newVCName = "resultsList"
+        //If else case lets resultsListViewController know what data to pull.
+        if sender.titleLabel?.text! == "Varsity Concert"
+        {
+            arrayIdentifier = 0
+        }
+        else if sender.titleLabel?.text! == "Freshmen Concert"
+        {
+            arrayIdentifier = 1
+        }
+        else //Jazz Concert
+        {
+            arrayIdentifier = 2
+        }
         let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
         present(viewController!, animated: true, completion: nil)
     }

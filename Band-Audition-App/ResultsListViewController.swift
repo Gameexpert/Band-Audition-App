@@ -9,13 +9,10 @@
 import UIKit
 
 //MARK: Properties
-var arrayIdentifier: Int = -1 //0 = Varsity, 1 = Freshmen, 3 = Jazz, anything else is an error
+var arrayIdentifier: Int = -1 //0 = Varsity, 1 = Freshmen, 2 = Jazz, anything else is an error
 
 class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
 {
-
-    let cellReuseIdentifier = "concertCell"
-    var resultsList: [audition] = []
     
     //MARK: Properties
     @IBOutlet weak var sortControl: UISegmentedControl!
@@ -24,6 +21,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    let cellReuseIdentifier = "concertCell"
+    var resultsList: [audition] = []
     
     override func viewDidLoad()
     {
@@ -37,53 +36,86 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
         resultsList = updateArrayValues()
     }
     
     func updateArrayValues() -> [audition]{
         var output: [audition] = []
-        
-        for x in 0..<freshmenAuditions.count{
-            for i in 0..<freshmenAuditions[x].count{
-                output.append(freshmenAuditions[x][i])
+        switch arrayIdentifier
+        {
+        case 0://Varsity
+            for x in 0..<varsityAuditions.count
+            {
+                for i in 0..<varsityAuditions[x].count
+                {
+                    output.append(varsityAuditions[x][i])
+                }
             }
+        case 1: //Freshmen
+            for x in 0..<freshmenAuditions.count
+            {
+                for i in 0..<freshmenAuditions[x].count
+                {
+                    output.append(freshmenAuditions[x][i])
+                }
+            }
+        case 2: //Jazz
+            for x in 0..<jazzAuditions.count
+            {
+                for i in 0..<jazzAuditions[x].count
+                {
+                    output.append(jazzAuditions[x][i])
+                }
+            }
+        default:
+            Swift.print("Default Case in updateArrayValues called, arrayIdentifier = \(arrayIdentifier)")
         }
         
         return output
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //MARK: Functions
     @IBAction func sortControlChanged(_ sender: UISegmentedControl)
     {
-        //tableView.reloadData
-    }
-    
-    //This function gives me the option to delete stuff.
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            // delete item at indexPath
-            /*
-             find out which item in the 2D array is the reference cell and remove it from the global 2D array.
-             */
-            //self.resultsList[indexPath.row].instrument
-            
-            self.resultsList.remove(at: indexPath.row)
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        let controlIndex = sender.selectedSegmentIndex //0 = sort by name, 1 = sort by score
+        if controlIndex == 0 //Sort by name
+        {
+            switch arrayIdentifier
+            {
+            case 0: //Varsity
+                sortAuditionsByName(array: 1)
+            case 1: //Freshmen
+                sortAuditionsByName(array: 2)
+            case 2: //Jazz
+                sortAuditionsByName(array: 3)
+            default:
+                Swift.print("Default case called in sortControlChanged, switch-case 1. controlIndex = \(controlIndex), arrayIdentifier = \(arrayIdentifier)")
+            }
         }
-        
-        return [delete]
+        else //Sort by score
+        {
+            switch arrayIdentifier
+            {
+            case 0: //Varsity
+                sortAuditionsByScore(array: 1)
+            case 1: //Freshmen
+                sortAuditionsByScore(array: 2)
+            case 2: //Jazz
+                sortAuditionsByScore(array: 3)
+            default:
+                Swift.print("Default case called in sortControlChanged, switch-case 2. controlIndex = \(controlIndex), arrayIdentifier = \(arrayIdentifier)")
+            }
+        }
+        tableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultsList.count
-    }
     
     //functions to make the tableview work
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -95,5 +127,124 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return resultsList.count
+    }
+    
+    //This function gives me the option to delete stuff.
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+    {
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete"){ (action, indexPath) in
+            // delete item at indexPath from the global 2D array
+            /*
+             find out which item in the 2D array is the reference cell (using the information that I can find in it) and remove it from the global 2D array.
+             */
+            let lastName = self.resultsList[indexPath.row].last_name
+            let firstName = self.resultsList[indexPath.row].first_name
+            let score = self.resultsList[indexPath.row].finalScore
+            let comment = self.resultsList[indexPath.row].comments
+            
+            switch arrayIdentifier
+            {
+            case 0: //varsityAuditions
+                let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+                
+                for subIndex in 0 ..< varsityAuditions[superIndex].count
+                {
+                    if varsityAuditions[superIndex][subIndex].last_name == lastName && varsityAuditions[superIndex][subIndex].first_name == firstName && varsityAuditions[superIndex][subIndex].finalScore == score && varsityAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                    {
+                        varsityAuditions[superIndex].remove(at: subIndex)
+                        saveVarsityAuditions()
+                        break //Only deletes the first instance of duplicate cells, yay.
+                    }
+                }
+            case 1: //freshmenAuditions
+                break//placeholder code
+            case 2: //jazzAuditions
+                break //placeholder code
+            default:
+                break //placeholder code
+            }
+            
+            self.resultsList.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        return [delete]
+    }
+}
+/*
+ Helper Function for deleting data
+ Finds the index of the "super" array in the 2D array that is being displayed in the results view
+ @param instrument  String that identifies the instrument of the soon-to-be deleted object
+ @return    an Int that will be used as the superIndex in the 2D array for a for loop.
+ */
+func findSuperIndex(instrument: String) -> Int
+{
+    if arrayIdentifier == 2 //Jazz Auditions
+    {
+        switch instrument
+        {
+        case "Saxophone":
+            return 0
+        case "Trombone":
+            return 1
+        case "Trumpet":
+            return 2
+        case "Piano":
+            return 3
+        case <#pattern#>:
+            return 4
+        case <#pattern#>:
+            return 5
+        case <#pattern#>:
+            return 6
+        case <#pattern#>:
+            return 7
+        default:
+            <#code#>
+        }
+    }
+    else //Varsity or freshmen
+    {
+        switch instrument //See globalVariables.swift comments to see why the switch case works the way it does
+        {
+        case "Flute":
+            return 0
+        case "Oboe":
+            return 1
+        case "Clarinet":
+            return 2
+        case "Bass Clarinet":
+            return 3
+        case "Bassoon":
+            return 4
+        case "Alto Saxophone":
+            return 5
+        case "Tenor Saxophone":
+            return 6
+        case "Bari Saxophone":
+            return 7
+        case "Trumpet":
+            return 8
+        case "French Horn":
+            return 9
+        case "Trombone":
+            return 10
+        case "Euphonium":
+            return 11
+        case "String Bass":
+            return 12
+        case "Tuba":
+            return 13
+        case "Percussion":
+            return 14
+        default:
+            Swift.print("Default case in findSuperIndex called. arrayIdentifier = \(arrayIdentifier), instrument = \(instrument)")
+        }
     }
 }
