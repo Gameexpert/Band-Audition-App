@@ -158,15 +158,35 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
                     {
                         varsityAuditions[superIndex].remove(at: subIndex)
                         saveVarsityAuditions()
-                        break //Only deletes the first instance of duplicate cells, yay.
+                        break //Only deletes the first instance of duplicate cells.
                     }
                 }
             case 1: //freshmenAuditions
-                break//placeholder code
+                let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+                
+                for subIndex in 0 ..< freshmenAuditions[superIndex].count
+                {
+                    if freshmenAuditions[superIndex][subIndex].last_name == lastName && freshmenAuditions[superIndex][subIndex].first_name == firstName && freshmenAuditions[superIndex][subIndex].finalScore == score && freshmenAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                    {
+                        freshmenAuditions[superIndex].remove(at: subIndex)
+                        saveFreshmenAuditions()
+                        break //Only deletes the first instance of duplicate cells.
+                    }
+                }
             case 2: //jazzAuditions
-                break //placeholder code
+                let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+                
+                for subIndex in 0 ..< jazzAuditions[superIndex].count
+                {
+                    if jazzAuditions[superIndex][subIndex].last_name == lastName && jazzAuditions[superIndex][subIndex].first_name == firstName && jazzAuditions[superIndex][subIndex].finalScore == score && jazzAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                    {
+                        jazzAuditions[superIndex].remove(at: subIndex)
+                        saveJazzAuditions()
+                        break //Only deletes the first instance of duplicate cells.
+                    }
+                }
             default:
-                break //placeholder code
+                Swift.print("Default Called in func tableView for deletion, arrayIdentifier = \(arrayIdentifier)")
             }
             
             self.resultsList.remove(at: indexPath.row)
@@ -197,16 +217,16 @@ func findSuperIndex(instrument: String) -> Int
             return 2
         case "Piano":
             return 3
-        case <#pattern#>:
+        case "Bass Guitar":
             return 4
-        case <#pattern#>:
+        case "Guitar":
             return 5
-        case <#pattern#>:
+        case "Drumset":
             return 6
-        case <#pattern#>:
+        case "Vibraphone":
             return 7
         default:
-            <#code#>
+            Swift.print("Default case in findSuperIndex called. arrayIdentifier = \(arrayIdentifier), instrument = \(instrument)")
         }
     }
     else //Varsity or freshmen
@@ -247,4 +267,5 @@ func findSuperIndex(instrument: String) -> Int
             Swift.print("Default case in findSuperIndex called. arrayIdentifier = \(arrayIdentifier), instrument = \(instrument)")
         }
     }
+    return -1 //Should never happen, but it's different from expected values and can indicate what kind of error is occuring.
 }

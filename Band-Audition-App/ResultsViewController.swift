@@ -62,6 +62,12 @@ class ResultsViewController: UIViewController
         {
             arrayIdentifier = 2
         }
+        
+        //Loads all the data before segue into results list so that the data is actually there to view.
+        loadVarsityAuditions()
+        loadFreshmenAuditions()
+        loadJazzAuditions()
+        
         let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
         present(viewController!, animated: true, completion: nil)
     }
