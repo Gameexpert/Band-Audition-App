@@ -257,10 +257,10 @@
             </objects>
             <point key="canvasLocation" x="102.34375" y="-573.046875"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Tabs View Controller-->
         <scene sceneID="kUE-a6-P9H">
             <objects>
-                <viewController id="jaf-GH-dDK" sceneMemberID="viewController">
+                <viewController id="jaf-GH-dDK" customClass="MainTabsViewController" customModule="Band_Audition_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hzk-Ik-ZaK"/>
                         <viewControllerLayoutGuide type="bottom" id="to8-ST-uI7"/>
@@ -276,21 +276,33 @@
                                         <rect key="frame" x="103" y="0.0" width="136" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <state key="normal" title="Results"/>
+                                        <connections>
+                                            <action selector="segueToTabBarController:" destination="jaf-GH-dDK" eventType="touchUpInside" id="HPJ-KG-Ii5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKa-WD-2TY">
                                         <rect key="frame" x="29.5" y="163" width="283" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <state key="normal" title="Varsity Concert"/>
+                                        <connections>
+                                            <action selector="segueToTabBarController:" destination="jaf-GH-dDK" eventType="touchUpInside" id="f7H-eO-CHf"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLc-UC-Ky6">
                                         <rect key="frame" x="0.0" y="326" width="342" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <state key="normal" title="Freshmen Concert"/>
+                                        <connections>
+                                            <action selector="segueToTabBarController:" destination="jaf-GH-dDK" eventType="touchUpInside" id="7qJ-Mq-Sff"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7K-gq-4E4">
                                         <rect key="frame" x="75.5" y="489" width="191" height="63"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                         <state key="normal" title="Jazz Band"/>
+                                        <connections>
+                                            <action selector="segueToTabBarController:" destination="jaf-GH-dDK" eventType="touchUpInside" id="3Vy-Ht-84j"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -309,6 +321,12 @@
                             <constraint firstItem="ecS-ai-SGc" firstAttribute="top" secondItem="NzA-4n-knb" secondAttribute="topMargin" constant="20" id="YkK-pV-bEQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="freshmenConcertButton" destination="MLc-UC-Ky6" id="j6Q-Xu-Sgl"/>
+                        <outlet property="jazzBandButton" destination="O7K-gq-4E4" id="DWU-9A-z9h"/>
+                        <outlet property="resultsButton" destination="W2J-mo-Ab9" id="qa1-n3-uv1"/>
+                        <outlet property="varsityConcertButton" destination="FKa-WD-2TY" id="y3g-dM-62l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wfj-UA-opv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,7 +335,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="EcR-BR-5sc">
             <objects>
-                <tabBarController id="8V9-FW-F71" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" id="8V9-FW-F71" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="KUg-Qa-v0p">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

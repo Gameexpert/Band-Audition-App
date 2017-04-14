@@ -20,6 +20,7 @@ import os.log
  */
 
 var instrumentType: String = "Error"
+var tabBarIndex: Int = 0
 
 /*
  When adding a new audition object, use the following syntax:
