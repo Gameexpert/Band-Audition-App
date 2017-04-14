@@ -113,6 +113,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
                 Swift.print("Default case called in sortControlChanged, switch-case 2. controlIndex = \(controlIndex), arrayIdentifier = \(arrayIdentifier)")
             }
         }
+        resultsList = updateArrayValues()
         tableView.reloadData()
     }
     

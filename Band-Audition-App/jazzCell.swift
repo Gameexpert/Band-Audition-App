@@ -1,20 +1,21 @@
 //
-//  concertCell.swift
+//  jazzCell.swift
 //  Band-Audition-App
 //
-//  Created by VANDER HOEVEN, EVAN on 4/10/17.
+//  Created by VANDER HOEVEN, EVAN on 4/14/17.
 //  Copyright © 2017 Copy Pasta Coding. All rights reserved.
 //
 
 import UIKit
 
-class concertCell: UITableViewCell {
+class jazzCell: UITableViewCell {
 
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
         "Instrument": (UILabel(), 30, 0, 160, 40),
+        //"Sax/Range": (UILabel(), 100, 0, 150, 40),
         "Name": (UILabel(), 260, 0, 200, 40),
         "Score": (UILabel(), 500, 0, 50, 40)
-        ]
+    ]
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?)
     {
@@ -22,8 +23,7 @@ class concertCell: UITableViewCell {
         
         //Add elements as subview to the contentView
         //self.contentView.addSubview(dataLabel)
-        for ( _ , value) in labels
-        {
+        for ( _ , value) in labels{
             self.contentView.addSubview(value.Label)
         }
     }
@@ -40,9 +40,9 @@ class concertCell: UITableViewCell {
         //Set element sizes
         //dataLabel.frame = CGRect(x: 20, y: 0, width: 70, height: 30)
         
-        for (_, val) in labels{
+        for (_, val) in labels
+        {
             val.Label.frame = CGRect(x: val.x, y: val.y, width: val.width, height: val.height)
         }
     }
-
 }

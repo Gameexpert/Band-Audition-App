@@ -30,6 +30,7 @@
 		772DA34E1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */; };
 		772DA3501DF5CF7200718EB6 /* varsityConcertPercussion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */; };
 		773064051E9BDC2700C18D9A /* concertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773064041E9BDC2700C18D9A /* concertCell.swift */; };
+		77408CBF1EA1291B000FECA1 /* jazzCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77408CBE1EA1291B000FECA1 /* jazzCell.swift */; };
 		7750D9A61E82D1E300E1AF08 /* concertWindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */; };
 		7750D9A81E82D27B00E1AF08 /* concertWinds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750D9A71E82D27B00E1AF08 /* concertWinds.swift */; };
 		778428C61E27BE6500786327 /* keyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778428C51E27BE6500786327 /* keyboardViewController.swift */; };
@@ -84,6 +85,7 @@
 		772DA34D1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = freshmenConcertPercussion.swift; sourceTree = "<group>"; };
 		772DA34F1DF5CF7200718EB6 /* varsityConcertPercussion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = varsityConcertPercussion.swift; sourceTree = "<group>"; };
 		773064041E9BDC2700C18D9A /* concertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertCell.swift; sourceTree = "<group>"; };
+		77408CBE1EA1291B000FECA1 /* jazzCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = jazzCell.swift; sourceTree = "<group>"; };
 		7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWindsViewController.swift; sourceTree = "<group>"; };
 		7750D9A71E82D27B00E1AF08 /* concertWinds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWinds.swift; sourceTree = "<group>"; };
 		778428C51E27BE6500786327 /* keyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyboardViewController.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				25657E491E7846CB00BBCE1F /* JRAuditionViewController.swift */,
 				250439381E269CA8007D080A /* LabelPopOverViewController.swift */,
 				778428C51E27BE6500786327 /* keyboardViewController.swift */,
+				77408CBE1EA1291B000FECA1 /* jazzCell.swift */,
 			);
 			path = "Band-Audition-App";
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				25A2A50C1E01B32F002B9E0F /* FPAuditionViewController.swift in Sources */,
 				77C0B61B1E93F2A800914CFD /* ResultsListViewController.swift in Sources */,
 				77E06A591DFB13C50082BA8C /* audition.swift in Sources */,
+				77408CBF1EA1291B000FECA1 /* jazzCell.swift in Sources */,
 				772DA31C1DF5CD0100718EB6 /* DataViewController.swift in Sources */,
 				772DA34E1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift in Sources */,
 				7750D9A81E82D27B00E1AF08 /* concertWinds.swift in Sources */,
