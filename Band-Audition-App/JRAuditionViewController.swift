@@ -15,6 +15,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     @IBOutlet weak var instrumentNameLabel: UILabel!
     @IBOutlet weak var firstNameBox: UITextField!
     @IBOutlet weak var lastNameBox: UITextField!
+    @IBOutlet weak var preferredRange: UITextField!
     @IBOutlet weak var finalScoreLabel: UILabel!
     
     @IBOutlet weak var backButton: UIButton!
@@ -52,6 +53,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     {
         static var first_name: String = ""
         static var last_name: String = ""
+        static var preferredRange: String = ""
         static var instrument: String = ""
         static var comments: String = ""
         
@@ -122,6 +124,12 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         self.firstNameBox.delegate = self
         self.lastNameBox.delegate = self
         
+        preferredRange.isHidden = true
+        if (instrumentType == "Saxophone") || (instrumentType == "Trumpet")
+        {
+            preferredRange.isHidden = false
+        }
+        
         //Creates a listener for the NSNotification center to stop the keyboard from covering the comments box
         NotificationCenter.default.addObserver(self, selector: #selector(JDAuditionViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
@@ -181,7 +189,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     @IBAction func saveData(_ sender: UIButton)
     {
         self.view.endEditing(true)//Dismisses the keyboard, if it exists. This forces a save of the name properties before we actually save any of the data.
-        let auditionData: jazzRhythms = jazzRhythms(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, instrument: auditionProperty.instrument, comments: auditionProperty.comments, swing_Production: auditionProperty.swing_Production, swing_Rhythm: auditionProperty.swing_Rhythm, swing_Articulations: auditionProperty.swing_Articulations, straight_Production: auditionProperty.straight_Production, straight_Rhythm: auditionProperty.straight_Rhythm, straight_Articulations: auditionProperty.straight_Articulations, sight_Production: auditionProperty.sight_Production, sight_Rhythm: auditionProperty.sight_Rhythm, sight_Articulations: auditionProperty.sight_Articulations, improvisation: auditionProperty.improvisation, leftHand_Independence: auditionProperty.leftHand_Independence, finalScore: auditionProperty.finalScore)
+        let auditionData: jazzRhythms = jazzRhythms(first_name: auditionProperty.first_name, last_name: auditionProperty.last_name, preferredRange: auditionProperty.preferredRange, instrument: auditionProperty.instrument, comments: auditionProperty.comments, swing_Production: auditionProperty.swing_Production, swing_Rhythm: auditionProperty.swing_Rhythm, swing_Articulations: auditionProperty.swing_Articulations, straight_Production: auditionProperty.straight_Production, straight_Rhythm: auditionProperty.straight_Rhythm, straight_Articulations: auditionProperty.straight_Articulations, sight_Production: auditionProperty.sight_Production, sight_Rhythm: auditionProperty.sight_Rhythm, sight_Articulations: auditionProperty.sight_Articulations, improvisation: auditionProperty.improvisation, leftHand_Independence: auditionProperty.leftHand_Independence, finalScore: auditionProperty.finalScore)
         switch instrumentType
         {
         case "Saxophone":
@@ -367,6 +375,8 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             auditionProperty.first_name = textField.text!
         case "lastNameBox":
             auditionProperty.last_name = textField.text!
+        case "preferredRange":
+            auditionProperty.preferredRange = textField.text!
         default:
             Swift.print("Error: TextField End Editing Default Called")
         }

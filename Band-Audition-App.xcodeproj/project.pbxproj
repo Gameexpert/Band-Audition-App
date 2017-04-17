@@ -250,7 +250,7 @@
 				TargetAttributes = {
 					772DA3131DF5CD0100718EB6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 75DZ4CG2N8;
+						DevelopmentTeam = ZQMMJHZRS3;
 						ProvisioningStyle = Automatic;
 					};
 					772DA32B1DF5CD0200718EB6 = {
@@ -491,7 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 75DZ4CG2N8;
+				DEVELOPMENT_TEAM = ZQMMJHZRS3;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -505,7 +505,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 75DZ4CG2N8;
+				DEVELOPMENT_TEAM = ZQMMJHZRS3;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

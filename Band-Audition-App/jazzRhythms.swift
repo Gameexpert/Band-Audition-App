@@ -14,6 +14,7 @@ class jazzRhythms: NSObject, NSCoding, audition
 {
     var first_name: String
     var last_name: String
+    var preferredRange: String
     var instrument: String
     var comments: String
     
@@ -38,6 +39,7 @@ class jazzRhythms: NSObject, NSCoding, audition
     {
         static var first_name = "first_name"
         static var last_name = "last_name"
+        static var preferredRange = "preferredRange"
         static var instrument = "instrument"
         static var comments = "comments"
         
@@ -59,10 +61,11 @@ class jazzRhythms: NSObject, NSCoding, audition
         static var finalScore = "finalScore"
     }
     
-    init(first_name: String, last_name: String, instrument: String, comments: String, swing_Production: Int, swing_Rhythm: Int, swing_Articulations: Int, straight_Production: Int, straight_Rhythm: Int, straight_Articulations: Int, sight_Production: Int, sight_Rhythm: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
+    init(first_name: String, last_name: String, preferredRange: String, instrument: String, comments: String, swing_Production: Int, swing_Rhythm: Int, swing_Articulations: Int, straight_Production: Int, straight_Rhythm: Int, straight_Articulations: Int, sight_Production: Int, sight_Rhythm: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
     {
         self.first_name = first_name
         self.last_name = last_name
+        self.preferredRange = preferredRange
         self.instrument = instrument
         self.comments = comments
         
@@ -88,6 +91,7 @@ class jazzRhythms: NSObject, NSCoding, audition
     {
         aCoder.encode(first_name, forKey: PropertyKey.first_name)
         aCoder.encode(last_name, forKey: PropertyKey.last_name)
+        aCoder.encode(preferredRange, forKey: PropertyKey.preferredRange)
         aCoder.encode(instrument, forKey: PropertyKey.instrument)
         aCoder.encode(comments, forKey: PropertyKey.comments)
         
@@ -120,6 +124,7 @@ class jazzRhythms: NSObject, NSCoding, audition
         }
         
         let last_name = aDecoder.decodeObject(forKey: PropertyKey.last_name)
+        let preferredRange = aDecoder.decodeObject(forKey: PropertyKey.preferredRange)
         let instrument = aDecoder.decodeObject(forKey: PropertyKey.instrument)
         let comments = aDecoder.decodeObject(forKey: PropertyKey.comments)
         
@@ -140,7 +145,7 @@ class jazzRhythms: NSObject, NSCoding, audition
         
         let finalScore = aDecoder.decodeInteger(forKey: PropertyKey.finalScore)
         
-        self.init(first_name: first_name, last_name: last_name as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production as! Int, swing_Rhythm: swing_Rhythm as! Int, swing_Articulations: swing_Articulations as! Int, straight_Production: straight_Production as! Int, straight_Rhythm: straight_Rhythm as! Int, straight_Articulations: straight_Articulations as! Int, sight_Production: sight_Production as! Int, sight_Rhythm: sight_Rhythm as! Int, sight_Articulations: sight_Articulations as! Int, improvisation: improvisation as! Int, leftHand_Independence: leftHand_Independence as! Int, finalScore: finalScore as! Int)
+        self.init(first_name: first_name, last_name: last_name as! String, preferredRange: preferredRange as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production as! Int, swing_Rhythm: swing_Rhythm as! Int, swing_Articulations: swing_Articulations as! Int, straight_Production: straight_Production as! Int, straight_Rhythm: straight_Rhythm as! Int, straight_Articulations: straight_Articulations as! Int, sight_Production: sight_Production as! Int, sight_Rhythm: sight_Rhythm as! Int, sight_Articulations: sight_Articulations as! Int, improvisation: improvisation as! Int, leftHand_Independence: leftHand_Independence as! Int, finalScore: finalScore as! Int)
     }
 
 }
