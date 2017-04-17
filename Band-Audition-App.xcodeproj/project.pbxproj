@@ -161,6 +161,7 @@
 				257B19191DF877520038B298 /* JazzViewController.swift */,
 				77C0B61A1E93F2A800914CFD /* ResultsListViewController.swift */,
 				773064041E9BDC2700C18D9A /* concertCell.swift */,
+				77408CBE1EA1291B000FECA1 /* jazzCell.swift */,
 				25A2A50B1E01B32F002B9E0F /* FPAuditionViewController.swift */,
 				77296B4E1E5CA31E003E956C /* VPAuditionViewController.swift */,
 				7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */,
@@ -168,7 +169,6 @@
 				25657E491E7846CB00BBCE1F /* JRAuditionViewController.swift */,
 				250439381E269CA8007D080A /* LabelPopOverViewController.swift */,
 				778428C51E27BE6500786327 /* keyboardViewController.swift */,
-				77408CBE1EA1291B000FECA1 /* jazzCell.swift */,
 			);
 			path = "Band-Audition-App";
 			sourceTree = "<group>";

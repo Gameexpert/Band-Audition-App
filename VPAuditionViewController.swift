@@ -93,6 +93,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         // Do any additional setup after loading the view.
         self.instrumentNameLabel.text! = instrumentType
         //Sets up the data object with known variables
+        auditionProperty.instrument = instrumentType
         
         
         //Audition Layout with CGRects

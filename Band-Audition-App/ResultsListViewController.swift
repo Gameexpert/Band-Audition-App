@@ -56,6 +56,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
                 for i in 0..<varsityAuditions[x].count
                 {
                     output.append(varsityAuditions[x][i])
+                    Swift.print("\(varsityAuditions[x][i].last_name), \(varsityAuditions[x][i].instrument)") //I'm not seeing instruments.
                 }
             }
         case 1: //Freshmen

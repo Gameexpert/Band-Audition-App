@@ -23,7 +23,8 @@ class jazzCell: UITableViewCell {
         
         //Add elements as subview to the contentView
         //self.contentView.addSubview(dataLabel)
-        for ( _ , value) in labels{
+        for ( _ , value) in labels
+        {
             self.contentView.addSubview(value.Label)
         }
     }
