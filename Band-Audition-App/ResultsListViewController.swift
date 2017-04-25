@@ -126,21 +126,23 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath) as! jazzCell
             
-            do
+            do //if this is a jazz rhythm with sax or trumpet
             {
                 let rhythm = try resultsList[indexPath.row] as! jazzRhythms //Reads the item as the extension of the protocol in order to read specific values
                 
                 cell.labels["Instrument"]?.Label.text = rhythm.instrument
-                //cell.labels["Sax/Range"]?.label.text = rhythm.first_name
+                cell.labels["Sax/Range"]?.Label.text = rhythm.preferredRange
                 cell.labels["Name"]?.Label.text = "\(rhythm.last_name), \(rhythm.first_name)"
                 cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
+                
+                return cell
             }
             catch
             {
                 print("100% Jerror occured")
             }
             
-            
+            //if this is a jazz drumset
             
             cell.labels["Instrument"]?.Label.text = resultsList[indexPath.row].instrument
             cell.labels["Name"]?.Label.text = "\(resultsList[indexPath.row].last_name), \(resultsList[indexPath.row].first_name)"
@@ -148,6 +150,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
             
             return cell
         }
+        
+        //If this is a concert of any type.
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath) as! concertCell
         
         cell.labels["Instrument"]?.Label.text = resultsList[indexPath.row].instrument

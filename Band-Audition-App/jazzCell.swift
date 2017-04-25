@@ -12,7 +12,7 @@ class jazzCell: UITableViewCell {
 
     var labels: [String: (Label: UILabel, x: Int, y: Int, width: Int, height: Int)] = [
         "Instrument": (UILabel(), 30, 0, 160, 40),
-        //"Sax/Range": (UILabel(), 100, 0, 150, 40),
+        "Sax/Range": (UILabel(), 100, 0, 150, 40),
         "Name": (UILabel(), 260, 0, 200, 40),
         "Score": (UILabel(), 500, 0, 50, 40)
     ]

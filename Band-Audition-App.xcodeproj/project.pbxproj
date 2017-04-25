@@ -259,7 +259,7 @@
 				TargetAttributes = {
 					772DA3131DF5CD0100718EB6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZQMMJHZRS3;
+						DevelopmentTeam = 96L2Y94678;
 						ProvisioningStyle = Automatic;
 					};
 					772DA32B1DF5CD0200718EB6 = {
@@ -503,11 +503,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZQMMJHZRS3;
+				DEVELOPMENT_TEAM = 96L2Y94678;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mad2016.Band-Audition-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.district196.band-audition-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -517,11 +517,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZQMMJHZRS3;
+				DEVELOPMENT_TEAM = 96L2Y94678;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mad2016.Band-Audition-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.district196.band-audition-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
