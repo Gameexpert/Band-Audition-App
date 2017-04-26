@@ -21,7 +21,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
-    let cellReuseIdentifier = "concertCell"
+    let cellReuseIdentifier = "auditionCell"
     var resultsList: [audition] = []
     
     override func viewDidLoad()
@@ -29,7 +29,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         resultsList = updateArrayValues()
 
-        tableView.register(concertCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        tableView.register(auditionCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -122,41 +122,27 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     //functions to make the tableview work
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        if arrayIdentifier == 3 //Jazz
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath) as! auditionCell
+            
+            
+        if let rhythm = resultsList[indexPath.row] as? jazzRhythms //Reads the item as the extension of the protocol in order to read specific values, works for jazzRhythm objects
         {
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath) as! jazzCell
-            
-            do //if this is a jazz rhythm with sax or trumpet
-            {
-                let rhythm = try resultsList[indexPath.row] as! jazzRhythms //Reads the item as the extension of the protocol in order to read specific values
-                
-                cell.labels["Instrument"]?.Label.text = rhythm.instrument
-                cell.labels["Sax/Range"]?.Label.text = rhythm.preferredRange
-                cell.labels["Name"]?.Label.text = "\(rhythm.last_name), \(rhythm.first_name)"
-                cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
-                
-                return cell
-            }
-            catch
-            {
-                print("100% Jerror occured")
-            }
-            
-            //if this is a jazz drumset
-            
-            cell.labels["Instrument"]?.Label.text = resultsList[indexPath.row].instrument
-            cell.labels["Name"]?.Label.text = "\(resultsList[indexPath.row].last_name), \(resultsList[indexPath.row].first_name)"
+            cell.labels["Instrument"]?.Label.text = rhythm.instrument
+            Swift.print("\(rhythm.instrument)")
+            cell.labels["Sax/Range"]?.Label.text = rhythm.preferredRange
+            Swift.print("\(rhythm.preferredRange)")
+            cell.labels["Name"]?.Label.text = "\(rhythm.last_name), \(rhythm.first_name)"
             cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
-            
+                
             return cell
         }
-        
-        //If this is a concert of any type.
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath as IndexPath) as! concertCell
-        
-        cell.labels["Instrument"]?.Label.text = resultsList[indexPath.row].instrument
-        cell.labels["Name"]?.Label.text = "\(resultsList[indexPath.row].last_name), \(resultsList[indexPath.row].first_name)"
-        cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
+        else //If this is anything else, jazz drumset or concert.
+        {
+            cell.labels["Instrument"]?.Label.text = resultsList[indexPath.row].instrument
+            cell.labels["Sax/Range"]?.Label.text = "" //Makes it blank since the data doesn't exist
+            cell.labels["Name"]?.Label.text = "\(resultsList[indexPath.row].last_name), \(resultsList[indexPath.row].first_name)"
+            cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
+        }
         
         return cell
     }
