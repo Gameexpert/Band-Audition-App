@@ -316,6 +316,9 @@
                                         <rect key="frame" x="0.0" y="46" width="105" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Delete Data"/>
+                                        <connections>
+                                            <action selector="deleteCategoryWithWarning:" destination="cmr-1C-DQJ" eventType="touchUpInside" id="Qmi-8z-E37"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -2275,7 +2278,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="firstNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="DpL-YN-Jkv">
-                                <rect key="frame" x="229" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="229.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="rkk-qV-e4V"/>
                                     <constraint firstAttribute="height" constant="25" id="yc4-D0-T4g"/>
@@ -2285,7 +2288,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="lastNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="a1O-Cv-490">
-                                <rect key="frame" x="449" y="70.5" width="200" height="25"/>
+                                <rect key="frame" x="449.5" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Y0V-cw-vEP"/>
                                     <constraint firstAttribute="width" constant="200" id="hLm-qx-fuj"/>

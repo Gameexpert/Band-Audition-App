@@ -46,6 +46,53 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         resultsList = updateArrayValues()
     }
     
+    //MARK: Functions
+    
+    @IBAction func deleteCategoryWithWarning(_ sender: UIButton)
+    {
+        /*
+         First, create a UIAlert to stop the user from deleting all data accidently.
+         Second, delete the data
+         Third, call updateArrayValues and display ta blank tableView
+         */
+        
+        //FIRST TASK
+        // create the alert
+        let alert = UIAlertController(title: "Delete Entire Category", message: "This action cannot be undone, are you sure you want to continue?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the options for the user (buttons on the bottom of the UIAlert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { action in
+            //SECOND TASK
+            switch arrayIdentifier
+            {
+            case 0: //Varsity
+                varsityAuditions = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+                saveVarsityAuditions()
+            case 1: //Freshmen
+                freshmenAuditions = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
+                saveFreshmenAuditions()
+            case 2: //Jazz
+                jazzAuditions = [[], [], [], [], [], [], [], []]
+                saveJazzAuditions()
+            default:
+                Swift.print("Failed to delete data, arrayIdentifier: \(arrayIdentifier)")
+            }
+            
+            //THIRD TASK
+            self.resultsList = self.updateArrayValues()
+            self.tableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
     func updateArrayValues() -> [audition]{
         var output: [audition] = []
         switch arrayIdentifier
@@ -56,7 +103,6 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
                 for i in 0..<varsityAuditions[x].count
                 {
                     output.append(varsityAuditions[x][i])
-                    Swift.print("\(varsityAuditions[x][i].last_name), \(varsityAuditions[x][i].instrument)") //I'm not seeing instruments.
                 }
             }
         case 1: //Freshmen
