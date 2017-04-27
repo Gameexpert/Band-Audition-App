@@ -123,6 +123,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         self.commentsView.delegate = self
         self.firstNameBox.delegate = self
         self.lastNameBox.delegate = self
+        self.preferredRange.delegate = self
         
         preferredRange.isHidden = true
         if (instrumentType == "Saxophone") || (instrumentType == "Trumpet")
@@ -235,6 +236,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         auditionProperty.first_name = blank
         auditionProperty.last_name = blank
         auditionProperty.instrument = blank
+        auditionProperty.preferredRange = blank
         auditionProperty.comments = blank
         
         auditionProperty.swing_Production = zero
