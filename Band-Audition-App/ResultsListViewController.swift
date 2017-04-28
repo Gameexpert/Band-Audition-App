@@ -61,19 +61,22 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         let alert = UIAlertController(title: "Delete Entire Category", message: "This action cannot be undone, are you sure you want to continue?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the options for the user (buttons on the bottom of the UIAlert)
-        let confirmAction = UIAlertAction(title: "Confirm", style: .destructive) { action in
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { action in
             //SECOND TASK
             switch arrayIdentifier
             {
             case 0: //Varsity
                 varsityAuditions = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
                 saveVarsityAuditions()
+                loadVarsityAuditions()
             case 1: //Freshmen
                 freshmenAuditions = [[], [], [], [], [], [], [], [], [], [], [], [], [], [], []]
                 saveFreshmenAuditions()
+                loadFreshmenAuditions()
             case 2: //Jazz
                 jazzAuditions = [[], [], [], [], [], [], [], []]
                 saveJazzAuditions()
+                loadJazzAuditions()
             default:
                 Swift.print("Failed to delete data, arrayIdentifier: \(arrayIdentifier)")
             }
@@ -83,8 +86,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
             self.tableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in }
-        alert.addAction(confirmAction)
         alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
         
         // show the alert
         self.present(alert, animated: true, completion: nil)
@@ -174,9 +177,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         if let rhythm = resultsList[indexPath.row] as? jazzRhythms //Reads the item as the extension of the protocol in order to read specific values, works for jazzRhythm objects
         {
             cell.labels["Instrument"]?.Label.text = rhythm.instrument
-            Swift.print("\(rhythm.instrument)")
             cell.labels["Sax/Range"]?.Label.text = rhythm.preferredRange
-            Swift.print("\(rhythm.preferredRange)")
             cell.labels["Name"]?.Label.text = "\(rhythm.last_name), \(rhythm.first_name)"
             cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
                 
