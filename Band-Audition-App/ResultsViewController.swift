@@ -46,6 +46,35 @@ class ResultsViewController: UIViewController
         }
     }
     
-
+    @IBAction func segueToResultsList(_ sender: UIButton)
+    {
+        let newVCName = "resultsList"
+        //If else case lets resultsListViewController know what data to pull.
+        if sender.titleLabel?.text! == "Varsity Concert"
+        {
+            arrayIdentifier = 0
+        }
+        else if sender.titleLabel?.text! == "Freshmen Concert"
+        {
+            arrayIdentifier = 1
+        }
+        else //Jazz Concert
+        {
+            arrayIdentifier = 2
+        }
+        
+        //Loads all the data before segue into results list so that the data is actually there to view.
+        loadVarsityAuditions()
+        loadFreshmenAuditions()
+        loadJazzAuditions()
+        
+        let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+        present(viewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func recieveResultsUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
 }
 

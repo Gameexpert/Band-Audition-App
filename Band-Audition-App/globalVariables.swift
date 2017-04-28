@@ -163,3 +163,71 @@ func loadJazzAuditions()
         os_log("Failed to load Jazz Auditions...", log: OSLog.default, type: .error)
     }
 }
+
+
+/*All functions below this comment are for the purpose of sorting the data in the 2D arrays above. In the viewControllers, the only thing you should be calling is "sortAuditionsByScore" or "sortAuditionsByName"*/
+func sortAuditionsByScore(array: Int) //1=Varsity, 2=Freshmen, 3=Jazz
+{
+    switch array
+    {
+    case 1://Varsity
+        for index in 0 ..< varsityAuditions.count
+        {
+            varsityAuditions[index] = sortArrayByScore(from: varsityAuditions[index])
+            
+        }
+    case 2://Freshmen
+        for index in 0 ..< freshmenAuditions.count
+        {
+            freshmenAuditions[index] = sortArrayByScore(from: freshmenAuditions[index])
+            
+        }
+    case 3://Jazz
+        for index in 0 ..< jazzAuditions.count
+        {
+            jazzAuditions[index] = sortArrayByScore(from: jazzAuditions[index])
+            
+        }
+    default:
+        Swift.print("Default case called in sortAuditionsByScore. Array = \(array)")
+    }
+}
+
+func sortAuditionsByName(array: Int) //1=Varsity, 2=Freshmen, 3=Jazz
+{
+    switch array
+    {
+    case 1://Varsity
+        for index in 0 ..< varsityAuditions.count
+        {
+            varsityAuditions[index] = sortArrayByName(from: varsityAuditions[index])
+            
+        }
+    case 2://Varsity
+        for index in 0 ..< freshmenAuditions.count
+        {
+            freshmenAuditions[index] = sortArrayByName(from: freshmenAuditions[index])
+            
+        }
+    case 3://Jazz
+        for index in 0 ..< jazzAuditions.count
+        {
+            jazzAuditions[index] = sortArrayByName(from: jazzAuditions[index])
+            
+        }
+    default:
+        Swift.print("Default case called in sortAuditionsByName. Array = \(array)")
+    }
+}
+
+func sortArrayByScore(from array: [audition]) -> [audition]
+{
+    let sortedArray = array.sorted{ $0.finalScore > $1.finalScore } //Used built in XCode sorting method
+    return sortedArray
+}
+
+func sortArrayByName (from array: [audition]) -> [audition]
+{
+    let sortedArray = array.sorted{ $0.last_name.lowercased() < $1.last_name.lowercased()} //Used built in XCode sorting method
+    return sortedArray
+}

@@ -32,6 +32,8 @@
 		7750D9A61E82D1E300E1AF08 /* concertWindsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */; };
 		7750D9A81E82D27B00E1AF08 /* concertWinds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7750D9A71E82D27B00E1AF08 /* concertWinds.swift */; };
 		778428C61E27BE6500786327 /* keyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778428C51E27BE6500786327 /* keyboardViewController.swift */; };
+		77BABD9B1EB0F6A6005F4278 /* auditionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BABD9A1EB0F6A6005F4278 /* auditionCell.swift */; };
+		77C0B61B1E93F2A800914CFD /* ResultsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C0B61A1E93F2A800914CFD /* ResultsListViewController.swift */; };
 		77E06A591DFB13C50082BA8C /* audition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E06A581DFB13C50082BA8C /* audition.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +86,8 @@
 		7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWindsViewController.swift; sourceTree = "<group>"; };
 		7750D9A71E82D27B00E1AF08 /* concertWinds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = concertWinds.swift; sourceTree = "<group>"; };
 		778428C51E27BE6500786327 /* keyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyboardViewController.swift; sourceTree = "<group>"; };
+		77BABD9A1EB0F6A6005F4278 /* auditionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = auditionCell.swift; sourceTree = "<group>"; };
+		77C0B61A1E93F2A800914CFD /* ResultsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsListViewController.swift; sourceTree = "<group>"; };
 		77E06A581DFB13C50082BA8C /* audition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,8 @@
 				257B19151DF8772D0038B298 /* VarsityViewController.swift */,
 				257B19171DF8773A0038B298 /* FreshmenViewController.swift */,
 				257B19191DF877520038B298 /* JazzViewController.swift */,
+				77C0B61A1E93F2A800914CFD /* ResultsListViewController.swift */,
+				77BABD9A1EB0F6A6005F4278 /* auditionCell.swift */,
 				25A2A50B1E01B32F002B9E0F /* FPAuditionViewController.swift */,
 				77296B4E1E5CA31E003E956C /* VPAuditionViewController.swift */,
 				7750D9A51E82D1E300E1AF08 /* concertWindsViewController.swift */,
@@ -250,7 +256,7 @@
 				TargetAttributes = {
 					772DA3131DF5CD0100718EB6 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZQMMJHZRS3;
+						DevelopmentTeam = 96L2Y94678;
 						ProvisioningStyle = Automatic;
 					};
 					772DA32B1DF5CD0200718EB6 = {
@@ -324,8 +330,10 @@
 				250439391E269CA8007D080A /* LabelPopOverViewController.swift in Sources */,
 				25D365E51E76F8AD002DFEC5 /* JDAuditionViewController.swift in Sources */,
 				25A2A50C1E01B32F002B9E0F /* FPAuditionViewController.swift in Sources */,
+				77C0B61B1E93F2A800914CFD /* ResultsListViewController.swift in Sources */,
 				77E06A591DFB13C50082BA8C /* audition.swift in Sources */,
 				772DA31C1DF5CD0100718EB6 /* DataViewController.swift in Sources */,
+				77BABD9B1EB0F6A6005F4278 /* auditionCell.swift in Sources */,
 				772DA34E1DF5CF4E00718EB6 /* freshmenConcertPercussion.swift in Sources */,
 				7750D9A81E82D27B00E1AF08 /* concertWinds.swift in Sources */,
 				778428C61E27BE6500786327 /* keyboardViewController.swift in Sources */,
@@ -491,11 +499,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZQMMJHZRS3;
+				DEVELOPMENT_TEAM = 96L2Y94678;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mad2016.Band-Audition-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.district196.band-audition-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -505,11 +513,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ZQMMJHZRS3;
+				DEVELOPMENT_TEAM = 96L2Y94678;
 				INFOPLIST_FILE = "Band-Audition-App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Mad2016.Band-Audition-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.district196.band-audition-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
