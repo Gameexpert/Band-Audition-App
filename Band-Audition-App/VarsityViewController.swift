@@ -82,7 +82,7 @@ class VarsityViewController: UIViewController
         //No code should go here.
     }
 
-    @IBAction func recieveConcertWindsUnwindSegueToVarsity(unwindSegue: UIStoryboardSegue)
+    @IBAction func recieveConcertWindsUnwindSegue(unwindSegue: UIStoryboardSegue)
     {
         //No code should go here.
     }

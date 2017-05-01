@@ -85,7 +85,7 @@ class FreshmenViewController: UIViewController
         //No code should go here.
     }
     
-    @IBAction func recieveConcertWindsUnwindSegueToFreshmen(unwindSegue: UIStoryboardSegue)
+    @IBAction func recieveConcertWindsUnwindSegue(unwindSegue: UIStoryboardSegue)
     {
         //No code should go here.
     }
