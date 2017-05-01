@@ -199,6 +199,12 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         return resultsList.count
     }
     
+    //This function is activated when a cell is pressed, will segue to the form needed.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        
+    }
+    
     //This function gives me the option to delete stuff.
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {

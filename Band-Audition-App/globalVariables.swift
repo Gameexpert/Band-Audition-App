@@ -21,6 +21,13 @@ import os.log
 
 var instrumentType: String = "Error"
 
+//Following five sets of audition data is to store data for segue from the results list view.
+var vpAudition: varsityConcertPercussion = varsityConcertPercussion(first_name: "Error", last_name: "Error", instrument: "Error", comments: "Error", scale1_pitch: -1, scale1_production: -1, scale2_pitch: -1, scale2_production: -1, scale3_pitch: -1, scale3_production: -1, snare_rhythm: -1, snare_tempo: -1, snare_dynamic: -1, snare_production: -1, mallet_rhythm: -1, mallet_pitch: -1, mallet_tempo: -1, mallet_dynamic: -1, mallet_production: -1, timpani_rhythm: -1, timpani_tempo: -1, timpani_dynamic: -1, timpani_production: -1, snareRead_rhythm: -1, snareRead_production: -1, malletRead_rhythm: -1, malletRead_pitch: -1, malletRead_production: -1, finalScore: -1)
+//var fpAudition: freshmenConcertPercussion
+//var concertWindsAudition: concertWinds
+//var jazzDrumAudition: jazzDrumset
+//var jazzRhythmAudition: jazzRhythms
+
 /*
  When adding a new audition object, use the following syntax:
  freshmenAudition[0].append(concertWinds object name)
