@@ -408,7 +408,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             upperRightLabel.setTitle("Rhythmic Accuracy ", for: .normal) //Jazz needs a space after accuracy to differentiate it from the freshmen and varsity variation of Rhythmic Accuracy
             upperRightData.setTitle("\(auditionProperty.swing_Rhythm)", for: .normal)
             
-            middleLabel.setTitle("Articulations and Jazz Feel", for: .normal)
+            middleLabel.setTitle("Articulations & Jazz Feel", for: .normal)
             middleData.setTitle("\(auditionProperty.swing_Articulations)", for: .normal)
             
         case 1: //Straight Etude

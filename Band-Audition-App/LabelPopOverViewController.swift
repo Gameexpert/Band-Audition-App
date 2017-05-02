@@ -82,7 +82,7 @@ class LabelPopOverViewController: UIViewController
             return timeStability
         case "Rhythmic Accuracy ": //Jazz needs a space after accuracy to differentiate it from the freshmen and varsity variation of Rhythmic Accuracy
             return rhythmicAccuracyJazz
-        case "Articulations and Jazz Feel":
+        case "Articulations & Jazz Feel":
             return articulationsJazzFeel
         case "Improvisation":
             return improvisation
@@ -111,7 +111,7 @@ class LabelPopOverViewController: UIViewController
             return dynamics
         case "Tone":
             return tone
-        case "Superior Expression & Style":
+        case "Expression & Style":
             return superiorExpessionStyle
         default:
             Swift.print("setDescription Default case called. desiredLabel: \(desiredLabel)")

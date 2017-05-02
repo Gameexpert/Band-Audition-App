@@ -190,7 +190,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         {
             for j in 0..<varsityAuditions[i].count
             {
-                print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+                print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)", "\(varsityAuditions[i][j].comments)")
             }
             
         }

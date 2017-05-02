@@ -44,7 +44,8 @@ class VarsityViewController: UIViewController
     {
         if((tabBarController?.selectedIndex)! < 3)
         {
-            tabBarController?.selectedIndex += 1
+            tabBarController?.selectedIndex = tabBarIndex + 1
+            tabBarIndex += 1
         }
     }
     
@@ -52,7 +53,8 @@ class VarsityViewController: UIViewController
     {
         if((tabBarController?.selectedIndex)! > 0)
         {
-            tabBarController?.selectedIndex -= 1
+            tabBarController?.selectedIndex = tabBarIndex - 1
+            tabBarIndex -= 1
         }
     }
     

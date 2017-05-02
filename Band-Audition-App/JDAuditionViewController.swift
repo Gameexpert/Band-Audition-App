@@ -392,7 +392,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             upperRightLabel.setTitle("Time Stability", for: .normal)
             upperRightData.setTitle("\(auditionProperty.swing_Stability)", for: .normal)
             
-            middleLabel.setTitle("Articulations and Jazz Feel", for: .normal)
+            middleLabel.setTitle("Articulations & Jazz Feel", for: .normal)
             middleData.setTitle("\(auditionProperty.swing_Articulations)", for: .normal)
             
         case 1: //Straight Etude

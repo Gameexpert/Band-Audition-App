@@ -12,11 +12,16 @@ class ResultsViewController: UIViewController
 {
     //MARK Properties
     @IBOutlet var leftSwipe: UISwipeGestureRecognizer!
-
+    
+    override func viewWillAppear(_ animated: Bool) //This function changes which tab is displayed based on the button selected in the entry view controller
+    {
+        tabBarController?.selectedIndex = tabBarIndex
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
     }
 
@@ -42,7 +47,8 @@ class ResultsViewController: UIViewController
     {
         if((tabBarController?.selectedIndex)! < 3)
         {
-            tabBarController?.selectedIndex += 1
+            tabBarController?.selectedIndex = tabBarIndex + 1
+            tabBarIndex += 1
         }
     }
     
