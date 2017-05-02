@@ -179,9 +179,16 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
             cell.labels["Instrument"]?.Label.text = rhythm.instrument
             cell.labels["Sax/Range"]?.Label.text = rhythm.preferredRange
             cell.labels["Name"]?.Label.text = "\(rhythm.last_name), \(rhythm.first_name)"
-            cell.labels["Score"]?.Label.text = String(resultsList[indexPath.row].finalScore)
+            cell.labels["Score"]?.Label.text = String(rhythm.finalScore)
                 
             return cell
+        }
+        else if let winds = resultsList[indexPath.row] as? concertWinds
+        {
+            cell.labels["Instrument"]?.Label.text = winds.instrument
+            cell.labels["Sax/Range"]?.Label.text = "" //Makes it blank since the data doesn't exist
+            cell.labels["Name"]?.Label.text = "\(winds.last_name), \(winds.first_name)"
+            cell.labels["Score"]?.Label.text = String(winds.finalScoreDouble)
         }
         else //If this is anything else, jazz drumset or concert.
         {
