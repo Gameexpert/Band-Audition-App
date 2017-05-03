@@ -61,7 +61,7 @@ class jazzRhythms: NSObject, NSCoding, audition
         static var finalScore = "finalScore"
     }
     
-    init(other: jazzRhythms)
+    init(_ other: jazzRhythms)
     {
         self.first_name = other.first_name
         self.last_name = other.last_name

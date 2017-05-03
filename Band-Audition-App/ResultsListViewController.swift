@@ -209,6 +209,42 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     //This function is activated when a cell is pressed, will segue to the form needed.
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        //Find out what form I am segueing to based on cell data.
+        //First set will have comments describing the code, the rest will follow the same structure.
+        if let VCP = resultsList[indexPath.row] as? varsityConcertPercussion
+        {
+            vpAudition = varsityConcertPercussion(VCP)//Setting the global variable for passing data
+            isReviewing = true //Lets the viewDidLoad method in the other form know to switch styles
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "VPAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+            
+        }
+        else if let FCP = resultsList[indexPath.row] as? freshmenConcertPercussion
+        {
+            fpAudition = freshmenConcertPercussion(FCP)
+            isReviewing = true
+        }
+        else if let CW = resultsList[indexPath.row] as? concertWinds
+        {
+            concertWindsAudition = concertWinds(CW)
+            isReviewing = true
+        }
+        else if let JD = resultsList[indexPath.row] as? jazzDrumset
+        {
+            jazzDrumAudition = jazzDrumset(JD)
+            isReviewing = true
+        }
+        else if let JR = resultsList[indexPath.row] as? jazzRhythms
+        {
+            jazzRhythmAudition = jazzRhythms(JR)
+        }
+        else
+        {
+            Swift.print("Data in cell does not match currently known audition types.")
+        }
         
     }
     

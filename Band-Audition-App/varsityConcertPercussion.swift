@@ -92,7 +92,7 @@ class varsityConcertPercussion: NSObject, NSCoding, audition //Audition is the p
         static var finalScore = "finalScore"
     }
     
-    init(other: varsityConcertPercussion)
+    init(_ other: varsityConcertPercussion)
     {
         self.first_name = other.first_name
         self.last_name = other.last_name

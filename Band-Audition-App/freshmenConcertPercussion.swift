@@ -116,7 +116,7 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         self.finalScore = 0
     }
  */
-    init(other: freshmenConcertPercussion)
+    init(_ other: freshmenConcertPercussion)
     {
         self.first_name = other.first_name
         self.last_name = other.last_name

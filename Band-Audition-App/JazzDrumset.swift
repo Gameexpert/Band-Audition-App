@@ -59,7 +59,7 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         static var finalScore = "finalScore"
     }
     
-    init(other: jazzDrumset)
+    init(_ other: jazzDrumset)
     {
         self.first_name = other.first_name
         self.last_name = other.last_name

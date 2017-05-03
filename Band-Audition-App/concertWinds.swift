@@ -84,7 +84,7 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         static var finalScore = "finalScore"
     }
     
-    init(other: concertWinds)
+    init(_ other: concertWinds)
     {
         self.first_name = other.first_name
         self.last_name = other.last_name
