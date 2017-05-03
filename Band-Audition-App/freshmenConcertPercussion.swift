@@ -116,6 +116,38 @@ class freshmenConcertPercussion: NSObject, NSCoding, audition  //Audition is the
         self.finalScore = 0
     }
  */
+    init(other: freshmenConcertPercussion)
+    {
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.instrument = other.instrument
+        self.comments = other.comments
+        
+        self.scale1_pitch = other.scale1_pitch
+        self.scale1_production = other.scale1_production
+        self.scale2_pitch = other.scale2_pitch
+        self.scale2_production = other.scale2_production
+        
+        self.snare_rhythm = other.snare_rhythm
+        self.snare_tempo = other.snare_tempo
+        self.snare_dynamic = other.snare_dynamic
+        self.snare_production = other.snare_production
+        
+        self.mallet_rhythm = other.mallet_rhythm
+        self.mallet_pitch = other.mallet_pitch
+        self.mallet_tempo = other.mallet_tempo
+        self.mallet_dynamic = other.mallet_dynamic
+        self.mallet_production = other.mallet_production
+        
+        self.snareRead_rhythm = other.snareRead_rhythm
+        self.snareRead_production = other.snareRead_production
+        
+        self.malletRead_rhythm = other.malletRead_rhythm
+        self.malletRead_pitch = other.malletRead_pitch
+        self.malletRead_production = other.malletRead_production
+        
+        self.finalScore = other.finalScore
+    }
     
     init(first_name: String, last_name: String, instrument: String, comments: String, scale1_pitch: Int, scale1_production: Int, scale2_pitch: Int, scale2_production: Int, snare_rhythm: Int, snare_tempo: Int, snare_dynamic: Int, snare_production: Int, mallet_rhythm: Int, mallet_pitch: Int, mallet_tempo: Int, mallet_dynamic: Int, mallet_production: Int, snareRead_rhythm: Int, snareRead_production: Int, malletRead_rhythm: Int, malletRead_pitch: Int, malletRead_production: Int, finalScore: Int)
     {

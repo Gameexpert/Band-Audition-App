@@ -61,6 +61,32 @@ class jazzRhythms: NSObject, NSCoding, audition
         static var finalScore = "finalScore"
     }
     
+    init(other: jazzRhythms)
+    {
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.preferredRange = other.preferredRange
+        self.instrument = other.instrument
+        self.comments = other.comments
+        
+        self.swing_Production = other.swing_Production
+        self.swing_Rhythm = other.swing_Rhythm
+        self.swing_Articulations = other.swing_Articulations
+        
+        self.straight_Production = other.straight_Production
+        self.straight_Rhythm = other.straight_Rhythm
+        self.straight_Articulations = other.straight_Articulations
+        
+        self.sight_Production = other.sight_Production
+        self.sight_Rhythm = other.sight_Rhythm
+        self.sight_Articulations = other.sight_Articulations
+        
+        self.improvisation = other.improvisation
+        self.leftHand_Independence = other.leftHand_Independence
+        
+        self.finalScore = other.finalScore
+    }
+    
     init(first_name: String, last_name: String, preferredRange: String, instrument: String, comments: String, swing_Production: Int, swing_Rhythm: Int, swing_Articulations: Int, straight_Production: Int, straight_Rhythm: Int, straight_Articulations: Int, sight_Production: Int, sight_Rhythm: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
     {
         self.first_name = first_name

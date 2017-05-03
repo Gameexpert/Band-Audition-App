@@ -17,6 +17,7 @@ import os.log
  var returnedValue: String -- found within keyboardViewController file
  var senderButton: String -- found within keyboardViewController file
  var keyboardIsEditingInt: Bool -- found within keyboardViewController file
+ var arrayIdentifier: Int -- found within resultsListViewController file
  */
 
 var instrumentType: String = "Error"
@@ -24,10 +25,10 @@ var tabBarIndex: Int = 0
 
 //Following five sets of audition data is to store data for segue from the results list view.
 var vpAudition: varsityConcertPercussion = varsityConcertPercussion(first_name: "Error", last_name: "Error", instrument: "Error", comments: "Error", scale1_pitch: -1, scale1_production: -1, scale2_pitch: -1, scale2_production: -1, scale3_pitch: -1, scale3_production: -1, snare_rhythm: -1, snare_tempo: -1, snare_dynamic: -1, snare_production: -1, mallet_rhythm: -1, mallet_pitch: -1, mallet_tempo: -1, mallet_dynamic: -1, mallet_production: -1, timpani_rhythm: -1, timpani_tempo: -1, timpani_dynamic: -1, timpani_production: -1, snareRead_rhythm: -1, snareRead_production: -1, malletRead_rhythm: -1, malletRead_pitch: -1, malletRead_production: -1, finalScore: -1)
-//var fpAudition: freshmenConcertPercussion
-//var concertWindsAudition: concertWinds
-//var jazzDrumAudition: jazzDrumset
-//var jazzRhythmAudition: jazzRhythms
+var fpAudition: freshmenConcertPercussion = freshmenConcertPercussion(first_name: "Error", last_name: "Error", instrument: "Error", comments: "Error", scale1_pitch: -1, scale1_production: -1, scale2_pitch: -1, scale2_production: -1, snare_rhythm: -1, snare_tempo: -1, snare_dynamic: -1, snare_production: -1, mallet_rhythm: -1, mallet_pitch: -1, mallet_tempo: -1, mallet_dynamic: -1, mallet_production: -1, snareRead_rhythm: -1, snareRead_production: -1, malletRead_rhythm: -1, malletRead_pitch: -1, malletRead_production: -1, finalScore: -1)
+var concertWindsAudition: concertWinds = concertWinds(first_name: "Error", last_name: "Error", instrument: "Error", concert_type: "Error", comments: "Error", memorized: false, scale1: -1.1, scale2: -1.1, scale3: -1.1, scale4: -1.1, scale5: -1.1, chromatic_scale: -1.1, etude1_pitch: -1.1, etude1_rhythm: -1.1, etude1_articulation: -1.1, etude1_dynamics: -1.1, etude1_tone: -1.1, etude1_style: -1.1, etude2_pitch: -1.1, etude2_rhythm: -1.1, etude2_articulation: -1.1, etude2_dynamics: -1.1, etude2_tone: -1.1, etude2_style: -1.1, read_pitch: -1.1, read_rhythm: -1.1, finalScoreDouble: -1.1)
+var jazzDrumAudition: jazzDrumset = jazzDrumset(first_name: "Error", last_name: "Error", instrument: "Error", comments: "Error", swing_Support: -1, swing_Stability: -1, swing_Articulations: -1, straight_Support: -1, straight_Stability: -1, straight_Articulations: -1, sight_Support: -1, sight_Stability: -1, sight_Articulations: -1, improvisation: -1, leftHand_Independence: -1, finalScore: -1)
+var jazzRhythmAudition: jazzRhythms = jazzRhythms(first_name: "Error", last_name: "Error", preferredRange: "Error", instrument: "Error", comments: "Error", swing_Production: -1, swing_Rhythm: -1, swing_Articulations: -1, straight_Production: -1, straight_Rhythm: -1, straight_Articulations: -1, sight_Production: -1, sight_Rhythm: -1, sight_Articulations: -1, improvisation: -1, leftHand_Independence: -1, finalScore: -1)
 
 /*
  When adding a new audition object, use the following syntax:

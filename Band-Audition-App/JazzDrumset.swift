@@ -59,6 +59,31 @@ class jazzDrumset: NSObject, NSCoding, audition //Audition is the protocol
         static var finalScore = "finalScore"
     }
     
+    init(other: jazzDrumset)
+    {
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.instrument = other.instrument
+        self.comments = other.comments
+        
+        self.swing_Support = other.swing_Support
+        self.swing_Stability = other.swing_Stability
+        self.swing_Articulations = other.swing_Articulations
+        
+        self.straight_Support = other.straight_Support
+        self.straight_Stability = other.straight_Stability
+        self.straight_Articulations = other.straight_Articulations
+        
+        self.sight_Support = other.sight_Support
+        self.sight_Stability = other.sight_Stability
+        self.sight_Articulations = other.sight_Articulations
+        
+        self.improvisation = other.improvisation
+        self.leftHand_Independence = other.leftHand_Independence
+        
+        self.finalScore = other.finalScore
+    }
+    
     init(first_name: String, last_name: String, instrument: String, comments: String, swing_Support: Int, swing_Stability: Int, swing_Articulations: Int, straight_Support: Int, straight_Stability: Int, straight_Articulations: Int, sight_Support: Int, sight_Stability: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
     {
         self.first_name = first_name

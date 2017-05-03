@@ -84,6 +84,42 @@ class concertWinds: NSObject, NSCoding, audition //Audition is the protocol
         static var finalScore = "finalScore"
     }
     
+    init(other: concertWinds)
+    {
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.instrument = other.instrument
+        self.concert_type = other.concert_type
+        self.comments = other.comments
+        self.memorized = other.memorized
+        
+        self.scale1 = other.scale1
+        self.scale2 = other.scale2
+        self.scale3 = other.scale3
+        self.scale4 = other.scale4
+        self.scale5 = other.scale5
+        self.chromatic_scale = other.chromatic_scale
+        
+        self.etude1_pitch = other.etude1_pitch
+        self.etude1_rhythm = other.etude1_rhythm
+        self.etude1_articulation = other.etude1_articulation
+        self.etude1_dynamics = other.etude1_dynamics
+        self.etude1_tone = other.etude1_tone
+        self.etude1_style = other.etude1_style
+        
+        self.etude2_pitch = other.etude2_pitch
+        self.etude2_rhythm = other.etude2_rhythm
+        self.etude2_articulation = other.etude2_articulation
+        self.etude2_dynamics = other.etude2_dynamics
+        self.etude2_tone = other.etude2_tone
+        self.etude2_style = other.etude2_style
+        
+        self.read_pitch = other.read_pitch
+        self.read_rhythm = other.read_rhythm
+        self.finalScoreDouble = other.finalScoreDouble
+        self.finalScore = other.finalScore
+    }
+    
     init(first_name: String, last_name: String, instrument: String, concert_type: String, comments: String, memorized: Bool, scale1: Double, scale2: Double, scale3: Double, scale4: Double, scale5: Double, chromatic_scale: Double, etude1_pitch: Double, etude1_rhythm: Double, etude1_articulation: Double, etude1_dynamics: Double, etude1_tone: Double, etude1_style: Double, etude2_pitch: Double, etude2_rhythm: Double, etude2_articulation: Double, etude2_dynamics: Double, etude2_tone: Double, etude2_style: Double, read_pitch: Double, read_rhythm: Double, finalScoreDouble: Double)
     {
         self.first_name = first_name
