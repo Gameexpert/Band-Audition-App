@@ -159,6 +159,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         segmentedControlValueChanged(segment: dataControl)
         
         loadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -271,7 +272,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             {
                 for j in 0..<varsityAuditions[i].count
                 {
-                    print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+                    print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)", "\(varsityAuditions[i][j].comments)")
                 }
             }
         }
@@ -331,22 +332,39 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     //Following function rotates the UISegmentedControl 1/2 pi radians
     func setUpDataControl(object: UISegmentedControl)
     {
-        object.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
-        //Previous line rotates segmented control 90 degrees.
-        
-        for view in object.subviews
-        {
-            for subview in view.subviews
+        #if swift(>=3.1)//Current version and later
+            object.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2.0))
+            //Previous line rotates segmented control 90 degrees.
+            
+            for view in object.subviews
             {
-                subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
-                if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
+                for subview in view.subviews
                 {
-                    segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
-                    segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                    subview.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2.0))
+                    if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
+                    {
+                        segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
+                        segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                    }
                 }
-            }
-        }//This Rotates the text 90 degrees so it is horizontal for the user
+            }//This Rotates the text 90 degrees so it is horizontal for the user
+        #else //Older versions with decremented syntax.
+            object.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
+            //Previous line rotates segmented control 90 degrees.
         
+            for view in object.subviews
+            {
+                for subview in view.subviews
+                {
+                    subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
+                    if let segmentLabel = subview as? UILabel //Allows changes to the UILabel in each segment
+                    {
+                        segmentLabel.numberOfLines = 3 //Makes it possible to have three lines in the view
+                        segmentLabel.adjustsFontSizeToFitWidth = true//Readjusts the font so the words don't end up truncated to the next line. The previous two lines only effect the first index in the UISegmented Label.
+                    }
+                }
+            }//This Rotates the text 90 degrees so it is horizontal for the user
+            #endif
     }
     
     //Following method creates the label popover
@@ -454,7 +472,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftLabel.setTitle("Tone", for: .normal)
             lowerLeftData.setTitle("\(auditionProperty.etude1_tone)", for: .normal)
             
-            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
+            lowerRightLabel.setTitle("Expression & Style", for: .normal)
             lowerRightData.setTitle("\(auditionProperty.etude1_style)", for: .normal)
             
             upperRightStack.isHidden = false
@@ -479,7 +497,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             lowerLeftLabel.setTitle("Tone", for: .normal)
             lowerLeftData.setTitle("\(auditionProperty.etude2_tone)", for: .normal)
             
-            lowerRightLabel.setTitle("Superior Expression & Style", for: .normal)
+            lowerRightLabel.setTitle("Expression & Style", for: .normal)
             lowerRightData.setTitle("\(auditionProperty.etude2_style)", for: .normal)
             
             upperRightStack.isHidden = false

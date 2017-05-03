@@ -47,7 +47,8 @@ class FreshmenViewController: UIViewController
     {
         if((tabBarController?.selectedIndex)! < 3)
         {
-            tabBarController?.selectedIndex += 1
+            tabBarController?.selectedIndex = tabBarIndex + 1
+            tabBarIndex += 1
         }
     }
 
@@ -55,7 +56,8 @@ class FreshmenViewController: UIViewController
     {
         if((tabBarController?.selectedIndex)! > 0)
         {
-            tabBarController?.selectedIndex -= 1
+            tabBarController?.selectedIndex = tabBarIndex - 1
+            tabBarIndex -= 1
         }
     }
     
@@ -85,7 +87,7 @@ class FreshmenViewController: UIViewController
         //No code should go here.
     }
     
-    @IBAction func recieveConcertWindsUnwindSegueToFreshmen(unwindSegue: UIStoryboardSegue)
+    @IBAction func recieveConcertWindsUnwindSegue(unwindSegue: UIStoryboardSegue)
     {
         //No code should go here.
     }

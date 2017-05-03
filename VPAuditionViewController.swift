@@ -190,7 +190,7 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         {
             for j in 0..<varsityAuditions[i].count
             {
-                print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)")
+                print("\(i), \(j), \(varsityAuditions[i][j]), \(varsityAuditions[i][j].first_name), \(varsityAuditions[i][j].last_name)", "\(varsityAuditions[i][j].comments)")
             }
             
         }
@@ -242,16 +242,28 @@ class VPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     //Following function rotates the UISegmentedControl 1/2 pi radians
     func setUpDataControl(object: UISegmentedControl)
     {
-        object.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
-        //Previous line rotates segmented control 90 degrees.
-        
-        for view in object.subviews
-        {
-            for subview in view.subviews
+        #if swift(>=3.1)//The new code with replacement for the decremented stuff.
+            object.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi / 2.0))
+            //Previous line rotates segmented control 90 degrees.
+            
+            for view in object.subviews
             {
-                subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
-            }
-        }//This Rotates the text 90 degrees so it is horizontal for the user
+                for subview in view.subviews
+                {
+                    subview.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2.0))
+                }
+            }//This Rotates the text 90 degrees so it is horizontal for the user
+        #else //Old decremented code that still needs to work
+            object.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI / 2.0))
+            //Previous line rotates segmented control 90 degrees.
+            for view in object.subviews
+            {
+                for subview in view.subviews
+                {
+                    subview.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI / 2.0))
+                }
+            }//This Rotates the text 90 degrees so it is horizontal for the user
+        #endif
     }
     
     //Following method creates the label popover

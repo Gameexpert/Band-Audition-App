@@ -12,7 +12,6 @@ var returnedValue: String = "error" //Indicates if unedited
 var senderButton: String = "error, variable not overwritten"
 var keyboardIsEditingInt: Bool = true //True = int, false = double
 var maxInteger: Int = 20 //Should be either 20 or 50
-
 class keyboardViewController: UIViewController
 {
     //MARK: Properties
