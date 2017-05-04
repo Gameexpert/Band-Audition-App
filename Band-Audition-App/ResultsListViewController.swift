@@ -213,8 +213,12 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         //First set will have comments describing the code, the rest will follow the same structure.
         if let VCP = resultsList[indexPath.row] as? varsityConcertPercussion
         {
+            //Setting Global Variables that are necessary for the Review form to work
             vpAudition = varsityConcertPercussion(VCP)//Setting the global variable for passing data
             isReviewing = true //Lets the viewDidLoad method in the other form know to switch styles
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = VCP.instrument
             
             //Following three lines "presents" the FPAuditionViewController programatically.
             let newVCName = "VPAudition"
@@ -224,29 +228,87 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         else if let FCP = resultsList[indexPath.row] as? freshmenConcertPercussion
         {
+            //Setting Global Variables that are necessary for the Review form to work
             fpAudition = freshmenConcertPercussion(FCP)
             isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = FCP.instrument
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "FPAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
         }
         else if let CW = resultsList[indexPath.row] as? concertWinds
         {
+            //Setting Global Variables that are necessary for the Review form to work
             concertWindsAudition = concertWinds(CW)
             isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = CW.instrument
+            category = CW.concert_type
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "concertWinds"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
         }
         else if let JD = resultsList[indexPath.row] as? jazzDrumset
         {
+            //Setting Global Variables that are necessary for the Review form to work
             jazzDrumAudition = jazzDrumset(JD)
             isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = JD.instrument
+            
+            //Following three lines "presents" the JDAuditionViewController programatically.
+            let newVCName = "JDAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
         }
         else if let JR = resultsList[indexPath.row] as? jazzRhythms
         {
+            //Setting Global Variables that are necessary for the Review form to work
             jazzRhythmAudition = jazzRhythms(JR)
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = JR.instrument
+            
+            //Following three lines "presents" the JRAuditionViewController programatically.
+            let newVCName = "JRAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
         }
         else
         {
             Swift.print("Data in cell does not match currently known audition types.")
         }
-        
     }
+    //Adding all the unwind segue recievers to allow the back button to work
+    @IBAction func recieveVPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    @IBAction func recieveConcertWindsUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    @IBAction func recieveJDUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    @IBAction func recieveJRUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        //No code should go here.
+    }
+    
     
     //This function gives me the option to delete stuff.
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?

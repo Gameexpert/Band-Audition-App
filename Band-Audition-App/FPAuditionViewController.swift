@@ -141,6 +141,12 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         dataControl.addTarget(self, action: #selector(FPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
         
+        //This conditional sets up the form when reviewing data from the results list
+        if isReviewing
+        {
+            setUpReviewData()
+        }
+        
         segmentedControlValueChanged(segment: dataControl)
         
         loadData()
@@ -252,6 +258,47 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             }
             
         }
+    }
+    
+    //Setting up the data for reviewing
+    func setUpReviewData()
+    {
+        auditionProperty.first_name = fpAudition.first_name
+        auditionProperty.last_name = fpAudition.last_name
+        auditionProperty.instrument = fpAudition.instrument
+        auditionProperty.comments = fpAudition.comments
+        
+        auditionProperty.scale1_pitch = fpAudition.scale2_production
+        auditionProperty.scale1_production = fpAudition.scale1_production
+        auditionProperty.scale2_pitch = fpAudition.scale2_pitch
+        auditionProperty.scale2_production = fpAudition.scale2_production
+        
+        auditionProperty.snare_rhythm = fpAudition.snare_rhythm
+        auditionProperty.snare_tempo = fpAudition.snare_tempo
+        auditionProperty.snare_dynamic = fpAudition.snare_dynamic
+        auditionProperty.snare_production = fpAudition.snare_production
+        
+        auditionProperty.mallet_rhythm = fpAudition.mallet_rhythm
+        auditionProperty.mallet_pitch = fpAudition.mallet_pitch
+        auditionProperty.mallet_tempo = fpAudition.mallet_tempo
+        auditionProperty.mallet_dynamic = fpAudition.mallet_dynamic
+        auditionProperty.mallet_production = fpAudition.mallet_production
+        
+        auditionProperty.snareRead_rhythm = fpAudition.snareRead_rhythm
+        auditionProperty.snareRead_production = fpAudition.snareRead_production
+        
+        auditionProperty.malletRead_rhythm = fpAudition.malletRead_rhythm
+        auditionProperty.malletRead_pitch = fpAudition.malletRead_pitch
+        auditionProperty.malletRead_production = fpAudition.malletRead_production
+        
+        auditionProperty.finalScore = fpAudition.finalScore
+        
+        firstNameBox.text = fpAudition.first_name
+        lastNameBox.text = fpAudition.last_name
+        commentsView.text = fpAudition.comments
+        finalScoreLabel.text = "Total: \(fpAudition.finalScore)"
+        
+        //Need to test if this function works
     }
     
     @IBAction func resetAuditionProperty(_ sender: UIButton)
