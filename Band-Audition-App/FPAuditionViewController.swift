@@ -20,7 +20,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     
     var dataControl: UISegmentedControl = UISegmentedControl(items: ["Scale 1","Scale 2", "Snare Etude","Mallet Etude","Snare Reading","Mallet Reading"])
@@ -90,7 +90,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         self.instrumentNameLabel.text! = instrumentType
         auditionProperty.instrument = instrumentType
-        
+        editButton.isHidden = true //So it only appears when reviewing
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -145,6 +145,7 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         if isReviewing
         {
             setUpReviewData()
+            setDataEntryObjectsEditable()
         }
         
         segmentedControlValueChanged(segment: dataControl)
@@ -297,8 +298,46 @@ class FPAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         lastNameBox.text = fpAudition.last_name
         commentsView.text = fpAudition.comments
         finalScoreLabel.text = "Total: \(fpAudition.finalScore)"
-        
-        //Need to test if this function works
+    }
+    
+    //Makes it impossible to modify data unless you hit the edit button, which will call this function too.
+    func setDataEntryObjectsEditable()
+    {
+        if isReviewing //Set up the UIObjects for review but not edit
+        {
+            upperLeftData.isEnabled = false
+            upperRightData.isEnabled = false
+            lowerLeftData.isEnabled = false
+            lowerRightData.isEnabled = false
+            middleData.isEnabled = false
+            
+            firstNameBox.isUserInteractionEnabled = false
+            lastNameBox.isUserInteractionEnabled = false
+            commentsView.isUserInteractionEnabled = false
+            
+            saveButton.isHidden = true
+            editButton.isHidden = false
+        }
+        else //reset the UIObjects so that you can edit data
+        {
+            upperLeftData.isEnabled = true
+            upperRightData.isEnabled = true
+            lowerLeftData.isEnabled = true
+            lowerRightData.isEnabled = true
+            middleData.isEnabled = true
+            
+            firstNameBox.isUserInteractionEnabled = true
+            lastNameBox.isUserInteractionEnabled = true
+            commentsView.isUserInteractionEnabled = true
+            
+            saveButton.isHidden = false
+            editButton.isHidden = true
+        }
+    }
+    @IBAction func enableEditing(_ sender: UIButton)
+    {
+        isReviewing = false
+        setDataEntryObjectsEditable()
     }
     
     @IBAction func resetAuditionProperty(_ sender: UIButton)
