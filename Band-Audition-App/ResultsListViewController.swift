@@ -273,6 +273,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         {
             //Setting Global Variables that are necessary for the Review form to work
             jazzRhythmAudition = jazzRhythms(JR)
+            isReviewing = true
             
             //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
             instrumentType = JR.instrument
