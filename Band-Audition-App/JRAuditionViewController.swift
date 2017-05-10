@@ -344,6 +344,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             
             saveButton.isHidden = false
             editButton.isHidden = true
+            backButton.isHidden = true
         }
     }
     @IBAction func enableEditing(_ sender: UIButton)

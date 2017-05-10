@@ -327,6 +327,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
         {
             varsityAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveVarsityAuditions()
+            loadVarsityAuditions()
             sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
         }
     }
@@ -335,6 +337,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
         {
             freshmenAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveFreshmenAuditions()
+            loadFreshmenAuditions()
             sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
         }
     }
@@ -345,11 +349,15 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
             if arrayIdentifier == 0 //Varsity Audition was edited
             {
                 varsityAuditions[itemLocation[0]].remove(at: itemLocation[1])
+                saveVarsityAuditions()
+                loadVarsityAuditions()
                 sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
             }
             else if arrayIdentifier == 1 //Freshmen Audition was edited
             {
                 freshmenAuditions[itemLocation[0]].remove(at: itemLocation[1])
+                saveFreshmenAuditions()
+                loadFreshmenAuditions()
                 sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
             }
             else
@@ -364,6 +372,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
         {
             jazzAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveJazzAuditions()
+            loadJazzAuditions()
             sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
         }
     }
@@ -372,6 +382,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
         {
             jazzAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveJazzAuditions()
+            loadJazzAuditions()
             sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
         }
     }

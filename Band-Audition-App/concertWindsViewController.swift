@@ -418,6 +418,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
             
             saveButton.isHidden = false
             editButton.isHidden = true
+            backButton.isHidden = true
         }
     }
     
