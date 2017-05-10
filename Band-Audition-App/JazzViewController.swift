@@ -51,6 +51,7 @@ class JazzViewController: UIViewController
     
     @IBAction func segueToJRAudition(_ sender: UIButton)
     {
+        isReviewing = false
         instrumentType = sender.titleLabel!.text!
         //Following three lines "presents" the JRAuditionViewController programatically.
         let newVCName = "JRAudition"
@@ -59,6 +60,7 @@ class JazzViewController: UIViewController
     }
     @IBAction func segueToJDAudition(_ sender: UIButton)
     {
+        isReviewing = false
         instrumentType = sender.titleLabel!.text!
         //Following three lines "presents" the JDAuditionViewController programatically.
         let newVCName = "JDAudition"

@@ -19,6 +19,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     var dataControl: UISegmentedControl = UISegmentedControl(items: ["Swing Etude","Straight Etude", "Sight Reading"])
     @IBOutlet weak var commentsView: UITextView!
@@ -80,6 +81,7 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
 
         self.instrumentNameLabel.text! = instrumentType
         auditionProperty.instrument = instrumentType
+        editButton.isHidden = true //So it only appears when reviewing.
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -128,6 +130,13 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
         
         dataControl.addTarget(self, action: #selector(JDAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        
+        //This conditional sets up the form when reviewing data from the results list
+        if isReviewing
+        {
+            setUpReviewData()
+            setDataEntryObjectsEditable()
+        }
         
         segmentedControlValueChanged(segment: dataControl)
         
@@ -223,6 +232,77 @@ class JDAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
             }
             
         }
+    }
+    
+    //Setting up the data for reviewing
+    func setUpReviewData()
+    {
+        auditionProperty.first_name = jazzDrumAudition.first_name
+        auditionProperty.last_name = jazzDrumAudition.last_name
+        auditionProperty.instrument = jazzDrumAudition.instrument
+        auditionProperty.comments = jazzDrumAudition.comments
+        
+        auditionProperty.swing_Support = jazzDrumAudition.swing_Support
+        auditionProperty.swing_Stability = jazzDrumAudition.swing_Stability
+        auditionProperty.swing_Articulations = jazzDrumAudition.swing_Articulations
+        
+        auditionProperty.straight_Support = jazzDrumAudition.straight_Support
+        auditionProperty.straight_Stability = jazzDrumAudition.straight_Stability
+        auditionProperty.straight_Articulations = jazzDrumAudition.straight_Articulations
+        
+        auditionProperty.sight_Support = jazzDrumAudition.sight_Support
+        auditionProperty.sight_Stability = jazzDrumAudition.sight_Stability
+        auditionProperty.sight_Articulations = jazzDrumAudition.sight_Articulations
+        
+        auditionProperty.improvisation = jazzDrumAudition.improvisation
+        auditionProperty.leftHand_Independence = jazzDrumAudition.leftHand_Independence
+        
+        auditionProperty.finalScore = jazzDrumAudition.finalScore
+        
+        firstNameBox.text = jazzDrumAudition.first_name
+        lastNameBox.text = jazzDrumAudition.last_name
+        commentsView.text = jazzDrumAudition.comments
+        finalScoreLabel.text = "Total: \(jazzDrumAudition.finalScore)"
+    }
+    
+    func setDataEntryObjectsEditable()
+    {
+        if isReviewing //Set up the UIObjects for review but not edit
+        {
+            upperLeftData.isEnabled = false
+            upperRightData.isEnabled = false
+            middleData.isEnabled = false
+            improvisationData.isEnabled = false
+            leftHandData.isEnabled = false
+            
+            firstNameBox.isUserInteractionEnabled = false
+            lastNameBox.isUserInteractionEnabled = false
+            commentsView.isUserInteractionEnabled = false
+            
+            saveButton.isHidden = true
+            editButton.isHidden = false
+        }
+        else //reset the UIObjects so that you can edit data
+        {
+            upperLeftData.isEnabled = true
+            upperRightData.isEnabled = true
+            middleData.isEnabled = true
+            improvisationData.isEnabled = true
+            leftHandData.isEnabled = true
+            
+            firstNameBox.isUserInteractionEnabled = true
+            lastNameBox.isUserInteractionEnabled = true
+            commentsView.isUserInteractionEnabled = true
+            
+            saveButton.isHidden = false
+            editButton.isHidden = true
+            backButton.isHidden = true
+        }
+    }
+    @IBAction func enableEditing(_ sender: UIButton)
+    {
+        isReviewing = false
+        setDataEntryObjectsEditable()
     }
     
     @IBAction func resetAuditionProperty(_ sender: UIButton)

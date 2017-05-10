@@ -21,6 +21,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
     @IBOutlet weak var lastNameBox: UITextField!
     @IBOutlet weak var finalScoreLabel: UILabel!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var memorizedSwitch: UISwitch!
     
@@ -105,6 +106,8 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         auditionProperty.concert_type = category
         categoryLabel.text = "\(auditionProperty.concert_type) Winds"
         
+        editButton.isHidden = true
+        
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
         let dataBorder = UIView(frame: frame1) //Largest Border
@@ -154,6 +157,13 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         
         //Creates a listener to the Segmented control object to call selected function when segmented control changes
         dataControl.addTarget(self, action: #selector(VPAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        
+        //This conditional sets up the form when reviewing data from the results list
+        if isReviewing
+        {
+            setUpReviewData()
+            setDataEntryObjectsEditable()
+        }
         
         //Calls the segmented control changed method to properly set up the GUI for the selected Index (0)
         segmentedControlValueChanged(segment: dataControl)
@@ -327,6 +337,95 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         auditionProperty.read_rhythm = ZERO
         
         auditionProperty.finalScore = ZERO
+    }
+    
+    //Setting up the data for reviewing
+    func setUpReviewData()
+    {
+        auditionProperty.first_name = concertWindsAudition.first_name
+        auditionProperty.last_name = concertWindsAudition.last_name
+        auditionProperty.instrument = concertWindsAudition.instrument
+        auditionProperty.concert_type = concertWindsAudition.concert_type
+        auditionProperty.comments = concertWindsAudition.comments
+        auditionProperty.memorized = concertWindsAudition.memorized
+        
+        auditionProperty.scale1 = concertWindsAudition.scale1
+        auditionProperty.scale2 = concertWindsAudition.scale2
+        auditionProperty.scale3 = concertWindsAudition.scale3
+        auditionProperty.scale4 = concertWindsAudition.scale4
+        auditionProperty.scale5 = concertWindsAudition.scale5
+        auditionProperty.chromatic_scale = concertWindsAudition.chromatic_scale
+        
+        auditionProperty.etude1_pitch = concertWindsAudition.etude1_pitch
+        auditionProperty.etude1_rhythm = concertWindsAudition.etude1_rhythm
+        auditionProperty.etude1_articulation = concertWindsAudition.etude1_articulation
+        auditionProperty.etude1_dynamics = concertWindsAudition.etude1_dynamics
+        auditionProperty.etude1_tone = concertWindsAudition.etude1_tone
+        auditionProperty.etude1_style = concertWindsAudition.etude1_style
+        
+        auditionProperty.etude2_pitch = concertWindsAudition.etude2_pitch
+        auditionProperty.etude2_rhythm = concertWindsAudition.etude2_rhythm
+        auditionProperty.etude2_articulation = concertWindsAudition.etude2_articulation
+        auditionProperty.etude2_dynamics = concertWindsAudition.etude2_dynamics
+        auditionProperty.etude2_tone = concertWindsAudition.etude2_tone
+        auditionProperty.etude2_style = concertWindsAudition.etude2_style
+        
+        auditionProperty.read_pitch = concertWindsAudition.read_pitch
+        auditionProperty.read_rhythm = concertWindsAudition.read_rhythm
+        
+        auditionProperty.finalScore = concertWindsAudition.finalScoreDouble
+        
+        firstNameBox.text = concertWindsAudition.first_name
+        lastNameBox.text = concertWindsAudition.last_name
+        memorizedSwitch.isOn = concertWindsAudition.memorized
+        commentsView.text = concertWindsAudition.comments
+        finalScoreLabel.text = "Total: \(concertWindsAudition.finalScoreDouble)"
+    }
+    
+    //Makes it impossible to modify data unless you hit the edit button, which will call this function too.
+    func setDataEntryObjectsEditable()
+    {
+        if isReviewing //Set up the UIObjects for review but not edit
+        {
+            upperLeftData.isEnabled = false
+            upperRightData.isEnabled = false
+            middleLeftData.isEnabled = false
+            middleRightData.isEnabled = false
+            lowerLeftData.isEnabled = false
+            lowerRightData.isEnabled = false
+            
+            firstNameBox.isUserInteractionEnabled = false
+            lastNameBox.isUserInteractionEnabled = false
+            commentsView.isUserInteractionEnabled = false
+            memorizedSwitch.isUserInteractionEnabled = false
+            
+            saveButton.isHidden = true
+            editButton.isHidden = false
+        }
+        else //reset the UIObjects so that you can edit data
+        {
+            upperLeftData.isEnabled = true
+            upperRightData.isEnabled = true
+            middleLeftData.isEnabled = true
+            middleRightData.isEnabled = true
+            lowerLeftData.isEnabled = true
+            lowerRightData.isEnabled = true
+            
+            firstNameBox.isUserInteractionEnabled = true
+            lastNameBox.isUserInteractionEnabled = true
+            commentsView.isUserInteractionEnabled = true
+            memorizedSwitch.isUserInteractionEnabled = true
+            
+            saveButton.isHidden = false
+            editButton.isHidden = true
+            backButton.isHidden = true
+        }
+    }
+    
+    @IBAction func enableEditing(_ sender: UIButton)
+    {
+        isReviewing = false
+        setDataEntryObjectsEditable()
     }
     
     //Following function rotates the UISegmentedControl 1/2 pi radians
