@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import MessageUI
 
 //MARK: Properties
 var arrayIdentifier: Int = -1 //0 = Varsity, 1 = Freshmen, 2 = Jazz, anything else is an error
 
-class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate
 {
     
     //MARK: Properties
@@ -21,6 +22,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
+    let emailController = MFMailComposeViewController()
     let cellReuseIdentifier = "auditionCell"
     var resultsList: [audition] = []
     
@@ -33,6 +35,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
+        emailController.mailComposeDelegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -167,7 +170,45 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.reloadData()
     }
     
-    
+    @IBAction func exportDataWithEmail(_ sender: UIButton)
+    {
+        csvManagement.createCSV()
+        
+        var mailString:String = ""
+        
+        //Loads the CSV File from createCSV()
+        do { mailString = try String(contentsOf: csvPath!, encoding: String.Encoding.utf8)
+        } catch {
+            print("Failed to load the CSV during exportDataWithEmail")
+        }
+        
+        //Converts the CSV to NSData
+        let data = mailString.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        
+        switch arrayIdentifier
+        {
+        case 0:
+            emailController.setSubject("Varsity Concert Auditions")
+        case 1:
+            emailController.setSubject("Freshmen Concert Auditions")
+        case 2:
+            emailController.setSubject("Jazz Auditions")
+        default:
+            Swift.print("Default case called in exportDataWithEmail. arrayIdentifier = \(arrayIdentifier)" )
+        }
+        
+        emailController.setMessageBody("", isHTML: false)
+        
+        // Attaching the .CSV file to the email.
+        emailController.addAttachmentData(data!, mimeType: "text/csv", fileName: "Auditions.csv")
+        
+        //Displaying the emailController
+        if MFMailComposeViewController.canSendMail()
+        {
+            self.present(emailController, animated: true, completion: nil)
+        }
+    }
+
     //functions to make the tableview work
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {

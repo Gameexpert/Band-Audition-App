@@ -14,8 +14,6 @@ class csvManagement: NSObject
     //MARK: Functions
     class func createCSV() -> Void
     {
-        let fileName = "Auditions.csv"
-        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
         var csvText = ""
         
         var auditionsToConvert: [audition] = []
@@ -52,7 +50,7 @@ class csvManagement: NSObject
                 }
             }
             do {
-                try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+                try csvText.write(to: csvPath!, atomically: true, encoding: String.Encoding.utf8)
             } catch {
                 print("Failed to create Varsity Auditions CSV")
             }
@@ -87,6 +85,12 @@ class csvManagement: NSObject
                     csvText.append(newLine)
                 }
             }
+            
+            do {
+                try csvText.write(to: csvPath!, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("Failed to create Freshmen Auditions CSV")
+            }
 
         case 2: //Jazz
             for x in 0..<jazzAuditions.count
@@ -118,8 +122,15 @@ class csvManagement: NSObject
                     csvText.append(newLine)
                 }
             }
+            
+            do {
+                try csvText.write(to: csvPath!, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("Failed to create Jazz Auditions CSV")
+            }
+            
         default:
-            Swift.print("Default Case in updateArrayValues called, arrayIdentifier = \(arrayIdentifier)")
+            Swift.print("Default Case in createCSV called, arrayIdentifier = \(arrayIdentifier)")
         }
     }
 }
