@@ -36,6 +36,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
+        
+        sortControlChanged(sortControl)
     }
     
     override func didReceiveMemoryWarning() {
