@@ -1819,11 +1819,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Gbs-to-oKL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="90I-KL-zLM">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="233.33000000000001"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="P0b-3v-V8Y">
-                                <rect key="frame" x="10" y="41" width="180" height="180"/>
+                                <rect key="frame" x="10" y="57" width="180" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="sVm-pc-sr6">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="45"/>
@@ -1991,35 +1991,43 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-pq-4Pc">
-                                <rect key="frame" x="116" y="4.0000000000000853" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8z-Tg-iZc">
+                                <rect key="frame" x="30" y="10" width="72.5" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="P3g-8u-PjS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-pq-4Pc">
+                                <rect key="frame" x="114" y="10" width="66" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dBK-gl-fC5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearData:" destination="dE7-tS-Lox" eventType="touchUpInside" id="ekO-Z8-UXO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8z-Tg-iZc">
-                                <rect key="frame" x="34" y="8" width="68" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SCL-pq-4Pc" firstAttribute="top" secondItem="Cek-BH-2pm" secondAttribute="bottom" constant="10" id="0RI-ro-RcH"/>
+                            <constraint firstItem="G8z-Tg-iZc" firstAttribute="leading" secondItem="90I-KL-zLM" secondAttribute="leading" constant="30" id="2up-Yz-vWL"/>
                             <constraint firstItem="P0b-3v-V8Y" firstAttribute="centerX" secondItem="90I-KL-zLM" secondAttribute="centerX" id="4P8-r3-9yF"/>
+                            <constraint firstItem="G8z-Tg-iZc" firstAttribute="top" secondItem="Cek-BH-2pm" secondAttribute="bottom" constant="10" id="Pmd-LT-AXJ"/>
+                            <constraint firstAttribute="trailing" secondItem="SCL-pq-4Pc" secondAttribute="trailing" constant="20" id="c8C-7A-Mdt"/>
                             <constraint firstAttribute="bottom" secondItem="P0b-3v-V8Y" secondAttribute="bottom" constant="13" id="i7e-6O-ieR"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="200" height="233.30000000000001"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="200" height="250"/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="200" height="233.33000000000001"/>
+                    <size key="freeformSize" width="200" height="250"/>
                     <connections>
                         <outlet property="butonDone" destination="Eis-Yr-F7r" id="15S-Xz-yFl"/>
                         <outlet property="button0" destination="j5K-cm-fPP" id="TpM-of-ULe"/>
@@ -2039,7 +2047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqV-oc-IsY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312" y="941"/>
+            <point key="canvasLocation" x="1311.71875" y="940.42968749999989"/>
         </scene>
         <!--Audition View Controller-->
         <scene sceneID="xer-S9-U7m">
