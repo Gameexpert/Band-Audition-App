@@ -646,7 +646,7 @@ class concertWindsViewController: UIViewController, UITextViewDelegate, UIPopove
         popController.modalPresentationStyle = UIModalPresentationStyle.popover
         
         // set up the popover presentation controller
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        //popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popController.popoverPresentationController?.delegate = self
         popController.popoverPresentationController?.sourceView = sender as UIView // button
         popController.popoverPresentationController?.sourceRect = sender.bounds

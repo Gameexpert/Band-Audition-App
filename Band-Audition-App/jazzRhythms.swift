@@ -171,7 +171,7 @@ class jazzRhythms: NSObject, NSCoding, audition
         
         let finalScore = aDecoder.decodeInteger(forKey: PropertyKey.finalScore)
         
-        self.init(first_name: first_name, last_name: last_name as! String, preferredRange: preferredRange as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production as! Int, swing_Rhythm: swing_Rhythm as! Int, swing_Articulations: swing_Articulations as! Int, straight_Production: straight_Production as! Int, straight_Rhythm: straight_Rhythm as! Int, straight_Articulations: straight_Articulations as! Int, sight_Production: sight_Production as! Int, sight_Rhythm: sight_Rhythm as! Int, sight_Articulations: sight_Articulations as! Int, improvisation: improvisation as! Int, leftHand_Independence: leftHand_Independence as! Int, finalScore: finalScore as! Int)
+        self.init(first_name: first_name, last_name: last_name as! String, preferredRange: preferredRange as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production , swing_Rhythm: swing_Rhythm , swing_Articulations: swing_Articulations , straight_Production: straight_Production , straight_Rhythm: straight_Rhythm , straight_Articulations: straight_Articulations , sight_Production: sight_Production , sight_Rhythm: sight_Rhythm , sight_Articulations: sight_Articulations , improvisation: improvisation , leftHand_Independence: leftHand_Independence , finalScore: finalScore )
     }
 
 }
