@@ -31,9 +31,12 @@ class csvManagement: NSObject
                 {
                     if let rhythm = auditionsToConvert[x] as? concertWinds
                     {
-                        csvText = "Varsity Concert Winds\n,Instrument, Last Name, First Name, Final Score, Comments, Scale 1, Scale 2, Scale 3, Scale 4, Scale 5, Chromatic Scale, Etude 1: Pitch, Etude 1: Rhythm, Etude 1:Articulation, Etude 1: Dynamics, Etude 1: Tone, Etude 1: Style, Etude 2: Pitch, Etude 2: Rhythm, Etude 2: Articulation, Etude 2: Dynamics, Etude 2: Tone, Etude 2: Style, Sight Read: Pitch, Sight Read: Rhythm\n"
+                        if x == 0
+                        {
+                            csvText = "Varsity Concert Winds\n, \nInstrument, Last Name, First Name, Final Score, Comments, Scale 1, Scale 2, Scale 3, Scale 4, Scale 5, Chromatic Scale, Etude 1: Pitch, Etude 1: Rhythm, Etude 1:Articulation, Etude 1: Dynamics, Etude 1: Tone, Etude 1: Style, Etude 2: Pitch, Etude 2: Rhythm, Etude 2: Articulation, Etude 2: Dynamics, Etude 2: Tone, Etude 2: Style, Sight Read: Pitch, Sight Read: Rhythm\n"
+                        }
                         
-                        let newLine = "\(rhythm.instrument), \(rhythm.last_name), \(rhythm.first_name), \(rhythm.finalScore), \(rhythm.comments), \(rhythm.scale1), \(rhythm.scale2), \(rhythm.scale3), \(rhythm.scale4), \(rhythm.scale5), \(rhythm.chromatic_scale), \(rhythm.etude1_pitch), \(rhythm.etude1_rhythm), \(rhythm.etude1_articulation), \(rhythm.etude1_dynamics), \(rhythm.etude1_tone), \(rhythm.etude1_style),  \(rhythm.etude2_pitch), \(rhythm.etude2_rhythm), \(rhythm.etude2_articulation), \(rhythm.etude2_dynamics), \(rhythm.etude2_tone), \(rhythm.etude2_style), \(rhythm.read_pitch), \(rhythm.read_rhythm)\n"
+                        let newLine = "\(rhythm.instrument), \(rhythm.last_name), \(rhythm.first_name), \(rhythm.finalScoreDouble), \(rhythm.comments), \(rhythm.scale1), \(rhythm.scale2), \(rhythm.scale3), \(rhythm.scale4), \(rhythm.scale5), \(rhythm.chromatic_scale), \(rhythm.etude1_pitch), \(rhythm.etude1_rhythm), \(rhythm.etude1_articulation), \(rhythm.etude1_dynamics), \(rhythm.etude1_tone), \(rhythm.etude1_style),  \(rhythm.etude2_pitch), \(rhythm.etude2_rhythm), \(rhythm.etude2_articulation), \(rhythm.etude2_dynamics), \(rhythm.etude2_tone), \(rhythm.etude2_style), \(rhythm.read_pitch), \(rhythm.read_rhythm)\n"
                         csvText.append(newLine)
                         
                     }
@@ -42,7 +45,10 @@ class csvManagement: NSObject
                 {
                     if let percussion = auditionsToConvert[x] as? varsityConcertPercussion
                     {
-                        csvText.append("\nVarsity Concert Percussion\n, Instrument, Last Name, First Name, Final Score, Comments, Scale 1: Pitch, Scale 1: Production,  Scale 2: Pitch,  Scale 2: Production,  Scale 3: Pitch,  Scale 3: Production, Snare: Rhythm, Snare: Tempo, Snare: Dynamic, Snare: Production, Mallet: Rhythm, Mallet: Pitch, Mallet: Tempo, Mallet: Dynamic, Mallet: Production, Timpani: Rhythm, Timpani: Tempo,  Timpani: Dynamic,  Timpani: Production, Snare Reading: Rhythm, Snare Reading: Production, Mallet Reading: Rhythm, Mallet Reading: Pitch, Mallet Reading: Production\n")
+                        if x == 0
+                        {
+                            csvText.append("\nVarsity Concert Percussion\n, \nInstrument, Last Name, First Name, Final Score, Comments, Scale 1: Pitch, Scale 1: Production,  Scale 2: Pitch,  Scale 2: Production,  Scale 3: Pitch,  Scale 3: Production, Snare: Rhythm, Snare: Tempo, Snare: Dynamic, Snare: Production, Mallet: Rhythm, Mallet: Pitch, Mallet: Tempo, Mallet: Dynamic, Mallet: Production, Timpani: Rhythm, Timpani: Tempo,  Timpani: Dynamic,  Timpani: Production, Snare Reading: Rhythm, Snare Reading: Production, Mallet Reading: Rhythm, Mallet Reading: Pitch, Mallet Reading: Production\n")
+                        }
                         
                         let newLine = "\(percussion.instrument), \(percussion.last_name), \(percussion.first_name), \(percussion.finalScore), \(percussion.comments), \(percussion.scale1_pitch), \(percussion.scale1_production), \(percussion.scale2_pitch), \(percussion.scale2_production), \(percussion.scale3_pitch), \(percussion.scale3_production), \(percussion.snare_rhythm), \(percussion.snare_tempo), \(percussion.snare_dynamic), \(percussion.snare_production), \(percussion.mallet_rhythm), \(percussion.mallet_pitch),  \(percussion.mallet_tempo), \(percussion.mallet_dynamic), \(percussion.mallet_production), \(percussion.timpani_rhythm), \(percussion.timpani_tempo), \(percussion.timpani_dynamic), \(percussion.timpani_production), \(percussion.snareRead_rhythm), \(percussion.snareRead_production), \(percussion.malletRead_rhythm), \(percussion.malletRead_pitch), \(percussion.malletRead_production)\n"
                         csvText.append(newLine)
@@ -68,9 +74,13 @@ class csvManagement: NSObject
             {
                 if let rhythm = auditionsToConvert[x] as? concertWinds
                 {
-                    csvText = "Freshmen Concert Winds\n,Instrument, Last Name, First Name, Final Score, Comments, Scale 1, Scale 2, Scale 3, Scale 4, Scale 5, Chromatic Scale, Etude 1: Pitch, Etude 1: Rhythm, Etude 1:Articulation, Etude 1: Dynamics, Etude 1: Tone, Etude 1: Style, Etude 2: Pitch, Etude 2: Rhythm, Etude 2: Articulation, Etude 2: Dynamics, Etude 2: Tone, Etude 2: Style, Sight Read: Pitch, Sight Read: Rhythm\n"
+                    if x == 0
+                    {
+                        csvText = "Freshmen Concert Winds\n, \nInstrument, Last Name, First Name, Final Score, Comments, Scale 1, Scale 2, Scale 3, Scale 4, Scale 5, Chromatic Scale, Etude 1: Pitch, Etude 1: Rhythm, Etude 1:Articulation, Etude 1: Dynamics, Etude 1: Tone, Etude 1: Style, Etude 2: Pitch, Etude 2: Rhythm, Etude 2: Articulation, Etude 2: Dynamics, Etude 2: Tone, Etude 2: Style, Sight Read: Pitch, Sight Read: Rhythm\n"
+                    }
                     
-                    let newLine = "\(rhythm.instrument), \(rhythm.last_name), \(rhythm.first_name), \(rhythm.finalScore), \(rhythm.comments), \(rhythm.scale1), \(rhythm.scale2), \(rhythm.scale3), \(rhythm.scale4), \(rhythm.scale5), \(rhythm.chromatic_scale), \(rhythm.etude1_pitch), \(rhythm.etude1_rhythm), \(rhythm.etude1_articulation), \(rhythm.etude1_dynamics), \(rhythm.etude1_tone), \(rhythm.etude1_style),  \(rhythm.etude2_pitch), \(rhythm.etude2_rhythm), \(rhythm.etude2_articulation), \(rhythm.etude2_dynamics), \(rhythm.etude2_tone), \(rhythm.etude2_style), \(rhythm.read_pitch), \(rhythm.read_rhythm)\n"
+                    
+                    let newLine = "\(rhythm.instrument), \(rhythm.last_name), \(rhythm.first_name), \(rhythm.finalScoreDouble), \(rhythm.comments), \(rhythm.scale1), \(rhythm.scale2), \(rhythm.scale3), \(rhythm.scale4), \(rhythm.scale5), \(rhythm.chromatic_scale), \(rhythm.etude1_pitch), \(rhythm.etude1_rhythm), \(rhythm.etude1_articulation), \(rhythm.etude1_dynamics), \(rhythm.etude1_tone), \(rhythm.etude1_style),  \(rhythm.etude2_pitch), \(rhythm.etude2_rhythm), \(rhythm.etude2_articulation), \(rhythm.etude2_dynamics), \(rhythm.etude2_tone), \(rhythm.etude2_style), \(rhythm.read_pitch), \(rhythm.read_rhythm)\n"
                     csvText.append(newLine)
                     
                 }
@@ -79,7 +89,11 @@ class csvManagement: NSObject
             {
                 if let percussion = auditionsToConvert[x] as? freshmenConcertPercussion
                 {
-                    csvText.append("\nFreshmen Concert Percussion\n, Instrument, Last Name, First Name, Final Score, Comments, Scale 1: Pitch, Scale 1: Production,  Scale 2: Pitch,  Scale 2: Production, Snare: Rhythm, Snare: Tempo, Snare: Dynamic, Snare: Production, Mallet: Rhythm, Mallet: Pitch, Mallet: Tempo, Mallet: Dynamic, Mallet: Production, Snare Reading: Rhythm, Snare Reading: Production, Mallet Reading: Rhythm, Mallet Reading: Pitch, Mallet Reading: Production\n")
+                    if x == 0
+                    {
+                        csvText.append("\nFreshmen Concert Percussion\n, \nInstrument, Last Name, First Name, Final Score, Comments, Scale 1: Pitch, Scale 1: Production,  Scale 2: Pitch,  Scale 2: Production, Snare: Rhythm, Snare: Tempo, Snare: Dynamic, Snare: Production, Mallet: Rhythm, Mallet: Pitch, Mallet: Tempo, Mallet: Dynamic, Mallet: Production, Snare Reading: Rhythm, Snare Reading: Production, Mallet Reading: Rhythm, Mallet Reading: Pitch, Mallet Reading: Production\n")
+                    }
+                    
                     
                     let newLine = "\(percussion.instrument), \(percussion.last_name), \(percussion.first_name), \(percussion.finalScore), \(percussion.comments), \(percussion.scale1_pitch), \(percussion.scale1_production), \(percussion.scale2_pitch), \(percussion.scale2_production), \(percussion.snare_rhythm), \(percussion.snare_tempo), \(percussion.snare_dynamic), \(percussion.snare_production), \(percussion.mallet_rhythm), \(percussion.mallet_pitch),  \(percussion.mallet_tempo), \(percussion.mallet_dynamic), \(percussion.mallet_production), \(percussion.snareRead_rhythm), \(percussion.snareRead_production), \(percussion.malletRead_rhythm), \(percussion.malletRead_pitch), \(percussion.malletRead_production)\n"
                     csvText.append(newLine)
@@ -105,7 +119,11 @@ class csvManagement: NSObject
             {
                 if let rhythm = auditionsToConvert[x] as? jazzRhythms
                 {
-                    csvText = "Jazz Rhythms\n,Instrument, Preferred Range, Last Name, First Name, Final Score, Comments, Swing: Production, Swing: Rhythm, Swing: Articulations, Straight: Production, Straight: Rhythm, Straight: Articulations, Sight: Production, Sight: Rhythm, Sight: Articulations, Improvisation, Left Hand Indepenence\n"
+                    if x == 0
+                    {
+                        csvText = "Jazz Rhythms\n, \nInstrument, Preferred Range, Last Name, First Name, Final Score, Comments, Swing: Production, Swing: Rhythm, Swing: Articulations, Straight: Production, Straight: Rhythm, Straight: Articulations, Sight: Production, Sight: Rhythm, Sight: Articulations, Improvisation, Left Hand Indepenence\n"
+                    }
+                    
                     
                     let newLine = "\(rhythm.instrument), \(rhythm.preferredRange), \(rhythm.last_name), \(rhythm.first_name), \(rhythm.finalScore), \(rhythm.comments), \(rhythm.swing_Production), \(rhythm.swing_Rhythm), \(rhythm.swing_Articulations), \(rhythm.straight_Production), \(rhythm.straight_Rhythm), \(rhythm.straight_Articulations), \(rhythm.sight_Production), \(rhythm.sight_Rhythm), \(rhythm.sight_Articulations), \(rhythm.improvisation), \(rhythm.leftHand_Independence)\n"
                     csvText.append(newLine)
@@ -116,7 +134,11 @@ class csvManagement: NSObject
             {
                 if let drumset = auditionsToConvert[x] as? jazzDrumset
                 {
-                    csvText.append("\nJazz Drumset\n, Instrument, Last Name, First Name, Final Score, Comments, Swing: Support, Swing: Stability,  Swing: Articulations,  Straight: Support, Straight: Stability, Straight: Articulations, Sight: Support, Sight: Stability, Sight: Articulations, Improvisation, Left Hand Independence\n")
+                    if x == 0
+                    {
+                        csvText.append("\nJazz Drumset\n, \nInstrument, Last Name, First Name, Final Score, Comments, Swing: Support, Swing: Stability,  Swing: Articulations,  Straight: Support, Straight: Stability, Straight: Articulations, Sight: Support, Sight: Stability, Sight: Articulations, Improvisation, Left Hand Independence\n")
+                    }
+                    
                     
                     let newLine = "\(drumset.instrument), \(drumset.last_name), \(drumset.first_name), \(drumset.finalScore), \(drumset.comments), \(drumset.swing_Support), \(drumset.swing_Stability), \(drumset.swing_Articulations), \(drumset.straight_Support), \(drumset.straight_Stability), \(drumset.straight_Articulations), \(drumset.sight_Support), \(drumset.sight_Stability), \(drumset.sight_Articulations), \(drumset.improvisation),  \(drumset.leftHand_Independence)\n"
                     csvText.append(newLine)
