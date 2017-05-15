@@ -311,6 +311,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Export Data"/>
+                                        <connections>
+                                            <action selector="exportDataWithEmail:" destination="cmr-1C-DQJ" eventType="touchUpInside" id="g18-U3-v8f"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq6-IC-del">
                                         <rect key="frame" x="0.0" y="46" width="105" height="36"/>
@@ -2051,7 +2054,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jazz Drumset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2r-lJ-Ufx">
-                                <rect key="frame" x="314" y="20" width="141" height="28"/>
+                                <rect key="frame" x="314.5" y="20" width="140.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2072,7 +2075,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="firstNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="l98-JB-xGZ">
-                                <rect key="frame" x="263" y="71" width="200" height="25"/>
+                                <rect key="frame" x="263" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="5og-nD-0Sy"/>
                                     <constraint firstAttribute="width" constant="200" id="uCq-EU-lrg"/>
@@ -2082,7 +2085,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="lastNameBox" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eXm-ZN-0yH">
-                                <rect key="frame" x="483" y="71" width="200" height="25"/>
+                                <rect key="frame" x="483" y="70.5" width="200" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9yW-cD-Mxk"/>
                                     <constraint firstAttribute="height" constant="25" id="wAK-E6-MT1"/>
@@ -2092,7 +2095,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Comments:" translatesAutoresizingMaskIntoConstraints="NO" id="KZO-88-HPn">
-                                <rect key="frame" x="10" y="886" width="500" height="125"/>
+                                <rect key="frame" x="10" y="885.5" width="500" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="2OI-7A-2mA"/>
@@ -2102,7 +2105,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBY-bb-hTJ">
-                                <rect key="frame" x="538" y="886" width="200" height="115"/>
+                                <rect key="frame" x="538" y="885.5" width="200" height="115"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="115" id="22S-SQ-vh8"/>
                                     <constraint firstAttribute="width" constant="200" id="veN-fj-Tnc"/>
@@ -2121,7 +2124,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="hGS-wk-BZW">
-                                <rect key="frame" x="162" y="201" width="566" height="625"/>
+                                <rect key="frame" x="162" y="200.5" width="566" height="625"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="150" translatesAutoresizingMaskIntoConstraints="NO" id="Fxh-Jx-57E">
                                         <rect key="frame" x="0.0" y="0.0" width="566" height="366"/>

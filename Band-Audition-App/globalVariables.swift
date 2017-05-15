@@ -86,6 +86,10 @@ var jazzAuditions: [[audition]] = [[], [], [], [], [], [], [], []]
 let DocumentsDirectoryJ = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
 let ArchiveURLJ = DocumentsDirectoryJ.appendingPathComponent("JazzAuditions")
 
+/*
+*/
+let csvFileName = "Auditions.csv"
+let csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
 
 //Freshmen Functions
 func saveFreshmenAuditions()
