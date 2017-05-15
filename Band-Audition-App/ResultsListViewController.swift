@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-//MARK: Properties
+//MARK: Global Properties
 var arrayIdentifier: Int = -1 //0 = Varsity, 1 = Freshmen, 2 = Jazz, anything else is an error
 
 class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate
@@ -26,6 +26,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     let cellReuseIdentifier = "auditionCell"
     var resultsList: [audition] = []
     
+    var itemLocation: [Int] = [-1,-1] //Stores the location in the given 2D array to prevent duplicate data.
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -37,6 +39,8 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         emailController.mailComposeDelegate = self
         // Do any additional setup after loading the view.
+        
+        sortControlChanged(sortControl)
     }
     
     override func didReceiveMemoryWarning() {
@@ -47,6 +51,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidAppear(_ animated: Bool)
     {
         resultsList = updateArrayValues()
+        tableView.reloadData()
     }
     
     //MARK: Functions
@@ -140,31 +145,11 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         let controlIndex = sender.selectedSegmentIndex //0 = sort by name, 1 = sort by score
         if controlIndex == 0 //Sort by name
         {
-            switch arrayIdentifier
-            {
-            case 0: //Varsity
-                sortAuditionsByName(array: 1)
-            case 1: //Freshmen
-                sortAuditionsByName(array: 2)
-            case 2: //Jazz
-                sortAuditionsByName(array: 3)
-            default:
-                Swift.print("Default case called in sortControlChanged, switch-case 1. controlIndex = \(controlIndex), arrayIdentifier = \(arrayIdentifier)")
-            }
+            sortAuditionsByName(array: arrayIdentifier + 1)
         }
         else //Sort by score
         {
-            switch arrayIdentifier
-            {
-            case 0: //Varsity
-                sortAuditionsByScore(array: 1)
-            case 1: //Freshmen
-                sortAuditionsByScore(array: 2)
-            case 2: //Jazz
-                sortAuditionsByScore(array: 3)
-            default:
-                Swift.print("Default case called in sortControlChanged, switch-case 2. controlIndex = \(controlIndex), arrayIdentifier = \(arrayIdentifier)")
-            }
+            sortAuditionsByScore(array: arrayIdentifier + 1)
         }
         resultsList = updateArrayValues()
         tableView.reloadData()
@@ -247,9 +232,210 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         return resultsList.count
     }
     
+    //This function is activated when a cell is pressed, will segue to the form needed.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        /*
+         Using the same code I use for deletion, I am searching for the location in the 2D array where the pressed button was. This data is used in the unwind segues to stop duplicate data after editing forms. In the case of duplicate data already existing, only the first data set location is stored.
+         */
+        /*
+         find out which item in the 2D array is the reference cell (using the information that I can find in it) and remove it from the global 2D array.
+         */
+        let lastName = self.resultsList[indexPath.row].last_name
+        let firstName = self.resultsList[indexPath.row].first_name
+        let score = self.resultsList[indexPath.row].finalScore
+        let comment = self.resultsList[indexPath.row].comments
+        
+        switch arrayIdentifier
+        {
+        case 0: //varsityAuditions
+            let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+            
+            for subIndex in 0 ..< varsityAuditions[superIndex].count
+            {
+                if varsityAuditions[superIndex][subIndex].last_name == lastName && varsityAuditions[superIndex][subIndex].first_name == firstName && varsityAuditions[superIndex][subIndex].finalScore == score && varsityAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                {
+                    itemLocation = [superIndex, subIndex]
+                    break //Only Stores the first instance of duplicate cells.
+                }
+            }
+        case 1: //freshmenAuditions
+            let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+            
+            for subIndex in 0 ..< freshmenAuditions[superIndex].count
+            {
+                if freshmenAuditions[superIndex][subIndex].last_name == lastName && freshmenAuditions[superIndex][subIndex].first_name == firstName && freshmenAuditions[superIndex][subIndex].finalScore == score && freshmenAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                {
+                    itemLocation = [superIndex, subIndex]
+                    break //Only Stores the first instance of duplicate cells.
+                }
+            }
+        case 2: //jazzAuditions
+            let superIndex: Int = findSuperIndex(instrument: self.resultsList[indexPath.row].instrument)
+            
+            for subIndex in 0 ..< jazzAuditions[superIndex].count
+            {
+                if jazzAuditions[superIndex][subIndex].last_name == lastName && jazzAuditions[superIndex][subIndex].first_name == firstName && jazzAuditions[superIndex][subIndex].finalScore == score && jazzAuditions[superIndex][subIndex].comments == comment //Checks four qualities so that we know that it is this data point that is the one that the user wants deleted.
+                {
+                    itemLocation = [superIndex, subIndex]
+                    break //Only Stores the first instance of duplicate cells.
+                }
+            }
+        default:
+            Swift.print("Default Called in func tableView for segue, arrayIdentifier = \(arrayIdentifier)")
+        }
+        
+        //Find out what form I am segueing to based on cell data.
+        //First set will have comments describing the code, the rest will follow the same structure.
+        if let VCP = resultsList[indexPath.row] as? varsityConcertPercussion
+        {
+            //Setting Global Variables that are necessary for the Review form to work
+            vpAudition = varsityConcertPercussion(VCP)//Setting the global variable for passing data
+            isReviewing = true //Lets the viewDidLoad method in the other form know to switch styles
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = VCP.instrument
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "VPAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+            
+        }
+        else if let FCP = resultsList[indexPath.row] as? freshmenConcertPercussion
+        {
+            //Setting Global Variables that are necessary for the Review form to work
+            fpAudition = freshmenConcertPercussion(FCP)
+            isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = FCP.instrument
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "FPAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+        }
+        else if let CW = resultsList[indexPath.row] as? concertWinds
+        {
+            //Setting Global Variables that are necessary for the Review form to work
+            concertWindsAudition = concertWinds(CW)
+            isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = CW.instrument
+            category = CW.concert_type
+            
+            //Following three lines "presents" the FPAuditionViewController programatically.
+            let newVCName = "concertWinds"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+        }
+        else if let JD = resultsList[indexPath.row] as? jazzDrumset
+        {
+            //Setting Global Variables that are necessary for the Review form to work
+            jazzDrumAudition = jazzDrumset(JD)
+            isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = JD.instrument
+            
+            //Following three lines "presents" the JDAuditionViewController programatically.
+            let newVCName = "JDAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+        }
+        else if let JR = resultsList[indexPath.row] as? jazzRhythms
+        {
+            //Setting Global Variables that are necessary for the Review form to work
+            jazzRhythmAudition = jazzRhythms(JR)
+            isReviewing = true
+            
+            //Setting variables that are also set in the segue from the TabeView, and are needed for the viewDidLoad function
+            instrumentType = JR.instrument
+            
+            //Following three lines "presents" the JRAuditionViewController programatically.
+            let newVCName = "JRAudition"
+            let viewController = storyboard?.instantiateViewController(withIdentifier: newVCName)
+            present(viewController!, animated: true, completion: nil)
+        }
+        else
+        {
+            Swift.print("Data in cell does not match currently known audition types.")
+        }
+    }
+    //Adding all the unwind segue recievers to allow the back button to work
+    @IBAction func recieveVPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
+        {
+            varsityAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveVarsityAuditions()
+            loadVarsityAuditions()
+            sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+        }
+    }
+    @IBAction func recieveFPUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
+        {
+            freshmenAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveFreshmenAuditions()
+            loadFreshmenAuditions()
+            sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+        }
+    }
+    @IBAction func recieveConcertWindsUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
+        {
+            if arrayIdentifier == 0 //Varsity Audition was edited
+            {
+                varsityAuditions[itemLocation[0]].remove(at: itemLocation[1])
+                saveVarsityAuditions()
+                loadVarsityAuditions()
+                sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+            }
+            else if arrayIdentifier == 1 //Freshmen Audition was edited
+            {
+                freshmenAuditions[itemLocation[0]].remove(at: itemLocation[1])
+                saveFreshmenAuditions()
+                loadFreshmenAuditions()
+                sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+            }
+            else
+            {
+                Swift.print("A Concert Winds was edited, but somehow we aren't looking at Varsity or Freshmen.")
+            }
+            
+        }
+    }
+    @IBAction func recieveJDUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
+        {
+            jazzAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveJazzAuditions()
+            loadJazzAuditions()
+            sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+        }
+    }
+    @IBAction func recieveJRUnwindSegue(unwindSegue: UIStoryboardSegue)
+    {
+        if !isReviewing //The Edit button was pressed in the form, regardless of if the user tapped "Save" or "<Back"
+        {
+            jazzAuditions[itemLocation[0]].remove(at: itemLocation[1])
+            saveJazzAuditions()
+            loadJazzAuditions()
+            sortControlChanged(sortControl) //Automatically sorts the 2D array appropiately, reloads the 2D data into resultsList, and updates the view properly
+        }
+    }
+    
+    
     //This function gives me the option to delete stuff.
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
+        //Adds a button when you swipe from right to left on the tableView. everything after "in" is executed when you press the button. Notice it is similar to the UIAlert code
         let delete = UITableViewRowAction(style: .destructive, title: "Delete"){ (action, indexPath) in
             // delete item at indexPath from the global 2D array
             /*

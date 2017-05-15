@@ -61,6 +61,32 @@ class jazzRhythms: NSObject, NSCoding, audition
         static var finalScore = "finalScore"
     }
     
+    init(_ other: jazzRhythms)
+    {
+        self.first_name = other.first_name
+        self.last_name = other.last_name
+        self.preferredRange = other.preferredRange
+        self.instrument = other.instrument
+        self.comments = other.comments
+        
+        self.swing_Production = other.swing_Production
+        self.swing_Rhythm = other.swing_Rhythm
+        self.swing_Articulations = other.swing_Articulations
+        
+        self.straight_Production = other.straight_Production
+        self.straight_Rhythm = other.straight_Rhythm
+        self.straight_Articulations = other.straight_Articulations
+        
+        self.sight_Production = other.sight_Production
+        self.sight_Rhythm = other.sight_Rhythm
+        self.sight_Articulations = other.sight_Articulations
+        
+        self.improvisation = other.improvisation
+        self.leftHand_Independence = other.leftHand_Independence
+        
+        self.finalScore = other.finalScore
+    }
+    
     init(first_name: String, last_name: String, preferredRange: String, instrument: String, comments: String, swing_Production: Int, swing_Rhythm: Int, swing_Articulations: Int, straight_Production: Int, straight_Rhythm: Int, straight_Articulations: Int, sight_Production: Int, sight_Rhythm: Int, sight_Articulations: Int, improvisation: Int, leftHand_Independence: Int, finalScore: Int)
     {
         self.first_name = first_name
@@ -145,7 +171,7 @@ class jazzRhythms: NSObject, NSCoding, audition
         
         let finalScore = aDecoder.decodeInteger(forKey: PropertyKey.finalScore)
         
-        self.init(first_name: first_name, last_name: last_name as! String, preferredRange: preferredRange as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production as! Int, swing_Rhythm: swing_Rhythm as! Int, swing_Articulations: swing_Articulations as! Int, straight_Production: straight_Production as! Int, straight_Rhythm: straight_Rhythm as! Int, straight_Articulations: straight_Articulations as! Int, sight_Production: sight_Production as! Int, sight_Rhythm: sight_Rhythm as! Int, sight_Articulations: sight_Articulations as! Int, improvisation: improvisation as! Int, leftHand_Independence: leftHand_Independence as! Int, finalScore: finalScore as! Int)
+        self.init(first_name: first_name, last_name: last_name as! String, preferredRange: preferredRange as! String, instrument: instrument as! String, comments: comments as! String, swing_Production: swing_Production , swing_Rhythm: swing_Rhythm , swing_Articulations: swing_Articulations , straight_Production: straight_Production , straight_Rhythm: straight_Rhythm , straight_Articulations: straight_Articulations , sight_Production: sight_Production , sight_Rhythm: sight_Rhythm , sight_Articulations: sight_Articulations , improvisation: improvisation , leftHand_Independence: leftHand_Independence , finalScore: finalScore )
     }
 
 }

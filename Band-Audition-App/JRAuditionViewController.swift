@@ -20,6 +20,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
     var dataControl: UISegmentedControl = UISegmentedControl(items: ["Swing Etude","Straight Etude", "Sight Reading"])
     @IBOutlet weak var commentsView: UITextView!
@@ -81,6 +82,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         
         self.instrumentNameLabel.text! = instrumentType
         auditionProperty.instrument = instrumentType
+        editButton.isHidden = true //So it only appears when reviewing.
         
         //Audition Layout with CGRects
         let frame1 = CGRect(x: 10, y: 121, width: 748, height: 751)
@@ -136,6 +138,13 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         NotificationCenter.default.addObserver(self, selector: #selector (JDAuditionViewController.recieveKeyboardData), name: NSNotification.Name(rawValue: "popoverKeyboardDidFinishEditing"), object: nil)
         
         dataControl.addTarget(self, action: #selector(JRAuditionViewController.segmentedControlValueChanged), for: .allEvents)
+        
+        //This conditional sets up the form when reviewing data from the results list
+        if isReviewing
+        {
+            setUpReviewData()
+            setDataEntryObjectsEditable()
+        }
         
         segmentedControlValueChanged(segment: dataControl)
         
@@ -269,6 +278,82 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         auditionProperty.finalScore = zero
     }
     
+    //Setting up the data for reviewing
+    func setUpReviewData()
+    {
+        auditionProperty.first_name = jazzRhythmAudition.first_name
+        auditionProperty.last_name = jazzRhythmAudition.last_name
+        auditionProperty.instrument = jazzRhythmAudition.instrument
+        auditionProperty.preferredRange = jazzRhythmAudition.preferredRange
+        auditionProperty.comments = jazzRhythmAudition.comments
+        
+        auditionProperty.swing_Production = jazzRhythmAudition.swing_Production
+        auditionProperty.swing_Rhythm = jazzRhythmAudition.swing_Rhythm
+        auditionProperty.swing_Articulations = jazzRhythmAudition.swing_Articulations
+        
+        auditionProperty.straight_Production = jazzRhythmAudition.straight_Production
+        auditionProperty.straight_Rhythm = jazzRhythmAudition.straight_Rhythm
+        auditionProperty.straight_Articulations = jazzRhythmAudition.straight_Articulations
+        
+        auditionProperty.sight_Production = jazzRhythmAudition.sight_Production
+        auditionProperty.sight_Rhythm = jazzRhythmAudition.sight_Rhythm
+        auditionProperty.sight_Articulations = jazzRhythmAudition.sight_Articulations
+        
+        auditionProperty.improvisation = jazzRhythmAudition.improvisation
+        auditionProperty.leftHand_Independence = jazzRhythmAudition.leftHand_Independence
+        
+        auditionProperty.finalScore = jazzRhythmAudition.finalScore
+        
+        firstNameBox.text = jazzRhythmAudition.first_name
+        lastNameBox.text = jazzRhythmAudition.last_name
+        preferredRange.text = jazzRhythmAudition.preferredRange
+        commentsView.text = jazzRhythmAudition.comments
+        finalScoreLabel.text = "Total: \(jazzRhythmAudition.finalScore)"
+    }
+    
+    func setDataEntryObjectsEditable()
+    {
+        if isReviewing //Set up the UIObjects for review but not edit
+        {
+            upperLeftData.isEnabled = false
+            upperRightData.isEnabled = false
+            middleData.isEnabled = false
+            improvisationData.isEnabled = false
+            leftHandData.isEnabled = false
+            
+            firstNameBox.isUserInteractionEnabled = false
+            lastNameBox.isUserInteractionEnabled = false
+            commentsView.isUserInteractionEnabled = false
+            preferredRange.isUserInteractionEnabled = false
+            
+            saveButton.isHidden = true
+            editButton.isHidden = false
+        }
+        else //reset the UIObjects so that you can edit data
+        {
+            upperLeftData.isEnabled = true
+            upperRightData.isEnabled = true
+            middleData.isEnabled = true
+            improvisationData.isEnabled = true
+            leftHandData.isEnabled = true
+            
+            firstNameBox.isUserInteractionEnabled = true
+            lastNameBox.isUserInteractionEnabled = true
+            commentsView.isUserInteractionEnabled = true
+            preferredRange.isUserInteractionEnabled = false
+            
+            saveButton.isHidden = false
+            editButton.isHidden = true
+            backButton.isHidden = true
+        }
+    }
+    @IBAction func enableEditing(_ sender: UIButton)
+    {
+        isReviewing = false
+        setDataEntryObjectsEditable()
+    }
+
+    
     //Following method creates the label popover
     @IBAction func giveDescription(_ sender: UIButton)
     {
@@ -305,7 +390,7 @@ class JRAuditionViewController: UIViewController, UITextViewDelegate, UIPopoverP
         popController.modalPresentationStyle = UIModalPresentationStyle.popover
         
         // set up the popover presentation controller
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        //popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
         popController.popoverPresentationController?.delegate = self
         popController.popoverPresentationController?.sourceView = sender as UIView // button
         popController.popoverPresentationController?.sourceRect = sender.bounds

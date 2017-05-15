@@ -61,6 +61,7 @@ class VarsityViewController: UIViewController
     
     @IBAction func segueToVPAudition(_ sender: UIButton)
     {
+        isReviewing = false
         instrumentType = sender.titleLabel!.text!
         //Following three lines "presents" the FPAuditionViewController programatically.
         let newVCName = "VPAudition"
@@ -70,6 +71,7 @@ class VarsityViewController: UIViewController
     
     @IBAction func segueToConcertWinds(_ sender: UIButton)
     {
+        isReviewing = false
         //Sets up a global string in the concertWindsViewController file
         category = "Varsity"
         instrumentType = sender.titleLabel!.text!
