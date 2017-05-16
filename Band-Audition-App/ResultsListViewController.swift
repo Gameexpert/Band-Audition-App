@@ -102,8 +102,6 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    
-    
     func updateArrayValues() -> [audition]{
         var output: [audition] = []
         switch arrayIdentifier
@@ -192,6 +190,12 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         {
             self.present(emailController, animated: true, completion: nil)
         }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?)
+    {
+        // Dismiss the mail compose view controller
+        controller.dismiss(animated: true, completion: nil)
     }
 
     //functions to make the tableview work
