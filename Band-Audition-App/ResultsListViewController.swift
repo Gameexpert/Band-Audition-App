@@ -12,7 +12,7 @@ import MessageUI
 //MARK: Global Properties
 var arrayIdentifier: Int = -1 //0 = Varsity, 1 = Freshmen, 2 = Jazz, anything else is an error
 
-class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate, MFMessageComposeViewController
+class ResultsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate
 {
     
     //MARK: Properties
