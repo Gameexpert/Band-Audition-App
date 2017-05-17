@@ -181,6 +181,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         emailController.setMessageBody("", isHTML: false)
+        emailController.setToRecipients(["735979@apps.district196.org"])
         
         // Attaching the .CSV file to the email.
         emailController.addAttachmentData(data!, mimeType: "text/csv", fileName: "Auditions.csv")
