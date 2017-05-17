@@ -22,7 +22,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var deleteButton: UIButton!
     
     @IBOutlet weak var tableView: UITableView!
-    let emailController = MFMailComposeViewController()
+    //let emailController = MFMailComposeViewController()
     let cellReuseIdentifier = "auditionCell"
     var resultsList: [audition] = []
     
@@ -37,7 +37,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         
         tableView.dataSource = self
         tableView.delegate = self
-        emailController.mailComposeDelegate = self
+        //emailController.mailComposeDelegate = self
         // Do any additional setup after loading the view.
         
         sortControlChanged(sortControl)
@@ -155,6 +155,10 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
     
     @IBAction func exportDataWithEmail(_ sender: UIButton)
     {
+        //We have to recreate the entire view controller every time the user presses the export button in order to make the cancel button work.
+        let emailController = MFMailComposeViewController()
+        emailController.mailComposeDelegate = self
+        
         csvManagement.createCSV()
         
         var mailString:String = ""
@@ -181,7 +185,7 @@ class ResultsListViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         emailController.setMessageBody("", isHTML: false)
-        emailController.setToRecipients(["735979@apps.district196.org"])
+        //emailController.setToRecipients(["735979@apps.district196.org"])
         
         // Attaching the .CSV file to the email.
         emailController.addAttachmentData(data!, mimeType: "text/csv", fileName: "Auditions.csv")
