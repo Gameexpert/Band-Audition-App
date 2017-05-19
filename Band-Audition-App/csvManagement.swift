@@ -21,6 +21,9 @@ class csvManagement: NSObject
         switch arrayIdentifier
         {
         case 0://Varsity
+            csvFileName = "Varsity_Auditions.csv"
+            csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
+            
             for x in 0..<varsityAuditions.count
             {
                 for i in 0..<varsityAuditions[x].count
@@ -69,6 +72,9 @@ class csvManagement: NSObject
             }
             
         case 1: //Freshmen
+            csvFileName = "Freshmen_Auditions.csv"
+            csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
+            
             for x in 0..<freshmenAuditions.count
             {
                 for i in 0..<freshmenAuditions[x].count
@@ -121,6 +127,9 @@ class csvManagement: NSObject
             }
             
         case 2: //Jazz
+            csvFileName = "Jazz_Auditions.csv"
+            csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
+            
             for x in 0..<jazzAuditions.count
             {
                 for i in 0..<jazzAuditions[x].count

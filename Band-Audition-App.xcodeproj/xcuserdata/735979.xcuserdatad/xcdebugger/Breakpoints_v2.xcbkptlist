@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
             endingLineNumber = "157"
-            landmarkName = "encode(with:)"
+            landmarkName = "init(first_name:last_name:instrument:comments:scale1_pitch:scale1_production:scale2_pitch:scale2_production:snare_rhythm:snare_tempo:snare_dynamic:snare_production:mallet_rhythm:mallet_pitch:mallet_tempo:mallet_dynamic:mallet_production:snareRead_rhythm:snareRead_production:malletRead_rhythm:malletRead_pitch:malletRead_production:finalScore:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
             endingLineNumber = "188"
-            landmarkName = "init(coder:)"
+            landmarkName = "encode(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

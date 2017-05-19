@@ -98,8 +98,8 @@ let ArchiveURLJ = DocumentsDirectoryJ.appendingPathComponent("JazzAuditions")
 
 /*
 */
-let csvFileName = "Auditions.csv"
-let csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
+var csvFileName = "Auditions.csv"
+var csvPath = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(csvFileName)
 
 //Freshmen Functions
 func saveFreshmenAuditions()
