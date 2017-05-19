@@ -154,6 +154,8 @@ class csvManagement: NSObject
                     
                 }
             }
+            
+            firstInstance = true
             for x in 0..<auditionsToConvert.count
             {
                 if let drumset = auditionsToConvert[x] as? jazzDrumset

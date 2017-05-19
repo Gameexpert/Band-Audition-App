@@ -111,7 +111,14 @@ class keyboardViewController: UIViewController
     
     @IBAction func submitData(_ sender: UIButton)
     {
-        returnedValue = self.data.text!
+        if self.data.text! != ""
+        {
+            returnedValue = self.data.text!
+        }
+        else
+        {
+            returnedValue = "0"
+        }
         
         //Dismiss the popover programmatically
         self.dismiss(animated: true, completion: nil)
